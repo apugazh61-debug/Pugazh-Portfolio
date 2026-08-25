@@ -3,68 +3,52 @@ import { FolderGit2, ExternalLink, Github, CheckCircle2, Database, Server, Cpu, 
 
 const projects = [
   {
-    title: 'AgriSync WMS Core — Enterprise Warehouse Management',
-    period: 'Production Project',
+    title: 'AgriSync WMS Core',
+    subtitle: 'Agricultural Warehouse Management System',
     category: 'Full Stack',
-    tagBadge: 'React + Glassmorphism + Asset WMS',
+    tagBadge: 'Full Stack WMS',
     tagColor: 'text-teal-400 bg-teal-500/10 border-teal-500/30',
     description:
-      'Comprehensive Warehouse Management System (WMS) tailored for the agricultural sector, featuring real-time asset monitoring, live stock ledger tracking, and modern glassmorphic interface.',
-    features: [
-      'Interactive executive dashboard with real-time stock audits and multi-bin location mapping',
-      'Optimized inventory tracking pipeline designed to maximize agricultural supply chain productivity',
-      'Deployed live on Vercel with responsive architecture across mobile and widescreen desktop viewports',
-    ],
-    tech: ['React.js', 'Tailwind CSS', 'JavaScript', 'REST APIs', 'Vercel'],
+      'Real-time agricultural asset tracking system with live inventory ledger audits, multi-bin location mapping, and modern glassmorphic dashboard.',
+    highlights: ['Live asset telemetry & stock audits', 'Deployed on Vercel with responsive UI'],
+    tech: ['React.js', 'Tailwind CSS', 'JavaScript', 'REST APIs'],
     github: 'https://github.com/apugazh61-debug/AgriSync-WMS-Core',
     liveUrl: 'https://agri-sync-wms-core.vercel.app',
   },
   {
-    title: 'SkillDNA-Ai — AI Skill Assessment & Intelligence Platform',
-    period: 'AI Platform',
+    title: 'SkillDNA-Ai',
+    subtitle: 'AI Skill Assessment & Intelligence Engine',
     category: 'AI & NLP',
-    tagBadge: 'AI Engine + Skill Intelligence',
+    tagBadge: 'AI & NLP',
     tagColor: 'text-purple-400 bg-purple-500/10 border-purple-500/30',
     description:
-      'Intelligent AI-driven skill evaluation and DNA mapping engine that analyzes technical competencies, predicts skill gaps, and generates structured career progression roadmaps.',
-    features: [
-      'Automated competency extraction and skill matrix benchmarking against industry roles',
-      'Interactive visual skill graph generation for technical talent evaluation and mentoring',
-      'Reactive user interface with instant AI assessment scoring and milestone tracking',
-    ],
-    tech: ['React.js', 'JavaScript ES6+', 'AI Algorithms', 'Tailwind CSS', 'REST APIs'],
+      'AI-driven skill evaluation platform that analyzes developer competencies, benchmarks technical talent, and generates visual career roadmaps.',
+    highlights: ['Automated competency extraction', 'Dynamic talent benchmark scoring'],
+    tech: ['React.js', 'JavaScript ES6+', 'AI Models', 'Tailwind CSS'],
     github: 'https://github.com/apugazh61-debug/SkillDNA-Ai',
   },
   {
-    title: 'Real-Time Facial Emotion Detection & Vision Pipeline',
-    period: 'Computer Vision',
+    title: 'Real-Time Emotion Detection',
+    subtitle: 'Computer Vision & Deep Learning Pipeline',
     category: 'AI & Computer Vision',
-    tagBadge: 'Python + OpenCV + Deep Learning',
+    tagBadge: 'Computer Vision',
     tagColor: 'text-sky-400 bg-sky-500/10 border-sky-500/30',
     description:
-      'High-throughput computer vision engine processing live camera feeds to detect facial landmarks and classify human emotional states in real-time with sub-50ms inference.',
-    features: [
-      'Real-time OpenCV video stream capture with Haar-cascade / neural face localization',
-      'Multi-class facial emotion classification model with dynamic confidence thresholding',
-      'Visual HUD overlay rendering real-time sentiment distribution and emotion probabilities',
-    ],
-    tech: ['Python', 'OpenCV', 'Deep Learning', 'NumPy', 'Computer Vision'],
+      'High-throughput facial landmark detection and sentiment classification engine processing live camera feeds with sub-50ms inference.',
+    highlights: ['Sub-50ms OpenCV video capture', 'Real-time emotion probability HUD'],
+    tech: ['Python', 'OpenCV', 'Deep Learning', 'NumPy'],
     github: 'https://github.com/apugazh61-debug/Real-Time-Emotion-Detection',
   },
   {
-    title: 'cashFlow-Pilot — Financial Modeling & Forecasting Engine',
-    period: 'Analytics & Systems',
+    title: 'cashFlow-Pilot',
+    subtitle: 'Financial Modeling & Forecasting Engine',
     category: 'Full Stack',
-    tagBadge: 'Python + Cashflow Forecasting',
+    tagBadge: 'Financial Systems',
     tagColor: 'text-amber-400 bg-amber-500/10 border-amber-500/30',
     description:
-      'Autonomous financial forecasting and liquidity modeling engine designed to analyze cash inflows/outflows, simulate business burn rate runway, and automate financial telemetry.',
-    features: [
-      'Predictive time-series algorithms for multi-quarter cash flow forecast simulations',
-      'Automated income statement ledger reconciliation and anomaly detection',
-      'Clean analytics visualizer for executive budgeting decisions and runway alerts',
-    ],
-    tech: ['Python', 'Pandas', 'NumPy', 'Data Modeling', 'Algorithms', 'FastAPI'],
+      'Autonomous financial forecasting engine simulating business burn-rate runway, cash inflows/outflows, and liquidity telemetry.',
+    highlights: ['Predictive time-series simulation', 'Automated ledger anomaly detection'],
+    tech: ['Python', 'Pandas', 'NumPy', 'FastAPI'],
     github: 'https://github.com/apugazh61-debug/cashFlow-Pilot',
   },
 ];
@@ -80,28 +64,27 @@ export default function Projects() {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="border-t border-theme-border pt-12 sm:pt-16 theme-transition">
+    <section id="projects" className="border-t border-theme-border pt-10 sm:pt-14 theme-transition">
       {/* Section Header with Category Tabs */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-6 gap-4">
         <div>
-          <div className="font-mono text-xs text-theme-accent uppercase tracking-widest font-semibold mb-1.5 flex items-center gap-2">
-            <FolderGit2 className="w-3.5 h-3.5 text-theme-accent" />
-            <span>Featured Engineering Work</span>
-          </div>
-          <h2 className="font-display text-2xl sm:text-4xl font-extrabold text-theme-text tracking-tight">
-            Production-Grade <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-accent via-theme-accent-cyan to-theme-accent-purple">Projects</span>
+          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-theme-text tracking-tight">
+            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-accent via-theme-accent-cyan to-theme-accent-purple">Engineering Projects</span>
           </h2>
+          <p className="text-xs sm:text-sm text-theme-muted font-body mt-0.5">
+            Production-tested applications, computer vision models, and distributed systems.
+          </p>
         </div>
 
         {/* Filter Categories Pill Menu */}
-        <div className="flex flex-wrap items-center gap-1.5 bg-theme-surface-2/90 p-1.5 rounded-2xl border border-theme-border self-start lg:self-auto font-mono text-xs">
+        <div className="flex flex-wrap items-center gap-1 bg-theme-surface-2/90 p-1 rounded-xl border border-theme-border self-start lg:self-auto font-mono text-xs">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3.5 py-1.5 rounded-xl transition-all font-semibold cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg transition-all font-semibold cursor-pointer text-xs ${
                 activeCategory === cat
-                  ? 'bg-theme-accent text-[var(--btn-primary-text)] shadow-md shadow-theme-accent/20'
+                  ? 'bg-theme-accent text-[var(--btn-primary-text)] shadow-sm'
                   : 'text-theme-muted hover:text-theme-text hover:bg-theme-surface'
               }`}
             >
@@ -111,89 +94,84 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* 2-Column Large Widescreen Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+      {/* 2-Column Compact Widescreen Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
         {filteredProjects.map((proj, idx) => (
           <div
             key={idx}
-            className="glass-card bg-theme-surface border border-theme-border rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col justify-between theme-transition hover:-translate-y-1 hover:border-theme-accent/50 group relative overflow-hidden"
+            className="glass-card bg-theme-surface border border-theme-border rounded-2xl p-5 sm:p-6 flex flex-col justify-between theme-transition hover:-translate-y-0.5 hover:border-theme-accent/50 group relative overflow-hidden"
           >
             {/* Ambient Card Corner Glow */}
-            <div className="absolute -top-16 -right-16 w-36 h-36 bg-theme-accent/10 rounded-full blur-2xl group-hover:bg-theme-accent/20 transition-all pointer-events-none"></div>
+            <div className="absolute -top-12 -right-12 w-28 h-28 bg-theme-accent/10 rounded-full blur-2xl group-hover:bg-theme-accent/20 transition-all pointer-events-none"></div>
 
             <div>
-              {/* Category & Date Bar */}
-              <div className="flex items-center justify-between gap-2 mb-4">
-                <span className={`font-mono text-xs font-semibold px-3 py-1 rounded-full border ${proj.tagColor}`}>
+              {/* Header: Title & Category Pill */}
+              <div className="flex items-start justify-between gap-3 mb-2">
+                <div>
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-theme-text group-hover:text-theme-accent transition-colors leading-tight">
+                    {proj.title}
+                  </h3>
+                  <div className="text-xs text-theme-muted font-body mt-0.5">{proj.subtitle}</div>
+                </div>
+                <span className={`font-mono text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${proj.tagColor} flex-shrink-0`}>
                   {proj.tagBadge}
-                </span>
-                <span className="font-mono text-xs text-theme-muted">
-                  {proj.period}
                 </span>
               </div>
 
-              {/* Project Title */}
-              <h3 className="font-display font-bold text-xl sm:text-2xl text-theme-text group-hover:text-theme-accent transition-colors duration-200 leading-snug mb-3">
-                {proj.title}
-              </h3>
-
               {/* Description */}
-              <p className="text-theme-muted text-sm sm:text-base leading-relaxed mb-5 font-body">
+              <p className="text-theme-muted text-xs sm:text-sm leading-relaxed mb-3.5 font-body">
                 {proj.description}
               </p>
 
-              {/* Key Architecture Features */}
-              <div className="space-y-2 mb-6 p-4 rounded-2xl bg-theme-surface-2/60 border border-theme-border/70">
-                <div className="font-mono text-xs font-semibold text-theme-text mb-2 flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-theme-accent" />
-                  <span>Key Architecture &amp; Delivery:</span>
-                </div>
-                <ul className="space-y-2 text-xs sm:text-sm text-theme-muted font-body">
-                  {proj.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-theme-accent flex-shrink-0 mt-0.5" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Compact Highlight Badges */}
+              <div className="flex flex-wrap gap-2 mb-4 font-mono text-[11px]">
+                {proj.highlights.map((h, hIdx) => (
+                  <span
+                    key={hIdx}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-theme-surface-2/90 border border-theme-border/80 text-theme-text"
+                  >
+                    <CheckCircle2 className="w-3 h-3 text-theme-accent flex-shrink-0" />
+                    <span>{h}</span>
+                  </span>
+                ))}
               </div>
             </div>
 
             {/* Tech Chips & GitHub Action Footer */}
-            <div className="pt-4 border-t border-theme-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-auto">
+            <div className="pt-3 border-t border-theme-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-auto">
               <div className="flex flex-wrap gap-1.5">
                 {proj.tech.map((t, tIdx) => (
                   <span
                     key={tIdx}
-                    className="font-mono text-xs text-theme-text bg-theme-surface-2/90 px-2.5 py-1 rounded-lg border border-theme-border"
+                    className="font-mono text-[11px] text-theme-muted bg-theme-surface-2 px-2 py-0.5 rounded-md border border-theme-border"
                   >
                     {t}
                   </span>
                 ))}
               </div>
 
-              <div className="flex items-center gap-2 self-end sm:self-auto">
+              <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
                 {proj.liveUrl && (
                   <a
                     href={proj.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-xs sm:text-sm font-semibold text-theme-accent bg-theme-accent/10 border border-theme-accent/30 hover:bg-theme-accent hover:text-[var(--btn-primary-text)] inline-flex items-center gap-1.5 transition-all px-3 py-1.5 rounded-lg shadow-sm"
+                    className="font-mono text-xs font-semibold text-theme-accent bg-theme-accent/10 border border-theme-accent/30 hover:bg-theme-accent hover:text-[var(--btn-primary-text)] inline-flex items-center gap-1.5 transition-all px-2.5 py-1.5 rounded-lg shadow-sm"
                     title="Open Live Application"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
-                    <span>Live Demo</span>
+                    <span>Demo</span>
                   </a>
                 )}
                 <a
                   href={proj.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs sm:text-sm font-semibold text-theme-text hover:text-theme-accent inline-flex items-center gap-2 transition-colors px-3 py-1.5 rounded-lg bg-theme-surface-2 border border-theme-border hover:border-theme-accent shadow-sm"
+                  className="font-mono text-xs font-semibold text-theme-text hover:text-theme-accent inline-flex items-center gap-1.5 transition-colors px-2.5 py-1.5 rounded-lg bg-theme-surface-2 border border-theme-border hover:border-theme-accent shadow-sm"
                   title="View Code Repository"
                 >
-                  <Github className="w-4 h-4" />
-                  <span>Source Code ↗</span>
+                  <Github className="w-3.5 h-3.5" />
+                  <span>Code ↗</span>
                 </a>
               </div>
             </div>
