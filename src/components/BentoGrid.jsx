@@ -194,7 +194,7 @@ export default function BentoGrid() {
               <span>Production Track Record</span>
             </div>
             <div className="font-display font-bold text-xl sm:text-2xl text-theme-text mb-1">
-              2 Industry Roles
+              3+ Industry Roles
             </div>
             <div className="text-xs text-theme-muted mb-4 font-body">
               Production engineering &amp; full stack delivery

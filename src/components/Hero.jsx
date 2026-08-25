@@ -143,12 +143,12 @@ export default function Hero() {
           {/* Quick Metrics HUD */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-theme-border/70">
             <div className="p-3.5 rounded-xl bg-theme-surface-2/60 border border-theme-border/80">
-              <div className="font-mono text-xl sm:text-2xl font-extrabold text-theme-accent">2+</div>
+              <div className="font-mono text-xl sm:text-2xl font-extrabold text-theme-accent">3+</div>
               <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider">Industry Roles</div>
             </div>
             <div className="p-3.5 rounded-xl bg-theme-surface-2/60 border border-theme-border/80">
-              <div className="font-mono text-xl sm:text-2xl font-extrabold text-theme-accent-cyan">4+</div>
-              <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider">Full Stack Projects</div>
+              <div className="font-mono text-xl sm:text-2xl font-extrabold text-theme-accent-cyan">10+</div>
+              <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider">GitHub Projects</div>
             </div>
             <div className="p-3.5 rounded-xl bg-theme-surface-2/60 border border-theme-border/80">
               <div className="font-mono text-xl sm:text-2xl font-extrabold text-theme-warm">7.5</div>
