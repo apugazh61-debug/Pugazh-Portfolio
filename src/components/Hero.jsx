@@ -189,20 +189,22 @@ export default function Hero() {
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                 style={{ objectPosition: 'center 12%' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+            </div>
 
-              {/* Hologram Overlay Badges */}
-              <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-between">
-                <div>
-                  <div className="font-mono text-sm font-bold text-white flex items-center gap-1.5">
-                    <span>Pugazhenthi S</span>
-                    <span className="text-[10px] text-theme-accent bg-theme-accent/20 px-1.5 py-0.5 rounded font-mono">CSE</span>
-                  </div>
-                  <div className="font-mono text-[11px] text-neutral-300">
-                    Gnanamani College of Tech
-                  </div>
+            {/* Info Box Below Profile Photo */}
+            <div className="p-3.5 rounded-2xl bg-theme-surface-2/90 border border-theme-border flex items-center justify-between shadow-sm">
+              <div>
+                <div className="font-mono text-sm font-bold text-theme-text flex items-center gap-1.5">
+                  <span>Pugazhenthi S</span>
+                  <span className="text-[10px] text-theme-accent bg-theme-accent/15 border border-theme-accent/30 px-1.5 py-0.5 rounded font-mono font-semibold">CSE</span>
                 </div>
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse-glow"></div>
+                <div className="font-mono text-xs text-theme-muted mt-0.5">
+                  Gnanamani College of Tech
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5 font-mono text-[11px] text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-lg border border-emerald-500/20">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Active</span>
               </div>
             </div>
           </div>
