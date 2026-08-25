@@ -72,20 +72,13 @@ export default function BentoGrid() {
   return (
     <section id="overview" className="border-t border-theme-border pt-12 sm:pt-16 theme-transition">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
-        <div>
-          <div className="font-mono text-xs text-theme-accent uppercase tracking-widest font-semibold mb-1.5 flex items-center gap-2">
-            <Activity className="w-3.5 h-3.5 text-theme-accent" />
-            <span>Interactive Engineering Overview</span>
-          </div>
-          <h2 className="font-display text-2xl sm:text-4xl font-extrabold text-theme-text tracking-tight">
-            Full-Spectrum <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-accent to-theme-accent-cyan">Bento Architecture</span>
-          </h2>
-        </div>
-        <div className="font-mono text-xs text-theme-muted bg-theme-surface-2/80 px-3.5 py-1.5 rounded-xl border border-theme-border flex items-center gap-2 self-start sm:self-auto">
-          <span className="w-2 h-2 rounded-full bg-theme-accent animate-pulse"></span>
-          <span>12-Column Responsive Matrix</span>
-        </div>
+      <div className="mb-8">
+        <h2 className="font-display text-2xl sm:text-4xl font-extrabold text-theme-text tracking-tight">
+          Full-Stack <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-accent via-theme-accent-cyan to-theme-accent-purple">System Architecture</span>
+        </h2>
+        <p className="text-sm text-theme-muted font-body mt-1">
+          High-performance distributed backend services, real-time reactive clients, and applied AI models.
+        </p>
       </div>
 
       {/* 12-Column Responsive Bento Layout */}
