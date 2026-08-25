@@ -53,18 +53,6 @@ export default function Hero() {
       <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] xl:grid-cols-[1.35fr_0.65fr] gap-8 lg:gap-14 items-center">
         {/* Left Column: Massive Headline & Tech Arsenal */}
         <div className="space-y-6 sm:space-y-7">
-          {/* Availability Pill & Badges */}
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span className="font-semibold tracking-wide">Available for Software Engineering Roles</span>
-            </div>
-
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-theme-surface-2/80 border border-theme-border text-theme-muted font-mono text-xs">
-              <Sparkles className="w-3.5 h-3.5 text-theme-accent" />
-              <span>Namakkal &amp; Chennai • India</span>
-            </div>
-          </div>
 
           {/* Main Headline */}
           <div className="space-y-3">
