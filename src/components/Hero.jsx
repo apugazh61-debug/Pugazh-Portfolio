@@ -206,20 +206,45 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Core Superpower Pills */}
-            <div className="grid grid-cols-2 gap-2 pt-1 font-mono text-xs">
-              <div className="p-2.5 rounded-xl bg-theme-surface-2/90 border border-theme-border flex items-center gap-2">
-                <Code2 className="w-4 h-4 text-theme-accent" />
-                <div>
-                  <div className="text-theme-text font-bold text-[11px]">FastAPI &amp; React</div>
-                  <div className="text-[10px] text-theme-muted">Full Stack Flow</div>
+            {/* Advanced Cyber Telemetry HUD Modules */}
+            <div className="space-y-2.5 pt-1 font-mono text-xs">
+              <div className="p-3 rounded-2xl bg-theme-surface-2/90 border border-theme-border hover:border-theme-accent/50 transition-all duration-300 group/card relative overflow-hidden shadow-sm">
+                <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-theme-accent/10 to-transparent pointer-events-none"></div>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <div className="flex items-center gap-2">
+                    <div className="p-1.5 rounded-lg bg-theme-surface border border-theme-border text-theme-accent group-hover/card:scale-110 transition-transform">
+                      <Code2 className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="text-theme-text font-bold text-xs">FastAPI &amp; React.js</span>
+                  </div>
+                  <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded font-semibold flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>18ms Async</span>
+                  </span>
+                </div>
+                <div className="text-[11px] text-theme-muted flex items-center justify-between font-body pt-0.5">
+                  <span>Distributed API Gateway &amp; State Mesh</span>
+                  <span className="font-mono text-[10px] text-theme-accent">v2.4 READY</span>
                 </div>
               </div>
-              <div className="p-2.5 rounded-xl bg-theme-surface-2/90 border border-theme-border flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-theme-accent-cyan" />
-                <div>
-                  <div className="text-theme-text font-bold text-[11px]">AI &amp; OpenCV</div>
-                  <div className="text-[10px] text-theme-muted">Vision Pipelines</div>
+
+              <div className="p-3 rounded-2xl bg-theme-surface-2/90 border border-theme-border hover:border-theme-accent-cyan/50 transition-all duration-300 group/card relative overflow-hidden shadow-sm">
+                <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-theme-accent-cyan/10 to-transparent pointer-events-none"></div>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <div className="flex items-center gap-2">
+                    <div className="p-1.5 rounded-lg bg-theme-surface border border-theme-border text-theme-accent-cyan group-hover/card:scale-110 transition-transform">
+                      <Cpu className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="text-theme-text font-bold text-xs">OpenCV &amp; Deep Learning</span>
+                  </div>
+                  <span className="text-[10px] text-sky-400 bg-sky-500/10 border border-sky-500/20 px-2 py-0.5 rounded font-semibold flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+                    <span>Sub-50ms ML</span>
+                  </span>
+                </div>
+                <div className="text-[11px] text-theme-muted flex items-center justify-between font-body pt-0.5">
+                  <span>Real-time Video &amp; Vision Pipelines</span>
+                  <span className="font-mono text-[10px] text-theme-accent-cyan">99.2% ACC</span>
                 </div>
               </div>
             </div>
