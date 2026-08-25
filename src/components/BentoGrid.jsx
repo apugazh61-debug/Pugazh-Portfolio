@@ -23,18 +23,14 @@ async def analyze_pipeline(data: Payload, user = Depends(auth)):
   return data;
 };`,
   },
-  springboot: {
-    lang: 'Java / Spring Boot',
-    code: `@RestController
-@RequestMapping("/api/v2/warehouse")
-public class InventoryController {
-  @Autowired private StockService stockService;
-
-  @PostMapping("/audit/batch")
-  @PreAuthorize("hasRole('ADMIN')")
-  public ResponseEntity<AuditReport> processBatch(@RequestBody List<Item> items) {
-    return ResponseEntity.ok(stockService.syncLedger(items));
-  }
+  nextjs: {
+    lang: 'TypeScript / Next.js',
+    code: `export async function GET(req: Request) {
+  const session = await getServerSession(authOptions);
+  if (!session) return new Response('Unauthorized', { status: 401 });
+  
+  const metrics = await db.collection('analytics').find({}).limit(50).toArray();
+  return Response.json({ status: 'ok', data: metrics });
 }`,
   },
   ai: {
@@ -177,15 +173,15 @@ export default function BentoGrid() {
               </div>
               <div className="p-2.5 rounded-xl bg-theme-surface-2/90 border border-theme-border text-center">
                 <div className="font-mono text-xs font-bold text-theme-accent-cyan">02. Gateway</div>
-                <div className="text-[10px] text-theme-muted mt-0.5">FastAPI/Spring</div>
+                <div className="text-[10px] text-theme-muted mt-0.5">FastAPI &amp; REST</div>
               </div>
               <div className="p-2.5 rounded-xl bg-theme-surface-2/90 border border-theme-border text-center">
-                <div className="font-mono text-xs font-bold text-theme-accent-purple">03. AI/CV</div>
+                <div className="font-mono text-xs font-bold text-theme-accent-purple">03. AI / CV</div>
                 <div className="text-[10px] text-theme-muted mt-0.5">OpenCV &amp; NLP</div>
               </div>
               <div className="p-2.5 rounded-xl bg-theme-surface-2/90 border border-theme-border text-center">
                 <div className="font-mono text-xs font-bold text-theme-warm">04. DBs</div>
-                <div className="text-[10px] text-theme-muted mt-0.5">Mongo/MySQL</div>
+                <div className="text-[10px] text-theme-muted mt-0.5">MongoDB &amp; MySQL</div>
               </div>
             </div>
           </div>
@@ -256,11 +252,11 @@ export default function BentoGrid() {
               </div>
               <div className="p-2.5 rounded-lg bg-theme-surface-2 border border-theme-border text-center">
                 <div className="text-theme-accent-cyan font-bold">React.js</div>
-                <div className="text-[10px] text-theme-muted">Tailwind / State</div>
+                <div className="text-[10px] text-theme-muted">Tailwind CSS</div>
               </div>
               <div className="p-2.5 rounded-lg bg-theme-surface-2 border border-theme-border text-center">
-                <div className="text-amber-400 font-bold">Java</div>
-                <div className="text-[10px] text-theme-muted">Spring Boot</div>
+                <div className="text-sky-400 font-bold">TypeScript</div>
+                <div className="text-[10px] text-theme-muted">Next.js</div>
               </div>
               <div className="p-2.5 rounded-lg bg-theme-surface-2 border border-theme-border text-center">
                 <div className="text-purple-400 font-bold">AI &amp; Vision</div>
@@ -268,11 +264,11 @@ export default function BentoGrid() {
               </div>
               <div className="p-2.5 rounded-lg bg-theme-surface-2 border border-theme-border text-center">
                 <div className="text-emerald-400 font-bold">MongoDB</div>
-                <div className="text-[10px] text-theme-muted">Aggregations</div>
+                <div className="text-[10px] text-theme-muted">NoSQL Storage</div>
               </div>
               <div className="p-2.5 rounded-lg bg-theme-surface-2 border border-theme-border text-center">
-                <div className="text-sky-400 font-bold">MySQL</div>
-                <div className="text-[10px] text-theme-muted">RDBMS Indexing</div>
+                <div className="text-amber-400 font-bold">MySQL</div>
+                <div className="text-[10px] text-theme-muted">Relational SQL</div>
               </div>
             </div>
           </div>
