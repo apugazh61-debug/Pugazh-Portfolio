@@ -193,6 +193,28 @@ export default function Footer() {
                 </div>
               </div>
 
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-theme-muted text-[11px] mb-1.5">Company / Organization</label>
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="e.g. Google, Tech Startup, etc."
+                    className="w-full bg-theme-surface border border-theme-border rounded-xl px-3.5 py-2.5 text-theme-text placeholder:text-theme-muted/50 focus:outline-none focus:border-theme-accent transition-colors font-body text-xs"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-theme-muted text-[11px] mb-1.5">Location / City</label>
+                  <input
+                    type="text"
+                    name="location"
+                    placeholder="e.g. Chennai, Bangalore, Remote"
+                    className="w-full bg-theme-surface border border-theme-border rounded-xl px-3.5 py-2.5 text-theme-text placeholder:text-theme-muted/50 focus:outline-none focus:border-theme-accent transition-colors font-body text-xs"
+                  />
+                </div>
+              </div>
+
               <div>
                 <label className="block text-theme-muted text-[11px] mb-1.5">Message / Requirement</label>
                 <textarea
