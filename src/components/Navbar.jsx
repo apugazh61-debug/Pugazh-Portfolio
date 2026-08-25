@@ -8,7 +8,7 @@ export default function Navbar({ onOpenPalette }) {
   return (
     <header className="sticky top-0 z-40 bg-[var(--nav-bg)] backdrop-blur-2xl border-b border-theme-border theme-transition">
       <div className="w-full max-w-[1600px] 2xl:max-w-[1780px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 2xl:px-16 py-3.5 flex items-center justify-between">
-        {/* Brand Logo with Live Status Indicator */}
+        {/* Brand Logo */}
         <div className="flex items-center gap-4">
           <a
             href="#top"
@@ -21,12 +21,6 @@ export default function Navbar({ onOpenPalette }) {
               pugazhenthi<span className="text-theme-accent">.dev</span>
             </span>
           </a>
-
-          {/* Quick System Badge */}
-          <div className="hidden xl:inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-theme-surface-2/60 border border-theme-border text-[11px] font-mono text-theme-muted">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>SYSTEM v2.5 • ONLINE</span>
-          </div>
         </div>
 
         {/* Center / Right Menu */}
