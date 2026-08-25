@@ -53,50 +53,22 @@ const projects = [
   },
 ];
 
-const categories = ['All', 'Full Stack', 'AI & Computer Vision', 'AI & NLP'];
-
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  const filteredProjects =
-    activeCategory === 'All'
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
-
   return (
     <section id="projects" className="border-t border-theme-border pt-10 sm:pt-14 theme-transition">
-      {/* Section Header with Category Tabs */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-6 gap-4">
-        <div>
-          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-theme-text tracking-tight">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-accent via-theme-accent-cyan to-theme-accent-purple">Engineering Projects</span>
-          </h2>
-          <p className="text-xs sm:text-sm text-theme-muted font-body mt-0.5">
-            Production-tested applications, computer vision models, and distributed systems.
-          </p>
-        </div>
-
-        {/* Filter Categories Pill Menu */}
-        <div className="flex flex-wrap items-center gap-1 bg-theme-surface-2/90 p-1 rounded-xl border border-theme-border self-start lg:self-auto font-mono text-xs">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1.5 rounded-lg transition-all font-semibold cursor-pointer text-xs ${
-                activeCategory === cat
-                  ? 'bg-theme-accent text-[var(--btn-primary-text)] shadow-sm'
-                  : 'text-theme-muted hover:text-theme-text hover:bg-theme-surface'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+      {/* Section Header */}
+      <div className="mb-6">
+        <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-theme-text tracking-tight">
+          Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-accent via-theme-accent-cyan to-theme-accent-purple">Engineering Projects</span>
+        </h2>
+        <p className="text-xs sm:text-sm text-theme-muted font-body mt-0.5">
+          Production-tested applications, computer vision models, and distributed systems.
+        </p>
       </div>
 
       {/* 2-Column Compact Widescreen Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
-        {filteredProjects.map((proj, idx) => (
+        {projects.map((proj, idx) => (
           <div
             key={idx}
             className="glass-card bg-theme-surface border border-theme-border rounded-2xl p-5 sm:p-6 flex flex-col justify-between theme-transition hover:-translate-y-0.5 hover:border-theme-accent/50 group relative overflow-hidden"
