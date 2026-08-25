@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pugazhenthi S — Full Stack &amp; AI Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0F14;
+    --surface:#121821;
+    --surface-2:#1A2230;
+    --text:#E8EDF2;
+    --text-muted:#8FA1B3;
+    --accent:#4FD1C5;
+    --accent-dim:#2E7D74;
+    --warm:#F5A623;
+    --border:#232B38;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+    --body:'Inter', system-ui, sans-serif;
+    --nav-bg:rgba(11,15,20,0.85);
+    --grid-line:rgba(255,255,255,0.012);
+    --btn-primary-text:#08161A;
+    --avatar-glow:rgba(79,209,197,0.22);
+  }
+
+  :root[data-theme="light"]{
+    --bg:#F8FAFC;
+    --surface:#FFFFFF;
+    --surface-2:#F1F5F9;
+    --text:#0F172A;
+    --text-muted:#475569;
+    --accent:#0D9488;
+    --accent-dim:#0F766E;
+    --warm:#D97706;
+    --border:#E2E8F0;
+    --nav-bg:rgba(248,250,252,0.88);
+    --grid-line:rgba(0,0,0,0.025);
+    --btn-primary-text:#FFFFFF;
+    --avatar-glow:rgba(13,148,136,0.18);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      linear-gradient(180deg, rgba(79,209,197,0.03) 0%, transparent 12%),
+      repeating-linear-gradient(180deg, var(--grid-line) 0px, var(--grid-line) 1px, transparent 1px, transparent 3px);
+  }
+
+  body, header.nav, .terminal, .term-bar, .skill-card, .proj-card, .edu-card, .contact-card, .btn, .chip, .hero-avatar-frame, .avatar-status-pill, .theme-toggle-btn {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  ::selection{background:var(--accent); color:#08121A;}
+
+  :focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--nav-bg);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:880px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--mono); font-weight:700; font-size:15px;
+    color:var(--text); letter-spacing:0.02em;
+  }
+  .logo span{color:var(--accent);}
+  .nav-right{display:flex; align-items:center; gap:20px;}
+  .nav-links{display:flex; gap:24px; font-family:var(--mono); font-size:13px; color:var(--text-muted);}
+  .nav-links a{transition:color .15s ease;}
+  .nav-links a:hover{color:var(--accent);}
+  .status-dot{
+    display:inline-block; width:7px; height:7px; border-radius:50%;
+    background:var(--accent); margin-right:7px;
+    box-shadow:0 0 0 0 rgba(79,209,197,0.6);
+    animation:pulse 2.2s infinite;
+  }
+  .theme-toggle-btn{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    color:var(--text);
+    padding:6px 12px;
+    border-radius:20px;
+    font-family:var(--mono);
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    user-select:none;
+  }
+  .theme-toggle-btn:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+  }
+  .sun-icon, .moon-icon{
+    display:block;
+  }
+  :root .sun-icon{ display:none; }
+  :root .moon-icon{ display:block; color:var(--accent); }
+  :root[data-theme="light"] .sun-icon{ display:block; color:var(--accent); }
+  :root[data-theme="light"] .moon-icon{ display:none; }
+  :root[data-theme="dark"] .sun-icon{ display:none; }
+  :root[data-theme="dark"] .moon-icon{ display:block; color:var(--accent); }
+
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* ---------- HERO / TERMINAL ---------- */
+  .hero{padding:72px 0 56px;}
+  .terminal{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,0.6);
+  }
+  .term-bar{
+    display:flex; align-items:center; gap:8px;
+    padding:11px 14px;
+    background:var(--surface-2);
+    border-bottom:1px solid var(--border);
+  }
+  .term-dot{width:10px; height:10px; border-radius:50%;}
+  .term-dot.r{background:#FF5F57;} .term-dot.y{background:#FEBC2E;} .term-dot.g{background:#28C840;}
+  .term-title{
+    margin-left:8px; font-family:var(--mono); font-size:12px; color:var(--text-muted);
+  }
+  .term-body{
+    padding:26px 24px 30px;
+    font-family:var(--mono);
+    font-size:14px;
+  }
+  .term-line{color:var(--text-muted); margin-bottom:6px;}
+  .term-line .prompt{color:var(--accent);}
+  .cursor{
+    display:inline-block; width:8px; height:16px; background:var(--accent);
+    margin-left:4px; vertical-align:-3px;
+    animation:blink 1s steps(1) infinite;
+  }
+  #typed-name{font-size:34px; font-weight:800; color:var(--text); display:block; margin:14px 0 4px; line-height:1.2;}
+  #typed-role{font-size:15px; color:var(--accent); display:block; margin-bottom:18px; min-height:20px;}
+  .hero-tagline{
+    font-family:var(--body); color:var(--text-muted); font-size:15px; max-width:56ch; margin-bottom:22px;
+  }
+  .term-body-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:32px;
+  }
+  .term-content{
+    flex:1;
+    min-width:0;
+  }
+  .hero-avatar-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    flex-shrink:0;
+  }
+  .hero-avatar-frame{
+    position:relative;
+    width:154px;
+    height:154px;
+    border-radius:22px;
+    padding:3px;
+    background:linear-gradient(135deg, var(--accent) 0%, rgba(79,209,197,0.3) 50%, var(--surface-2) 100%);
+    box-shadow:0 0 30px rgba(79,209,197,0.22), 0 10px 20px rgba(0,0,0,0.4);
+    transition:transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hero-avatar-frame:hover{
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 0 40px rgba(79,209,197,0.4), 0 15px 25px rgba(0,0,0,0.5);
+  }
+  .hero-avatar-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 15%;
+    border-radius:19px;
+    display:block;
+    background:var(--surface-2);
+  }
+  .avatar-status-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--text);
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    padding:5px 12px;
+    border-radius:20px;
+    white-space:nowrap;
+    box-shadow:0 4px 12px rgba(0,0,0,0.25);
+  }
+  @media (max-width:680px){
+    .term-body-inner{
+      flex-direction:column-reverse;
+      align-items:flex-start;
+      gap:24px;
+    }
+    .hero-avatar-container{
+      align-self:flex-start;
+      flex-direction:row;
+      align-items:center;
+      gap:16px;
+    }
+    .hero-avatar-frame{
+      width:110px;
+      height:110px;
+      border-radius:18px;
+    }
+    .hero-avatar-img{
+      border-radius:15px;
+    }
+  }
+  .hero-links{display:flex; flex-wrap:wrap; gap:12px;}
+  .btn{
+    font-family:var(--mono); font-size:13px; font-weight:600;
+    padding:10px 16px; border-radius:6px; border:1px solid var(--border);
+    color:var(--text); transition:all .15s ease; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn.primary{background:var(--accent); color:#08161A; border-color:var(--accent);}
+  .btn.primary:hover{background:#6EE0D5;}
+  .btn:not(.primary):hover{border-color:var(--accent); color:var(--accent);}
+
+  @keyframes blink{50%{opacity:0;}}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(79,209,197,0.55);}
+    70%{box-shadow:0 0 0 8px rgba(79,209,197,0);}
+    100%{box-shadow:0 0 0 0 rgba(79,209,197,0);}
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:52px 0; border-top:1px solid var(--border);}
+  .cmd{
+    font-family:var(--mono); font-size:13px; color:var(--text-muted);
+    margin-bottom:22px; display:flex; align-items:center; gap:8px;
+  }
+  .cmd .prompt{color:var(--accent);}
+  .cmd .cmdtext{color:var(--warm);}
+  h2.section-title{
+    font-family:var(--mono); font-size:22px; font-weight:700; color:var(--text);
+    margin-bottom:6px;
+  }
+  .section-sub{color:var(--text-muted); font-size:14px; margin-bottom:28px;}
+
+  /* About */
+  .about-text{color:var(--text-muted); font-size:15.5px; max-width:64ch;}
+  .about-text strong{color:var(--text); font-weight:600;}
+
+  /* Skills */
+  .skill-groups{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  @media (max-width:700px){ .skill-groups{grid-template-columns:1fr;} }
+  .skill-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:16px 16px 18px;
+  }
+  .skill-card .label{font-family:var(--mono); font-size:11px; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:10px;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:7px;}
+  .chip{
+    font-family:var(--mono); font-size:12px; color:var(--text);
+    background:var(--surface-2); border:1px solid var(--border);
+    padding:5px 9px; border-radius:5px;
+  }
+
+  /* Experience - commit log style */
+  .log-entry{
+    display:grid; grid-template-columns:22px 1fr; gap:14px; margin-bottom:30px; position:relative;
+  }
+  .log-entry:last-child{margin-bottom:0;}
+  .log-node{
+    position:relative;
+  }
+  .log-node::before{
+    content:''; position:absolute; left:9px; top:6px; width:9px; height:9px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent);
+  }
+  .log-node::after{
+    content:''; position:absolute; left:13px; top:16px; bottom:-30px; width:1px; background:var(--border);
+  }
+  .log-entry:last-child .log-node::after{display:none;}
+  .log-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:6px;}
+  .log-role{font-family:var(--mono); font-weight:700; font-size:15.5px; color:var(--text);}
+  .log-org{color:var(--accent); font-size:14px; font-weight:600;}
+  .log-date{font-family:var(--mono); font-size:12px; color:var(--text-muted); margin-left:auto;}
+  .log-list{list-style:none; color:var(--text-muted); font-size:14.5px;}
+  .log-list li{position:relative; padding-left:18px; margin-bottom:7px;}
+  .log-list li::before{content:'▸'; position:absolute; left:0; color:var(--accent-dim); font-size:12px; top:3px;}
+
+  /* Projects */
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:700px){ .proj-grid{grid-template-columns:1fr;} }
+  .proj-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    padding:20px 20px 22px; display:flex; flex-direction:column; transition:border-color .15s ease, transform .15s ease;
+  }
+  .proj-card:hover{border-color:var(--accent-dim); transform:translateY(-2px);}
+  .proj-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:10px;}
+  .proj-name{font-family:var(--mono); font-weight:700; font-size:15px; color:var(--text); line-height:1.35;}
+  .proj-date{font-family:var(--mono); font-size:11px; color:var(--text-muted); white-space:nowrap; margin-top:3px;}
+  .proj-list{list-style:none; color:var(--text-muted); font-size:13.8px; margin-bottom:12px;}
+  .proj-list li{position:relative; padding-left:16px; margin-bottom:6px;}
+  .proj-list li::before{content:'—'; position:absolute; left:0; color:var(--accent-dim);}
+  .proj-stack{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto;}
+  .proj-stack span{
+    font-family:var(--mono); font-size:11px; color:var(--accent);
+    background:rgba(79,209,197,0.08); border:1px solid rgba(79,209,197,0.25);
+    padding:3px 8px; border-radius:4px;
+  }
+
+  /* Certs + Education */
+  .two-col{display:grid; grid-template-columns:1.2fr 1fr; gap:16px;}
+  @media (max-width:700px){ .two-col{grid-template-columns:1fr;} }
+  .cert-list{list-style:none;}
+  .cert-list li{
+    display:flex; gap:10px; padding:11px 0; border-bottom:1px dashed var(--border); font-size:14px; color:var(--text-muted);
+  }
+  .cert-list li:last-child{border-bottom:none;}
+  .cert-list li::before{content:'✓'; color:var(--accent); font-family:var(--mono); font-weight:700;}
+  .edu-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px;
+  }
+  .edu-degree{font-family:var(--mono); font-weight:700; font-size:14.5px; color:var(--text); margin-bottom:6px;}
+  .edu-school{color:var(--accent); font-size:14px; margin-bottom:10px;}
+  .edu-meta{display:flex; justify-content:space-between; font-family:var(--mono); font-size:12.5px; color:var(--text-muted); border-top:1px solid var(--border); padding-top:10px;}
+
+  /* Contact / footer */
+  footer{padding:56px 0 60px; text-align:center;}
+  .contact-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:40px 28px; text-align:center;
+  }
+  .contact-card h2{font-family:var(--mono); font-size:24px; margin-bottom:10px;}
+  .contact-card p{color:var(--text-muted); font-size:14.5px; margin-bottom:24px;}
+  .contact-links{display:flex; flex-wrap:wrap; gap:12px; justify-content:center;}
+  .foot-note{margin-top:34px; font-family:var(--mono); font-size:12px; color:var(--text-muted);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">pugazhenthi<span>.dev</span></div>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="#about">about</a>
+        <a href="#skills">skills</a>
+        <a href="#experience">experience</a>
+        <a href="#projects">projects</a>
+        <a href="#contact"><span class="status-dot"></span>contact</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle theme">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <span id="theme-text">Dark</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" id="top">
+    <div class="terminal">
+      <div class="term-bar">
+        <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+        <span class="term-title">pugazhenthi@portfolio — zsh</span>
+      </div>
+      <div class="term-body">
+        <div class="term-body-inner">
+          <div class="term-content">
+            <div class="term-line"><span class="prompt">$</span> whoami</div>
+            <span id="typed-name"></span>
+            <span id="typed-role"></span>
+            <p class="hero-tagline">Final-year Computer Science student building full stack and AI-integrated applications — React.js and Python on the outside, FastAPI, Flask, and MongoDB underneath, with computer vision and ML worked in where it earns its place.</p>
+            <div class="hero-links">
+              <a class="btn primary" href="mailto:jayapugazh947@gmail.com">Email me</a>
+              <a class="btn" href="tel:+919943205075">+91 99432 05075</a>
+              <a class="btn" href="#" id="linkedin-link">LinkedIn ↗</a>
+              <a class="btn" href="#" id="github-link">GitHub ↗</a>
+            </div>
+          </div>
+          <div class="hero-avatar-container">
+            <div class="hero-avatar-frame">
+              <img src="profile.jpg" alt="Pugazhenthi S — Full Stack &amp; AI Developer" class="hero-avatar-img" width="154" height="154">
+            </div>
+            <div class="avatar-status-pill">
+              <span class="status-dot"></span> Open for Roles
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="cmd"><span class="prompt">$</span> <span class="cmdtext">cat</span> about.md</div>
+    <h2 class="section-title">Career objective</h2>
+    <p class="about-text">
+      <strong>Final-year Computer Science student</strong> with hands-on experience in full stack web development and AI-integrated applications.
+      Comfortable across <strong>React.js, Python, FastAPI, Flask, and MongoDB</strong>, with practical work in computer vision, machine learning, and real-time web systems.
+      Looking for a <strong>Full Stack / AI Developer</strong> role to build AI-powered, scalable products in a fast-paced, real-world environment.
+    </p>
+  </section>
+
+  <section id="skills">
+    <div class="cmd"><span class="prompt">$</span> <span class="cmdtext">ls</span> ./skills</div>
+    <h2 class="section-title">Technical skills</h2>
+    <div class="skill-groups">
+      <div class="skill-card">
+        <div class="label">Languages &amp; Frontend</div>
+        <div class="chip-row">
+          <span class="chip">Python</span><span class="chip">JavaScript</span>
+          <span class="chip">React.js</span><span class="chip">HTML5</span><span class="chip">CSS3</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="label">Backend &amp; Data</div>
+        <div class="chip-row">
+          <span class="chip">FastAPI</span><span class="chip">REST APIs</span>
+          <span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">Expo React Native</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="label">Tools &amp; AI</div>
+        <div class="chip-row">
+          <span class="chip">OpenCV</span><span class="chip">AWS</span>
+          <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="cmd"><span class="prompt">$</span> <span class="cmdtext">git log</span> --experience</div>
+    <h2 class="section-title">Internships</h2>
+    <div style="margin-top:26px;">
+
+      <div class="log-entry">
+        <div class="log-node"></div>
+        <div>
+          <div class="log-head">
+            <span class="log-role">Python Web App Development Intern</span>
+            <span class="log-org">Dev Technology Solutions</span>
+            <span class="log-date">Jul 2025 – Aug 2025</span>
+          </div>
+          <ul class="log-list">
+            <li>Engineered scalable web application modules using Python and Flask, designing RESTful APIs that streamlined backend data flow and reduced response latency.</li>
+            <li>Translated business requirements into functional features by integrating frontend UI with backend services, enhancing overall application usability and performance.</li>
+            <li>Conducted rigorous testing and debugging cycles, identifying and resolving critical bugs that improved application stability.</li>
+            <li>Collaborated in an agile team environment, participating in code reviews and daily stand-ups to deliver project milestones on schedule.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-node"></div>
+        <div>
+          <div class="log-head">
+            <span class="log-role">Full Stack Development Intern</span>
+            <span class="log-org">Novitech R&amp;D Pvt Ltd</span>
+            <span class="log-date">Sep 2024 – Nov 2024</span>
+          </div>
+          <ul class="log-list">
+            <li>Built end-to-end full stack features using React.js and Node.js/Flask, delivering responsive and dynamic UIs for real-world use cases.</li>
+            <li>Architected and optimized database schemas with MongoDB/MySQL, improving data retrieval efficiency and application performance.</li>
+            <li>Implemented secure authentication and role-based access workflows, strengthening application security and user data protection.</li>
+            <li>Actively contributed to sprint planning and code reviews, consistently meeting deadlines in a fast-paced development cycle.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="cmd"><span class="prompt">$</span> <span class="cmdtext">ls -la</span> ./projects</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="proj-grid" style="margin-top:26px;">
+
+      <div class="proj-card">
+        <div class="proj-top">
+          <span class="proj-name">Enterprise Resource &amp; Inventory Management System</span>
+        </div>
+        <span class="proj-date">Jan 2026 – Apr 2026</span>
+        <ul class="proj-list" style="margin-top:14px;">
+          <li>Full stack ERP-style platform managing inventory, orders, billing, and vendor operations for multi-branch businesses.</li>
+          <li>RESTful APIs with JWT authentication and role-based access control for Admin, Manager, and Staff.</li>
+          <li>Real-time analytics dashboard built with Pandas for sales trends, stock alerts, and demand forecasts.</li>
+          <li>MongoDB integration tuned for large transactional datasets.</li>
+        </ul>
+        <div class="proj-stack">
+          <span>React.js</span><span>FastAPI</span><span>MongoDB</span><span>JWT</span><span>Pandas</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top">
+          <span class="proj-name">AI-Powered Customer Support &amp; Ticketing Platform</span>
+        </div>
+        <span class="proj-date">May 2026 – Jul 2026</span>
+        <ul class="proj-list" style="margin-top:14px;">
+          <li>Full stack support platform with automated ticket routing and status tracking.</li>
+          <li>AI chatbot module using NLP to auto-respond to common queries, cutting manual resolution time.</li>
+          <li>Real-time notifications and an admin analytics dashboard tracking SLAs and satisfaction.</li>
+          <li>Scalable backend on MySQL/MongoDB supporting concurrent multi-user ticket handling.</li>
+        </ul>
+        <div class="proj-stack">
+          <span>React.js</span><span>Flask</span><span>NLP</span><span>MySQL</span><span>MongoDB</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="cmd"><span class="prompt">$</span> <span class="cmdtext">cat</span> credentials.yaml</div>
+    <h2 class="section-title">Certifications &amp; education</h2>
+    <div class="two-col" style="margin-top:26px;">
+      <ul class="cert-list">
+        <li>freeCodeCamp — JavaScript Certification</li>
+        <li>AWS Cloud Practitioner Essentials — AWS Skill Builder</li>
+        <li>Kaggle Learn — Intro to Machine Learning</li>
+        <li>Microsoft AI Innovation Day — TechNexus Community, Microsoft Chennai (Oct 2025)</li>
+        <li>National Level Workshop, Emerging Cybersecurity Trends — KSR College (Sep 2024)</li>
+      </ul>
+      <div class="edu-card">
+        <div class="edu-degree">B.E. — Computer Science &amp; Engineering</div>
+        <div class="edu-school">Gnanamani College of Technology, Namakkal</div>
+        <div class="edu-meta">
+          <span>2023 – 2027</span>
+          <span>CGPA 7.5</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="contact-card">
+      <h2>$ open --to-work</h2>
+      <p>Looking for a Full Stack / AI Developer role — happy to talk about internships, projects, or full-time openings.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:jayapugazh947@gmail.com">jayapugazh947@gmail.com</a>
+        <a class="btn" href="tel:+919943205075">+91 99432 05075</a>
+        <a class="btn" href="#" id="linkedin-link-2">LinkedIn ↗</a>
+        <a class="btn" href="#" id="github-link-2">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="foot-note">Pugazhenthi S — built with React on the mind, HTML for now.</div>
+  </footer>
+
+</main>
+
+<script>
+  // Theme Toggle with LocalStorage
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeText = document.getElementById('theme-text');
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if(themeText){
+      themeText.textContent = theme === 'light' ? 'Light' : 'Dark';
+    }
+  }
+
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  applyTheme(savedTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  }
+
+  // Typing effect for the hero terminal
+  const nameEl = document.getElementById('typed-name');
+  const roleEl = document.getElementById('typed-role');
+  const nameText = 'Pugazhenthi S';
+  const roleText = 'Full Stack Developer · AI & Computer Vision';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function typeInto(el, text, speed, done){
+    if(reduceMotion){ el.textContent = text; if(done) done(); return; }
+    let i = 0;
+    el.textContent = '';
+    const iv = setInterval(() => {
+      el.textContent += text[i];
+      i++;
+      if(i >= text.length){
+        clearInterval(iv);
+        if(done) done();
+      }
+    }, speed);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    typeInto(nameEl, nameText, 55, () => {
+      typeInto(roleEl, roleText, 28, () => {
+        roleEl.insertAdjacentHTML('beforeend', '<span class="cursor"></span>');
+      });
+    });
+  });
+
+  // Placeholder social links — update hrefs with real profile URLs
+  document.querySelectorAll('#linkedin-link, #linkedin-link-2').forEach(a => a.setAttribute('href', 'https://linkedin.com/in/'));
+  document.querySelectorAll('#github-link, #github-link-2').forEach(a => a.setAttribute('href', 'https://github.com/'));
+</script>
+
+</body>
+</html>
