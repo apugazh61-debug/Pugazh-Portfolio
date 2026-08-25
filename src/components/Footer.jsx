@@ -261,12 +261,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Copyright Bar */}
-      <div className="mt-10 text-center font-mono text-xs text-theme-muted flex flex-col sm:flex-row items-center justify-between gap-3 px-4">
+      <div className="mt-10 text-center font-mono text-xs text-theme-muted flex items-center justify-center px-4">
         <div>© 2026 Pugazhenthi S. All rights reserved.</div>
-        <div className="flex items-center gap-2 text-theme-accent">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Engineered with React 18, Vite &amp; Tailwind CSS</span>
-        </div>
       </div>
     </footer>
   );
