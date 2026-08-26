@@ -55,12 +55,14 @@ export default function Hero() {
         {/* Left Column */}
         <div className="space-y-6 sm:space-y-7">
 
-          {/* Currently Working On badge (Clean Glassmorphic Pill) */}
-          <div className="liquid-glass-btn inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full font-mono text-xs text-theme-accent font-medium self-start">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
-            <Hammer className="w-3.5 h-3.5 flex-shrink-0" />
-            <span className="truncate">{profile.statusBadge || 'Currently interning @ Blaze Wings Technology · Jul–Dec 2026'}</span>
-          </div>
+          {/* Currently Working On badge (Conditionally rendered when not empty) */}
+          {profile.statusBadge && profile.statusBadge.trim() !== '' && (
+            <div className="liquid-glass-btn inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full font-mono text-xs text-theme-accent font-medium self-start">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
+              <Hammer className="w-3.5 h-3.5 flex-shrink-0" />
+              <span className="truncate">{profile.statusBadge}</span>
+            </div>
+          )}
 
           {/* Main Headline */}
           <div className="space-y-3">
