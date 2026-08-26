@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-const STORAGE_KEY = 'pugazh_portfolio_data_v3';
+const STORAGE_KEY = 'pugazh_portfolio_data_v4';
 
 const defaultData = {
   profile: {
@@ -9,8 +9,9 @@ const defaultData = {
     phone: '+91 99432 05075',
     cgpa: '7.5',
     college: 'Gnanamani College of Tech',
-    githubUrl: 'https://github.com/apugazh61-debug',
-    linkedinUrl: 'https://www.linkedin.com/in/pugazhenthi-s-920556331',
+    githubUrl: 'https://github.com/apugazh61-debug?tab=overview&from=2026-08-01&to=2026-08-26',
+    linkedinUrl: 'https://www.linkedin.com/in/pugazhenthi-s-920556331?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+    portfolioUrl: 'https://pugazh-portfolio-pearl.vercel.app/',
     resumeUrl: '/resume.pdf',
     resumeFileName: 'Pugazhenthi_S_Resume.pdf',
   },

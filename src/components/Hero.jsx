@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, Mail, Github, Linkedin, Sparkles, Check, Copy, ExternalLink, Zap, Download, Hammer } from 'lucide-react';
+import { ArrowDown, Mail, Github, Linkedin, Sparkles, Check, Copy, ExternalLink, Zap, Download, Hammer, Globe } from 'lucide-react';
 import { usePortfolioData } from '../context/PortfolioDataContext';
 
 export default function Hero() {
@@ -116,10 +116,23 @@ export default function Hero() {
                 <span>Email Me</span>
               </a>
 
+              {/* Live Pearl Portfolio Link */}
+              <a
+                href={profile.portfolioUrl || "https://pugazh-portfolio-pearl.vercel.app/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-4 sm:px-5 py-3.5 rounded-2xl text-theme-accent inline-flex items-center gap-2 group cursor-pointer"
+                title="View Live Pearl Portfolio"
+              >
+                <Globe className="w-4 h-4 text-theme-accent group-hover:scale-110 group-hover:rotate-12 transition-all" />
+                <span>Portfolio</span>
+                <ExternalLink className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" />
+              </a>
+
               {/* Social Icon Pills */}
               <div className="flex items-center gap-2.5">
                 <a
-                  href={profile.githubUrl || "https://github.com/apugazh61-debug"}
+                  href={profile.githubUrl || "https://github.com/apugazh61-debug?tab=overview&from=2026-08-01&to=2026-08-26"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="liquid-glass-btn p-3.5 rounded-2xl text-theme-text flex items-center justify-center group"
@@ -128,7 +141,7 @@ export default function Hero() {
                   <Github className="w-4 h-4 group-hover:scale-110 group-hover:text-theme-accent transition-all duration-200" />
                 </a>
                 <a
-                  href={profile.linkedinUrl || "https://www.linkedin.com/in/pugazhenthi-s-920556331"}
+                  href={profile.linkedinUrl || "https://www.linkedin.com/in/pugazhenthi-s-920556331?utm_source=share_via&utm_content=profile&utm_medium=member_android"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="liquid-glass-btn p-3.5 rounded-2xl text-theme-text flex items-center justify-center group"
@@ -139,60 +152,75 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Mobile View Layout (Under Resume: GitHub, Under Email: LinkedIn) */}
-            <div className="sm:hidden grid grid-cols-[1.1fr_1fr_1fr] gap-2 items-stretch">
-              {/* Col 1: Explore Projects (Tall primary button spanning 2 rows) */}
-              <a
-                href="#projects"
-                className="liquid-glass-btn-primary font-mono text-xs font-bold px-3 py-3 rounded-2xl flex flex-col items-center justify-center text-center gap-1.5 row-span-2 shadow-lg"
-              >
-                <span>Explore Projects</span>
-                <ArrowDown className="w-4 h-4" />
-              </a>
+            {/* Mobile View Layout (Under Resume: GitHub, Under Email: LinkedIn, with Portfolio) */}
+            <div className="sm:hidden space-y-2">
+              <div className="grid grid-cols-[1.1fr_1fr_1fr] gap-2 items-stretch">
+                {/* Col 1: Explore Projects (Tall primary button spanning 2 rows) */}
+                <a
+                  href="#projects"
+                  className="liquid-glass-btn-primary font-mono text-xs font-bold px-3 py-3 rounded-2xl flex flex-col items-center justify-center text-center gap-1.5 row-span-2 shadow-lg"
+                >
+                  <span>Explore Projects</span>
+                  <ArrowDown className="w-4 h-4" />
+                </a>
 
-              {/* Col 2 Row 1: Resume */}
-              <a
-                href={profile.resumeUrl || '/resume.pdf'}
-                download={profile.resumeFileName || 'Pugazhenthi_S_Resume.pdf'}
-                className="liquid-glass-btn font-mono text-[11px] font-semibold px-2 py-2.5 rounded-2xl text-theme-accent flex items-center justify-center gap-1.5"
-                title="Download Resume"
-              >
-                <Download className="w-3.5 h-3.5 text-theme-accent flex-shrink-0" />
-                <span>Resume</span>
-              </a>
+                {/* Col 2 Row 1: Resume */}
+                <a
+                  href={profile.resumeUrl || '/resume.pdf'}
+                  download={profile.resumeFileName || 'Pugazhenthi_S_Resume.pdf'}
+                  className="liquid-glass-btn font-mono text-[11px] font-semibold px-2 py-2.5 rounded-2xl text-theme-accent flex items-center justify-center gap-1.5"
+                  title="Download Resume"
+                >
+                  <Download className="w-3.5 h-3.5 text-theme-accent flex-shrink-0" />
+                  <span>Resume</span>
+                </a>
 
-              {/* Col 3 Row 1: Email Me */}
-              <a
-                href={`mailto:${profile.email || 'jayapugazh947@gmail.com'}?subject=Engineering%20Inquiry%20%2F%20Collaboration`}
-                className="liquid-glass-btn font-mono text-[11px] font-semibold px-2 py-2.5 rounded-2xl text-theme-text flex items-center justify-center gap-1.5"
-                title="Send Email Directly"
-              >
-                <Mail className="w-3.5 h-3.5 text-theme-accent flex-shrink-0" />
-                <span>Email Me</span>
-              </a>
+                {/* Col 3 Row 1: Email Me */}
+                <a
+                  href={`mailto:${profile.email || 'jayapugazh947@gmail.com'}?subject=Engineering%20Inquiry%20%2F%20Collaboration`}
+                  className="liquid-glass-btn font-mono text-[11px] font-semibold px-2 py-2.5 rounded-2xl text-theme-text flex items-center justify-center gap-1.5"
+                  title="Send Email Directly"
+                >
+                  <Mail className="w-3.5 h-3.5 text-theme-accent flex-shrink-0" />
+                  <span>Email Me</span>
+                </a>
 
-              {/* Col 2 Row 2: GitHub (Directly below Resume) */}
+                {/* Col 2 Row 2: GitHub (Directly below Resume) */}
+                <a
+                  href={profile.githubUrl || "https://github.com/apugazh61-debug?tab=overview&from=2026-08-01&to=2026-08-26"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="liquid-glass-btn p-2.5 rounded-2xl text-theme-text flex items-center justify-center gap-1.5 font-mono text-[11px] font-semibold"
+                  title="GitHub Profile"
+                >
+                  <Github className="w-3.5 h-3.5 text-theme-accent" />
+                  <span>GitHub</span>
+                </a>
+
+                {/* Col 3 Row 2: LinkedIn (Directly below Email Me) */}
+                <a
+                  href={profile.linkedinUrl || "https://www.linkedin.com/in/pugazhenthi-s-920556331?utm_source=share_via&utm_content=profile&utm_medium=member_android"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="liquid-glass-btn p-2.5 rounded-2xl text-theme-text flex items-center justify-center gap-1.5 font-mono text-[11px] font-semibold"
+                  title="LinkedIn Profile"
+                >
+                  <Linkedin className="w-3.5 h-3.5 text-theme-accent" />
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+
+              {/* Mobile Portfolio Link */}
               <a
-                href={profile.githubUrl || "https://github.com/apugazh61-debug"}
+                href={profile.portfolioUrl || "https://pugazh-portfolio-pearl.vercel.app/"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="liquid-glass-btn p-2.5 rounded-2xl text-theme-text flex items-center justify-center gap-1.5 font-mono text-[11px] font-semibold"
-                title="GitHub Profile"
+                className="w-full py-2.5 px-4 rounded-2xl liquid-glass-btn font-mono text-xs font-semibold text-theme-accent flex items-center justify-center gap-2 group"
+                title="View Live Pearl Portfolio"
               >
-                <Github className="w-3.5 h-3.5 text-theme-accent" />
-                <span>GitHub</span>
-              </a>
-
-              {/* Col 3 Row 2: LinkedIn (Directly below Email Me) */}
-              <a
-                href={profile.linkedinUrl || "https://www.linkedin.com/in/pugazhenthi-s-920556331"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="liquid-glass-btn p-2.5 rounded-2xl text-theme-text flex items-center justify-center gap-1.5 font-mono text-[11px] font-semibold"
-                title="LinkedIn Profile"
-              >
-                <Linkedin className="w-3.5 h-3.5 text-theme-accent" />
-                <span>LinkedIn</span>
+                <Globe className="w-4 h-4 text-theme-accent group-hover:rotate-12 transition-transform" />
+                <span>View Pearl Portfolio</span>
+                <ExternalLink className="w-3 h-3 opacity-60" />
               </a>
             </div>
           </div>

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Github, Linkedin, Send, Sparkles, CheckCircle2, AlertCircle, MessageSquare, Copy, Check, Terminal } from 'lucide-react';
+import { Mail, Phone, Github, Linkedin, Send, Sparkles, CheckCircle2, AlertCircle, MessageSquare, Copy, Check, Terminal, Globe } from 'lucide-react';
+import { usePortfolioData } from '../context/PortfolioDataContext';
 
 export default function Footer({ onOpenAdmin }) {
+  const { data } = usePortfolioData();
+  const profile = data?.profile || {};
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedField, setCopiedField] = useState('');
@@ -118,26 +121,37 @@ export default function Footer({ onOpenAdmin }) {
               </div>
             </div>
 
-            {/* Social Links (Liquid Glass Style) */}
+            {/* Social & Portfolio Links (Liquid Glass Style) */}
             <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-2 font-mono text-xs">
               <a
-                href="https://github.com/apugazh61-debug"
+                href={profile.portfolioUrl || "https://pugazh-portfolio-pearl.vercel.app/"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="liquid-glass-btn flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-theme-text font-medium min-w-0 group"
+                className="liquid-glass-btn flex items-center gap-2 px-3.5 py-2.5 rounded-2xl text-theme-accent font-medium min-w-0 group"
+                title="View Pearl Portfolio"
               >
-                <Github className="w-4 h-4 flex-shrink-0 group-hover:scale-110 group-hover:text-theme-accent transition-all duration-200" />
-                <span className="hidden sm:inline">GitHub (@apugazh61-debug)</span>
-                <span className="sm:hidden">GitHub</span>
+                <Globe className="w-4 h-4 flex-shrink-0 text-theme-accent group-hover:rotate-12 transition-transform" />
+                <span>Pearl Portfolio ↗</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/pugazhenthi-s-920556331"
+                href={profile.githubUrl || "https://github.com/apugazh61-debug?tab=overview&from=2026-08-01&to=2026-08-26"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="liquid-glass-btn flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-theme-text font-medium min-w-0 group"
+                className="liquid-glass-btn flex items-center gap-2 px-3.5 py-2.5 rounded-2xl text-theme-text font-medium min-w-0 group"
+                title="GitHub Profile"
+              >
+                <Github className="w-4 h-4 flex-shrink-0 group-hover:scale-110 group-hover:text-theme-accent transition-all duration-200" />
+                <span>GitHub</span>
+              </a>
+              <a
+                href={profile.linkedinUrl || "https://www.linkedin.com/in/pugazhenthi-s-920556331?utm_source=share_via&utm_content=profile&utm_medium=member_android"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="liquid-glass-btn flex items-center gap-2 px-3.5 py-2.5 rounded-2xl text-theme-text font-medium min-w-0 group"
+                title="LinkedIn Profile"
               >
                 <Linkedin className="w-4 h-4 flex-shrink-0 group-hover:scale-110 group-hover:text-theme-accent transition-all duration-200" />
-                <span>LinkedIn Profile</span>
+                <span>LinkedIn</span>
               </a>
             </div>
           </div>
