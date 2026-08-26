@@ -207,26 +207,28 @@ body {
   border: 1px solid rgba(45, 212, 191, 0.3);
 }
 
-/* Bidirectional Scroll-Driven Reveal Animations */
+/* Smooth Scroll-Driven Reveal Animations (Zero Jitter / Hardware Accelerated) */
 .scroll-reveal {
   opacity: 0;
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .scroll-reveal.from-bottom {
   opacity: 0;
-  transform: translateY(45px);
+  transform: translate3d(0, 32px, 0);
 }
 
 .scroll-reveal.from-top {
   opacity: 0;
-  transform: translateY(-45px);
+  transform: translate3d(0, -32px, 0);
 }
 
 .scroll-reveal.is-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translate3d(0, 0, 0);
 }
 
 /* Skeuomorphic Tactile Hardware & Badges */

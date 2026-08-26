@@ -30,56 +30,35 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const observerCallback = (entries) => {
-      const isScrollingDown = window.scrollY >= lastScrollY;
-      lastScrollY = window.scrollY;
-
+    const observerCallback = (entries, observer) => {
       entries.forEach((entry) => {
-        const el = entry.target;
         if (entry.isIntersecting) {
-          el.classList.remove('from-bottom', 'from-top');
-          el.classList.add('is-visible');
-        } else {
-          el.classList.remove('is-visible');
-          // Prepare next entrance direction based on scroll motion
-          if (isScrollingDown) {
-            el.classList.add('from-bottom');
-            el.classList.remove('from-top');
-          } else {
-            el.classList.add('from-top');
-            el.classList.remove('from-bottom');
-          }
+          entry.target.classList.remove('from-bottom', 'from-top');
+          entry.target.classList.add('is-visible');
+          // Once revealed, keep it smoothly visible to eliminate any jitter/flickering
+          observer.unobserve(entry.target);
         }
       });
     };
 
     const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.05,
+      rootMargin: '0px 0px 40px 0px',
     });
 
     const elements = document.querySelectorAll('.scroll-reveal');
     elements.forEach((el) => {
-      // First section (Hero) is immediately visible, other sections animate
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
+      if (rect.top < window.innerHeight + 50 && rect.bottom > -50) {
         el.classList.add('is-visible');
       } else {
         el.classList.add('from-bottom');
+        observer.observe(el);
       }
-      observer.observe(el);
     });
-
-    const onScroll = () => {
-      lastScrollY = window.scrollY;
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 

@@ -18,29 +18,8 @@ export default function BackToTop() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    // Scroll reveal animations
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -40px 0px',
-    });
-
-    const revealElements = document.querySelectorAll('section, .glass-card, .scroll-reveal');
-    revealElements.forEach((el) => {
-      el.classList.add('scroll-reveal-item');
-      observer.observe(el);
-    });
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      observer.disconnect();
     };
   }, []);
 
