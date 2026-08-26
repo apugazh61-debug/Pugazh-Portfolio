@@ -121,18 +121,8 @@ export default function Footer({ onOpenAdmin }) {
               </div>
             </div>
 
-            {/* Social & Portfolio Links (Liquid Glass Style) */}
+            {/* Social Links (Liquid Glass Style) */}
             <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-2 font-mono text-xs">
-              <a
-                href={profile.portfolioUrl || "https://pugazh-portfolio-pearl.vercel.app/"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="liquid-glass-btn flex items-center gap-2 px-3.5 py-2.5 rounded-2xl text-theme-accent font-medium min-w-0 group"
-                title="View Pearl Portfolio"
-              >
-                <Globe className="w-4 h-4 flex-shrink-0 text-theme-accent group-hover:rotate-12 transition-transform" />
-                <span>Pearl Portfolio ↗</span>
-              </a>
               <a
                 href={profile.githubUrl || "https://github.com/apugazh61-debug?tab=overview&from=2026-08-01&to=2026-08-26"}
                 target="_blank"
