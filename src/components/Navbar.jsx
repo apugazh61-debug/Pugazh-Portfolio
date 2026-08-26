@@ -26,7 +26,7 @@ export default function Navbar({ onOpenPalette }) {
             className="flex items-center gap-2.5 font-mono font-bold text-base sm:text-lg text-theme-text tracking-wide group"
             onClick={closeMobile}
           >
-            <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-theme-surface-2 border border-theme-border group-hover:border-theme-accent transition-colors duration-200 shadow-inner">
+            <div className="relative flex items-center justify-center w-8 h-8 rounded-xl liquid-glass-btn transition-colors duration-200">
               <Terminal className="w-4 h-4 text-theme-accent group-hover:scale-110 transition-transform duration-200" />
             </div>
             <span>
@@ -35,51 +35,51 @@ export default function Navbar({ onOpenPalette }) {
           </a>
         </div>
 
-        {/* Center / Right Menu */}
-        <div className="flex items-center gap-2 sm:gap-4 lg:gap-6">
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-5 lg:gap-8 font-mono text-[13px] text-theme-muted">
+        {/* Center / Right Menu (Glassmorphism Styled) */}
+        <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+          {/* Desktop Nav in Glassmorphic Floating Capsule */}
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6 font-mono text-[13px] text-theme-muted liquid-glass-btn px-4 py-1.5 rounded-2xl">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="transition-all duration-150 hover:text-theme-accent hover:translate-y-[-1px]"
+                className="transition-all duration-200 hover:text-theme-accent hover:scale-105"
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="px-3 py-1 rounded-md bg-theme-accent/10 border border-theme-accent/30 text-theme-accent hover:bg-theme-accent hover:text-[var(--btn-primary-text)] transition-all duration-200 font-semibold"
+              className="liquid-glass-btn px-3 py-1 rounded-xl text-theme-accent font-semibold hover:border-theme-accent transition-all duration-200"
             >
               contact
             </a>
           </nav>
 
-          {/* Search / Command Palette */}
+          {/* Search / Command Palette (Glassmorphism) */}
           <button
             onClick={onOpenPalette}
-            className="flex items-center gap-2 bg-theme-surface-2/90 border border-theme-border text-theme-muted px-3 py-1.5 rounded-xl font-mono text-xs hover:border-theme-accent hover:text-theme-text transition-all duration-200 shadow-sm"
+            className="liquid-glass-btn flex items-center gap-2 text-theme-muted px-3.5 py-1.5 rounded-2xl font-mono text-xs hover:text-theme-text transition-all duration-200 cursor-pointer group"
             title="Open Command Palette (Ctrl+K)"
           >
-            <Search className="w-3.5 h-3.5 text-theme-accent" />
-            <span className="hidden sm:inline">Search</span>
-            <kbd className="hidden sm:inline bg-theme-surface border border-theme-border text-[10px] px-1.5 py-0.5 rounded text-theme-muted font-sans font-semibold">
+            <Search className="w-3.5 h-3.5 text-theme-accent group-hover:scale-110 transition-transform" />
+            <span className="hidden sm:inline font-medium">Search</span>
+            <kbd className="hidden sm:inline liquid-glass-btn text-[10px] px-1.5 py-0.5 rounded-md text-theme-muted font-sans font-bold">
               ⌘K
             </kbd>
           </button>
 
-          {/* Theme Toggle */}
+          {/* Theme Toggle (Glassmorphism) */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle Dark/Light Mode"
             title="Toggle theme"
-            className="bg-theme-surface-2 border border-theme-border text-theme-text p-2 sm:px-3 sm:py-1.5 rounded-xl font-mono text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer select-none hover:border-theme-accent hover:text-theme-accent transition-all duration-200"
+            className="liquid-glass-btn text-theme-text p-2 sm:px-3.5 sm:py-1.5 rounded-2xl font-mono text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer select-none hover:text-theme-accent transition-all duration-200 group"
           >
             {theme === 'dark' ? (
-              <Moon className="w-3.5 h-3.5 text-theme-accent" />
+              <Moon className="w-3.5 h-3.5 text-theme-accent group-hover:rotate-12 transition-transform" />
             ) : (
-              <Sun className="w-3.5 h-3.5 text-theme-accent" />
+              <Sun className="w-3.5 h-3.5 text-theme-accent group-hover:rotate-45 transition-transform" />
             )}
             <span className="hidden sm:inline">{theme === 'dark' ? 'Dark' : 'Light'}</span>
           </button>
@@ -88,7 +88,7 @@ export default function Navbar({ onOpenPalette }) {
           <button
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label="Toggle mobile menu"
-            className="md:hidden p-2 rounded-xl bg-theme-surface-2 border border-theme-border text-theme-text hover:border-theme-accent hover:text-theme-accent transition-all duration-200"
+            className="md:hidden p-2 rounded-2xl liquid-glass-btn text-theme-text hover:text-theme-accent transition-all duration-200 cursor-pointer"
           >
             {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
