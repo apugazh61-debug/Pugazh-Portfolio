@@ -89,11 +89,11 @@ export default function Hero() {
             Software Engineer specializing in scalable full stack architectures, distributed backend APIs, and applied AI systems. Proven production delivery across <strong className="text-theme-text font-semibold">React.js, FastAPI, Python, Java (Spring Boot)</strong> and <strong className="text-theme-text font-semibold">Computer Vision</strong>.
           </p>
 
-          {/* Action CTAs */}
+          {/* Action CTAs (Liquid Glass Aesthetic) */}
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-2">
             <a
               href="#projects"
-              className="font-mono text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-xl bg-theme-accent text-[var(--btn-primary-text)] border border-theme-accent hover:brightness-110 shadow-lg shadow-theme-accent/25 hover:shadow-theme-accent/40 transition-all duration-200 inline-flex items-center gap-2.5 group"
+              className="liquid-glass-btn-primary font-mono text-xs sm:text-sm font-bold px-6 py-3.5 rounded-2xl inline-flex items-center gap-2.5 group cursor-pointer"
             >
               <span>Explore Projects</span>
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
@@ -103,16 +103,16 @@ export default function Hero() {
             <a
               href="/resume.pdf"
               download="Pugazhenthi_S_Resume.pdf"
-              className="font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-xl border border-theme-accent/50 bg-theme-accent/10 text-theme-accent hover:bg-theme-accent hover:text-[var(--btn-primary-text)] transition-all duration-200 inline-flex items-center gap-2 shadow-sm group"
+              className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-2xl text-theme-accent inline-flex items-center gap-2 group cursor-pointer"
               title="Download Resume"
             >
-              <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+              <Download className="w-4 h-4 group-hover:translate-y-0.5 group-hover:scale-110 transition-all text-theme-accent" />
               <span>Resume</span>
             </a>
 
             <button
               onClick={copyEmail}
-              className="font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-xl border border-theme-border bg-theme-surface-2/90 text-theme-text hover:border-theme-accent hover:text-theme-accent transition-all duration-200 inline-flex items-center gap-2 cursor-pointer shadow-sm"
+              className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-2xl text-theme-text inline-flex items-center gap-2 cursor-pointer group"
               title="Copy Email Address"
             >
               {copied ? (
@@ -122,7 +122,7 @@ export default function Hero() {
                 </>
               ) : (
                 <>
-                  <Mail className="w-4 h-4 text-theme-accent" />
+                  <Mail className="w-4 h-4 text-theme-accent group-hover:scale-110 transition-transform" />
                   <span>Copy Email</span>
                 </>
               )}
@@ -130,9 +130,9 @@ export default function Hero() {
 
             <a
               href="#contact"
-              className="font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-xl border border-theme-border/80 bg-theme-surface/80 text-theme-text hover:border-theme-accent-cyan hover:text-theme-accent-cyan transition-all duration-200 inline-flex items-center gap-2"
+              className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-2xl text-theme-text hover:text-theme-accent-cyan inline-flex items-center gap-2 group cursor-pointer"
             >
-              <Zap className="w-4 h-4 text-theme-accent-cyan" />
+              <Zap className="w-4 h-4 text-theme-accent-cyan group-hover:scale-110 transition-transform" />
               <span>Get In Touch</span>
             </a>
 

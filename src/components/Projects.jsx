@@ -87,15 +87,17 @@ export default function Projects() {
               <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
                 {proj.liveUrl && (
                   <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer"
-                    className="font-mono text-xs font-semibold text-theme-accent bg-theme-accent/10 border border-theme-accent/30 hover:bg-theme-accent hover:text-[var(--btn-primary-text)] inline-flex items-center gap-1.5 transition-all px-2.5 py-1.5 rounded-lg shadow-sm"
+                    className="liquid-glass-btn font-mono text-xs font-semibold text-theme-accent inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl group cursor-pointer"
                   >
-                    <ExternalLink className="w-3.5 h-3.5" /><span>Demo</span>
+                    <ExternalLink className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+                    <span>Demo</span>
                   </a>
                 )}
                 <a href={proj.github} target="_blank" rel="noopener noreferrer"
-                  className="font-mono text-xs font-semibold text-theme-text hover:text-theme-accent inline-flex items-center gap-1.5 transition-colors px-2.5 py-1.5 rounded-lg bg-theme-surface-2 border border-theme-border hover:border-theme-accent shadow-sm"
+                  className="liquid-glass-btn font-mono text-xs font-semibold text-theme-text hover:text-theme-accent inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl group cursor-pointer"
                 >
-                  <Github className="w-3.5 h-3.5" /><span>Code ↗</span>
+                  <Github className="w-3.5 h-3.5 group-hover:scale-110 group-hover:text-theme-accent transition-transform" />
+                  <span>Code ↗</span>
                 </a>
               </div>
             </div>
@@ -110,7 +112,7 @@ export default function Projects() {
       )}
 
       {/* GitHub Banner */}
-      <div className="mt-8 p-5 sm:p-7 rounded-2xl glass-card bg-theme-surface border border-theme-border/80 flex flex-col sm:flex-row items-center justify-between gap-4 relative overflow-hidden group">
+      <div className="mt-8 p-5 sm:p-7 rounded-3xl glass-card bg-theme-surface border border-theme-border/80 flex flex-col sm:flex-row items-center justify-between gap-4 relative overflow-hidden group">
         <div className="absolute top-0 right-0 w-80 h-full bg-gradient-to-l from-theme-accent/10 to-transparent pointer-events-none"></div>
         <div className="flex items-center gap-4 relative z-10 text-center sm:text-left">
           <div className="p-3.5 rounded-2xl bg-theme-surface-2 border border-theme-border text-theme-accent hidden sm:flex items-center justify-center">
@@ -125,9 +127,9 @@ export default function Projects() {
           href="https://github.com/apugazh61-debug"
           target="_blank"
           rel="noopener noreferrer"
-          className="relative z-10 font-mono text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-xl bg-theme-accent text-[var(--btn-primary-text)] hover:brightness-110 shadow-lg shadow-theme-accent/25 transition-all duration-200 inline-flex items-center gap-2.5 flex-shrink-0 cursor-pointer"
+          className="relative z-10 liquid-glass-btn-primary font-mono text-xs sm:text-sm font-bold px-6 py-3.5 rounded-2xl inline-flex items-center gap-2.5 flex-shrink-0 cursor-pointer group"
         >
-          <Github className="w-4 h-4" />
+          <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
           <span>More on GitHub ↗</span>
         </a>
       </div>
