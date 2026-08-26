@@ -390,6 +390,19 @@ export function PortfolioDataProvider({ children }) {
     }));
   };
 
+  // Bulk save methods
+  const saveSkills = (newSkills) => {
+    setData((prev) => ({ ...prev, skills: newSkills }));
+  };
+
+  const saveCertificationsAndCompetitions = (newCerts, newComps) => {
+    setData((prev) => ({ ...prev, certifications: newCerts, competitions: newComps }));
+  };
+
+  const saveTestimonials = (newTestimonials) => {
+    setData((prev) => ({ ...prev, testimonials: newTestimonials }));
+  };
+
   // Reset & Import
   const resetToDefault = () => {
     setData(defaultData);
@@ -421,15 +434,18 @@ export function PortfolioDataProvider({ children }) {
         updateSkill,
         addSkillToCategory,
         deleteSkillFromCategory,
+        saveSkills,
         addCertification,
         updateCertification,
         deleteCertification,
         addCompetition,
         updateCompetition,
         deleteCompetition,
+        saveCertificationsAndCompetitions,
         addTestimonial,
         updateTestimonial,
         deleteTestimonial,
+        saveTestimonials,
         resetToDefault,
         importData,
       }}
