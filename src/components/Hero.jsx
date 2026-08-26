@@ -83,56 +83,116 @@ export default function Hero() {
             Software Engineer specializing in scalable full stack architectures, distributed backend APIs, and applied AI systems. Proven production delivery across <strong className="text-theme-text font-semibold">React.js, FastAPI, Python, Java (Spring Boot)</strong> and <strong className="text-theme-text font-semibold">Computer Vision</strong>.
           </p>
 
-          {/* Action CTAs (Liquid Glass Aesthetic - Responsive Mobile Layout) */}
-          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-2">
-            <a
-              href="#projects"
-              className="liquid-glass-btn-primary font-mono text-xs sm:text-sm font-bold px-5 sm:px-6 py-3.5 rounded-2xl inline-flex items-center justify-center gap-2.5 group cursor-pointer flex-1 sm:flex-initial min-w-[140px]"
-            >
-              <span>Explore Projects</span>
-              <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-            </a>
+          {/* Action CTAs: Responsive Mobile & Desktop Layout */}
+          <div className="pt-2">
+            {/* Desktop View Layout (sm and up) */}
+            <div className="hidden sm:flex flex-wrap items-center gap-3">
+              <a
+                href="#projects"
+                className="liquid-glass-btn-primary font-mono text-xs sm:text-sm font-bold px-6 py-3.5 rounded-2xl inline-flex items-center gap-2.5 group cursor-pointer"
+              >
+                <span>Explore Projects</span>
+                <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+              </a>
 
-            {/* Resume Download */}
-            <a
-              href="/resume.pdf"
-              download="Pugazhenthi_S_Resume.pdf"
-              className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-4 sm:px-5 py-3.5 rounded-2xl text-theme-accent inline-flex items-center justify-center gap-2 group cursor-pointer flex-1 sm:flex-initial min-w-[110px]"
-              title="Download Resume"
-            >
-              <Download className="w-4 h-4 group-hover:translate-y-0.5 group-hover:scale-110 transition-all text-theme-accent" />
-              <span>Resume</span>
-            </a>
+              {/* Resume Download */}
+              <a
+                href="/resume.pdf"
+                download="Pugazhenthi_S_Resume.pdf"
+                className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-2xl text-theme-accent inline-flex items-center gap-2 group cursor-pointer"
+                title="Download Resume"
+              >
+                <Download className="w-4 h-4 group-hover:translate-y-0.5 group-hover:scale-110 transition-all text-theme-accent" />
+                <span>Resume</span>
+              </a>
 
-            {/* Direct Mailto Email */}
-            <a
-              href={`mailto:${profile.email || 'jayapugazh947@gmail.com'}?subject=Engineering%20Inquiry%20%2F%20Collaboration`}
-              className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-4 sm:px-5 py-3.5 rounded-2xl text-theme-text hover:text-theme-accent inline-flex items-center justify-center gap-2 group cursor-pointer flex-1 sm:flex-initial min-w-[120px]"
-              title="Send Email Directly"
-            >
-              <Mail className="w-4 h-4 text-theme-accent group-hover:scale-110 transition-transform" />
-              <span>Email Me</span>
-            </a>
+              {/* Direct Mailto Email */}
+              <a
+                href={`mailto:${profile.email || 'jayapugazh947@gmail.com'}?subject=Engineering%20Inquiry%20%2F%20Collaboration`}
+                className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-2xl text-theme-text hover:text-theme-accent inline-flex items-center gap-2 group cursor-pointer"
+                title="Send Email Directly"
+              >
+                <Mail className="w-4 h-4 text-theme-accent group-hover:scale-110 transition-transform" />
+                <span>Email Me</span>
+              </a>
 
-            {/* Social Icon Pills (Liquid Glass) */}
-            <div className="flex items-center gap-2.5">
+              {/* Social Icon Pills */}
+              <div className="flex items-center gap-2.5">
+                <a
+                  href={profile.githubUrl || "https://github.com/apugazh61-debug"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="liquid-glass-btn p-3.5 rounded-2xl text-theme-text flex items-center justify-center group"
+                  title="GitHub Profile"
+                >
+                  <Github className="w-4 h-4 group-hover:scale-110 group-hover:text-theme-accent transition-all duration-200" />
+                </a>
+                <a
+                  href={profile.linkedinUrl || "https://www.linkedin.com/in/pugazhenthi-s-920556331"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="liquid-glass-btn p-3.5 rounded-2xl text-theme-text flex items-center justify-center group"
+                  title="LinkedIn Profile"
+                >
+                  <Linkedin className="w-4 h-4 group-hover:scale-110 group-hover:text-theme-accent transition-all duration-200" />
+                </a>
+              </div>
+            </div>
+
+            {/* Mobile View Layout (Under Resume: GitHub, Under Email: LinkedIn) */}
+            <div className="sm:hidden grid grid-cols-[1.1fr_1fr_1fr] gap-2 items-stretch">
+              {/* Col 1: Explore Projects (Tall primary button spanning 2 rows) */}
+              <a
+                href="#projects"
+                className="liquid-glass-btn-primary font-mono text-xs font-bold px-3 py-3 rounded-2xl flex flex-col items-center justify-center text-center gap-1.5 row-span-2 shadow-lg"
+              >
+                <span>Explore Projects</span>
+                <ArrowDown className="w-4 h-4" />
+              </a>
+
+              {/* Col 2 Row 1: Resume */}
+              <a
+                href="/resume.pdf"
+                download="Pugazhenthi_S_Resume.pdf"
+                className="liquid-glass-btn font-mono text-[11px] font-semibold px-2 py-2.5 rounded-2xl text-theme-accent flex items-center justify-center gap-1.5"
+                title="Download Resume"
+              >
+                <Download className="w-3.5 h-3.5 text-theme-accent flex-shrink-0" />
+                <span>Resume</span>
+              </a>
+
+              {/* Col 3 Row 1: Email Me */}
+              <a
+                href={`mailto:${profile.email || 'jayapugazh947@gmail.com'}?subject=Engineering%20Inquiry%20%2F%20Collaboration`}
+                className="liquid-glass-btn font-mono text-[11px] font-semibold px-2 py-2.5 rounded-2xl text-theme-text flex items-center justify-center gap-1.5"
+                title="Send Email Directly"
+              >
+                <Mail className="w-3.5 h-3.5 text-theme-accent flex-shrink-0" />
+                <span>Email Me</span>
+              </a>
+
+              {/* Col 2 Row 2: GitHub (Directly below Resume) */}
               <a
                 href={profile.githubUrl || "https://github.com/apugazh61-debug"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="liquid-glass-btn p-3.5 rounded-2xl text-theme-text flex items-center justify-center group"
+                className="liquid-glass-btn p-2.5 rounded-2xl text-theme-text flex items-center justify-center gap-1.5 font-mono text-[11px] font-semibold"
                 title="GitHub Profile"
               >
-                <Github className="w-4 h-4 group-hover:scale-110 group-hover:text-theme-accent transition-all duration-200" />
+                <Github className="w-3.5 h-3.5 text-theme-accent" />
+                <span>GitHub</span>
               </a>
+
+              {/* Col 3 Row 2: LinkedIn (Directly below Email Me) */}
               <a
                 href={profile.linkedinUrl || "https://www.linkedin.com/in/pugazhenthi-s-920556331"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="liquid-glass-btn p-3.5 rounded-2xl text-theme-text flex items-center justify-center group"
+                className="liquid-glass-btn p-2.5 rounded-2xl text-theme-text flex items-center justify-center gap-1.5 font-mono text-[11px] font-semibold"
                 title="LinkedIn Profile"
               >
-                <Linkedin className="w-4 h-4 group-hover:scale-110 group-hover:text-theme-accent transition-all duration-200" />
+                <Linkedin className="w-3.5 h-3.5 text-theme-accent" />
+                <span>LinkedIn</span>
               </a>
             </div>
           </div>
