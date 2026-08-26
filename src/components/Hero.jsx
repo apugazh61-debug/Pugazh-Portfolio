@@ -69,11 +69,11 @@ export default function Hero() {
               <span>Pugazhenthi S — Software Engineer</span>
             </div>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-display tracking-tight text-theme-text leading-[1.08]">
-              Architecting <br className="hidden sm:inline" />
+              Building modern <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-accent via-theme-accent-cyan to-theme-accent-purple">
-                intelligent, scalable
+                full stack apps &amp;
               </span> <br />
-              web &amp; AI systems.
+              autonomous AI engines.
             </h1>
           </div>
 
