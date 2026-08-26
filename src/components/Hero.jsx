@@ -70,10 +70,10 @@ export default function Hero() {
           </div>
 
           {/* Dynamic Role Subtitle */}
-          <div className="font-mono text-sm sm:text-base lg:text-lg text-theme-muted min-h-[32px] flex items-center gap-2.5 p-3 rounded-xl bg-theme-surface-2/60 border border-theme-border/80">
-            <span className="text-theme-accent font-bold text-base">&gt;</span>
-            <span className="text-theme-text font-medium">{typedRole}</span>
-            <span className="inline-block w-2.5 h-5 bg-theme-accent animate-cursor-blink"></span>
+          <div className="font-mono text-sm sm:text-base lg:text-lg text-theme-muted min-h-[32px] flex items-center gap-2.5 p-3 rounded-xl bg-theme-surface-2/60 border border-theme-border/80 overflow-hidden">
+            <span className="text-theme-accent font-bold text-base flex-shrink-0">&gt;</span>
+            <span className="text-theme-text font-medium truncate">{typedRole}</span>
+            <span className="inline-block w-2.5 h-5 bg-theme-accent animate-cursor-blink flex-shrink-0"></span>
           </div>
 
           {/* Bio Description */}
@@ -82,7 +82,7 @@ export default function Hero() {
           </p>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-3.5 pt-2">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-2">
             <a
               href="#projects"
               className="font-mono text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-xl bg-theme-accent text-[var(--btn-primary-text)] border border-theme-accent hover:brightness-110 shadow-lg shadow-theme-accent/25 hover:shadow-theme-accent/40 transition-all duration-200 inline-flex items-center gap-2.5 group"
@@ -141,7 +141,7 @@ export default function Hero() {
           </div>
 
           {/* Quick Metrics HUD */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-theme-border/70">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-4 border-t border-theme-border/70">
             <div className="p-3.5 rounded-xl bg-theme-surface-2/60 border border-theme-border/80">
               <div className="font-mono text-xl sm:text-2xl font-extrabold text-theme-accent">3+</div>
               <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider">Industry Roles</div>
@@ -161,8 +161,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Holographic Cyber Visual & Dynamic Profile Card */}
-        <div className="relative flex justify-center lg:justify-end">
+        {/* Right Column: Holographic Cyber Visual & Dynamic Profile Card — hidden on mobile */}
+        <div className="relative hidden lg:flex justify-end">
           {/* Ambient Glow Orbs */}
           <div className="absolute -inset-6 bg-gradient-to-tr from-theme-accent/25 via-theme-accent-cyan/20 to-theme-accent-purple/25 rounded-3xl blur-3xl opacity-70 pointer-events-none"></div>
 

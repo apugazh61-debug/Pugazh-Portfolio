@@ -209,11 +209,11 @@ export default function BentoGrid() {
             <div className="space-y-2.5 font-mono text-xs">
               <div className="p-3 rounded-xl bg-theme-surface-2/80 border border-theme-border hover:border-theme-accent/50 transition-colors">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-theme-text">Novi Tech R&amp;D</span>
+                  <span className="font-bold text-theme-text">Blaze Wings Technology</span>
                   <span className="text-[10px] text-emerald-400 font-semibold">Verified</span>
                 </div>
-                <div className="text-[11px] text-theme-accent mt-0.5">Full Stack Development Intern</div>
-                <div className="text-[10px] text-theme-muted mt-1 font-body">Reduced query latency by 30% via indexed lookups</div>
+                <div className="text-[11px] text-theme-accent mt-0.5">App Dev & AI Development Intern</div>
+                <div className="text-[10px] text-theme-muted mt-1 font-body">Jul 2026 – Dec 2026 • Hands-on AI & App Dev</div>
               </div>
               <div className="p-3 rounded-xl bg-theme-surface-2/80 border border-theme-border hover:border-theme-accent/50 transition-colors">
                 <div className="flex items-center justify-between">

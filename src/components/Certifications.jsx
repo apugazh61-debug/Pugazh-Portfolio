@@ -2,7 +2,7 @@ import React from 'react';
 import { Award, Trophy, CheckCircle2, Sparkles, ExternalLink, ShieldCheck } from 'lucide-react';
 
 const certList = [
-  { name: 'Full Stack Development', issuer: 'Novi Tech R&D', code: 'CERT-NTRD', tag: 'Full Stack' },
+  { name: 'Application Development & AI Development', issuer: 'Blaze Wings Technology Pvt Ltd', code: 'CERT-BWT', tag: 'App Dev & AI' },
   { name: 'Python Web Development', issuer: 'Dev Technologies', code: 'CERT-DEV', tag: 'Backend' },
   { name: 'JavaScript Algorithms & Data Structures', issuer: 'freeCodeCamp', code: 'FCC-JS', tag: 'Core JS' },
   { name: 'AWS Cloud Practitioner Essentials', issuer: 'AWS Skill Builder', code: 'AWS-ESSENTIALS', tag: 'Cloud' },

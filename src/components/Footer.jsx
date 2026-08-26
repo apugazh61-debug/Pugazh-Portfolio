@@ -119,23 +119,24 @@ export default function Footer() {
             </div>
 
             {/* Social Links */}
-            <div className="flex flex-wrap items-center gap-3 pt-2 font-mono text-xs">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2 font-mono text-xs">
               <a
                 href="https://github.com/apugazh61-debug"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-theme-surface-2 border border-theme-border text-theme-text hover:border-theme-accent hover:text-theme-accent transition-all shadow-sm"
+                className="flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-theme-surface-2 border border-theme-border text-theme-text hover:border-theme-accent hover:text-theme-accent transition-all shadow-sm min-w-0"
               >
-                <Github className="w-4 h-4" />
-                <span>GitHub (@apugazh61-debug)</span>
+                <Github className="w-4 h-4 flex-shrink-0" />
+                <span className="hidden sm:inline">GitHub (@apugazh61-debug)</span>
+                <span className="sm:hidden">GitHub</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/pugazhenthi-s-920556331"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-theme-surface-2 border border-theme-border text-theme-text hover:border-theme-accent hover:text-theme-accent transition-all shadow-sm"
+                className="flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-theme-surface-2 border border-theme-border text-theme-text hover:border-theme-accent hover:text-theme-accent transition-all shadow-sm min-w-0"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-4 h-4 flex-shrink-0" />
                 <span>LinkedIn Profile</span>
               </a>
             </div>
