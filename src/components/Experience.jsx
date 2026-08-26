@@ -1,56 +1,6 @@
 import React, { useState } from 'react';
 import { Building2, Calendar, MapPin, CheckCircle2, ChevronDown, ChevronUp, GraduationCap } from 'lucide-react';
-
-const experiences = [
-  {
-    role: 'App Dev & AI Development Intern',
-    company: 'Blaze Wings Technology Pvt Ltd',
-    location: 'Office Premises',
-    period: 'Jul 2026 – Dec 2026',
-    type: 'Corporate',
-    color: 'bg-teal-400',
-    badge: 'text-teal-400 bg-teal-500/10 border-teal-500/30',
-    achievements: [
-      'Gaining hands-on exposure in application development and artificial intelligence technologies in a production team environment.',
-      'Building and deploying full-stack application features under the mentorship of Mr. Gokul M, contributing to real business workflows.',
-      'Developing AI-integrated modules contributing to end-to-end application lifecycle from design to deployment.',
-    ],
-    tech: ['Application Development', 'AI Development', 'React.js', 'Python', 'REST APIs', 'Git'],
-  },
-  {
-    role: 'Python Web App Development Intern',
-    company: 'Dev Technology Solutions',
-    location: 'Salem, Tamil Nadu',
-    period: 'Jul 2025 – Aug 2025',
-    type: 'Corporate',
-    color: 'bg-sky-400',
-    badge: 'text-sky-400 bg-sky-500/10 border-sky-500/30',
-    achievements: [
-      'Architected and deployed scalable web application micro-endpoints in Python and Flask, ensuring smooth client-server data flow.',
-      'Integrated complex frontend requirements with backend services, resolving critical integration bottlenecks in production builds.',
-      'Conducted exhaustive test suites and debugging cycles, elevating system stability and minimizing application downtime.',
-    ],
-    tech: ['Python', 'Flask', 'REST APIs', 'Postman', 'Debugging', 'Agile Methodologies'],
-  },
-];
-
-const additionalTraining = [
-  {
-    role: 'Full Stack Development Intern',
-    company: 'Novi Tech R&D Pvt Ltd',
-    location: 'Salem / Remote',
-    period: 'Sep 2024 – Nov 2024',
-    type: 'Training',
-    color: 'bg-purple-400',
-    badge: 'text-purple-400 bg-purple-500/10 border-purple-500/30',
-    achievements: [
-      'Engineered dynamic full stack features using React.js and Python (Flask), powering high-responsiveness web modules.',
-      'Designed and optimized database schemas with MongoDB & MySQL, cutting down query latency by over 30% via indexed lookups.',
-      'Participated in agile sprint cycles, delivering bug fixes and feature releases consistently ahead of schedule.',
-    ],
-    tech: ['React.js', 'Flask', 'MySQL', 'MongoDB', 'REST APIs', 'JWT', 'Git'],
-  },
-];
+import { usePortfolioData } from '../context/PortfolioDataContext';
 
 function ExperienceCard({ exp }) {
   return (
@@ -110,6 +60,9 @@ function ExperienceCard({ exp }) {
 }
 
 export default function Experience() {
+  const { data } = usePortfolioData();
+  const experiences = data.experiences || [];
+  const additionalTraining = data.additionalTraining || [];
   const [showTraining, setShowTraining] = useState(false);
 
   return (

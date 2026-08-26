@@ -1,22 +1,11 @@
 import React from 'react';
 import { Award, Trophy, CheckCircle2, Sparkles, ExternalLink, ShieldCheck } from 'lucide-react';
-
-const certList = [
-  { name: 'Application Development & AI Development', issuer: 'Blaze Wings Technology Pvt Ltd', code: 'CERT-BWT', tag: 'App Dev & AI' },
-  { name: 'Python Web Development', issuer: 'Dev Technologies', code: 'CERT-DEV', tag: 'Backend' },
-  { name: 'JavaScript Algorithms & Data Structures', issuer: 'freeCodeCamp', code: 'FCC-JS', tag: 'Core JS' },
-  { name: 'AWS Cloud Practitioner Essentials', issuer: 'AWS Skill Builder', code: 'AWS-ESSENTIALS', tag: 'Cloud' },
-  { name: 'Machine Learning Pipelines', issuer: 'Kaggle Learn', code: 'KAGGLE-ML', tag: 'AI / ML' },
-];
-
-const competitions = [
-  { name: 'Microsoft AI Innovation Day', org: 'TechNexus Community, Microsoft Chennai', badge: 'AI & Cloud', color: 'text-sky-400 bg-sky-500/10' },
-  { name: 'Agentic AI Connect & Hack', org: 'Chennai AI Developer Community', badge: 'GenAI & Agents', color: 'text-purple-400 bg-purple-500/10' },
-  { name: 'National Hackathon Series', org: 'VIT College', badge: 'Hackathon', color: 'text-teal-400 bg-teal-500/10' },
-  { name: 'State Level Debugging Contest', org: 'K.S.R College of Engineering', badge: 'Competition', color: 'text-amber-400 bg-amber-500/10' },
-];
+import { usePortfolioData } from '../context/PortfolioDataContext';
 
 export default function Certifications() {
+  const { data } = usePortfolioData();
+  const certList = data.certifications || [];
+  const competitions = data.competitions || [];
   return (
     <section id="certifications" className="border-t border-theme-border pt-10 sm:pt-14 theme-transition">
       {/* Section Header */}

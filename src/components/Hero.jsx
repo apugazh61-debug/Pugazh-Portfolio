@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDown, Mail, Github, Linkedin, Sparkles, Check, Copy, ExternalLink, Zap, Download, Hammer } from 'lucide-react';
+import { usePortfolioData } from '../context/PortfolioDataContext';
 
 export default function Hero() {
+  const { data } = usePortfolioData();
+  const profile = data.profile || {};
   const [typedRole, setTypedRole] = useState('');
   const [copied, setCopied] = useState(false);
   const roles = [
@@ -41,7 +44,7 @@ export default function Hero() {
   }, [roleIndex]);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('jayapugazh947@gmail.com');
+    navigator.clipboard.writeText(profile.email || 'jayapugazh947@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -56,7 +59,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-theme-accent/10 border border-theme-accent/30 font-mono text-xs text-theme-accent">
             <span className="w-2 h-2 rounded-full bg-theme-accent animate-pulse flex-shrink-0"></span>
             <Hammer className="w-3 h-3 flex-shrink-0" />
-            <span>Currently interning @ Blaze Wings Technology · Jul–Dec 2026</span>
+            <span>{profile.statusBadge || 'Currently interning @ Blaze Wings Technology · Jul–Dec 2026'}</span>
           </div>
 
           {/* Main Headline */}

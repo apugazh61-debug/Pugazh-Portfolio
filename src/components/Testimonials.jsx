@@ -1,28 +1,10 @@
 import React from 'react';
 import { Quote, Star, Building2 } from 'lucide-react';
-
-const testimonials = [
-  {
-    quote: "Pugazhenthi is a highly motivated and dedicated intern who consistently delivers quality work. His grasp of application development and AI technologies is impressive for someone at his stage.",
-    name: 'Mr. Gokul M',
-    title: 'Mentor & Reporting Manager',
-    company: 'Blaze Wings Technology Pvt Ltd',
-    initials: 'GM',
-    color: 'text-teal-400 bg-teal-500/10 border-teal-500/20',
-    stars: 5,
-  },
-  {
-    quote: "A sharp problem-solver who integrated complex frontend requirements with backend services seamlessly. He brings both technical depth and a professional attitude to every task.",
-    name: 'Dev Technology Solutions',
-    title: 'Supervisor',
-    company: 'Dev Technology Solutions',
-    initials: 'DT',
-    color: 'text-sky-400 bg-sky-500/10 border-sky-500/20',
-    stars: 5,
-  },
-];
+import { usePortfolioData } from '../context/PortfolioDataContext';
 
 export default function Testimonials() {
+  const { data } = usePortfolioData();
+  const testimonials = data.testimonials || [];
   return (
     <section id="testimonials" className="border-t border-theme-border pt-10 sm:pt-14 theme-transition">
       {/* Header */}

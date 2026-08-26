@@ -1,68 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Code2, Server, Database, Brain } from 'lucide-react';
+import { usePortfolioData } from '../context/PortfolioDataContext';
 
-const skillDecks = [
-  {
-    title: 'Languages',
-    category: 'Core Programming',
-    icon: Code2,
-    accentColor: 'text-teal-400',
-    barColor: 'bg-teal-400',
-    borderColor: 'hover:border-teal-500/50',
-    glowColor: 'bg-teal-500/10',
-    skills: [
-      { name: 'Python', level: 65 },
-      { name: 'JavaScript', level: 66 },
-      { name: 'TypeScript', level: 44 },
-      { name: 'HTML5 & CSS3', level: 85 },
-    ],
-  },
-  {
-    title: 'Frameworks & Full Stack',
-    category: 'Application Engines',
-    icon: Server,
-    accentColor: 'text-sky-400',
-    barColor: 'bg-sky-400',
-    borderColor: 'hover:border-sky-500/50',
-    glowColor: 'bg-sky-500/10',
-    skills: [
-      { name: 'React.js', level: 66 },
-      { name: 'FastAPI', level: 78 },
-      { name: 'Flask', level: 80 },
-      { name: 'Tailwind CSS', level: 66 },
-    ],
-  },
-  {
-    title: 'Databases & Cloud',
-    category: 'Data & Architecture',
-    icon: Database,
-    accentColor: 'text-amber-400',
-    barColor: 'bg-amber-400',
-    borderColor: 'hover:border-amber-500/50',
-    glowColor: 'bg-amber-500/10',
-    skills: [
-      { name: 'MongoDB', level: 78 },
-      { name: 'MySQL', level: 75 },
-      { name: 'REST APIs', level: 87 },
-      { name: 'AWS Cloud', level: 60 },
-    ],
-  },
-  {
-    title: 'AI, Vision & Tooling',
-    category: 'Intelligence & DevOps',
-    icon: Brain,
-    accentColor: 'text-purple-400',
-    barColor: 'bg-purple-400',
-    borderColor: 'hover:border-purple-500/50',
-    glowColor: 'bg-purple-500/10',
-    skills: [
-      { name: 'OpenCV', level: 76 },
-      { name: 'Deep Learning', level: 55 },
-      { name: 'Pandas & NumPy', level: 82 },
-      { name: 'Git & GitHub', level: 88 },
-    ],
-  },
-];
+const iconMap = {
+  Code2, Server, Database, Brain
+};
 
 function AnimatedBar({ level, barColor, animate }) {
   return (
@@ -79,6 +21,8 @@ function AnimatedBar({ level, barColor, animate }) {
 }
 
 export default function Skills() {
+  const { data } = usePortfolioData();
+  const skillDecks = data.skills || [];
   const [animate, setAnimate] = useState(false);
   const ref = useRef(null);
 
@@ -112,7 +56,7 @@ export default function Skills() {
       {/* 4-Card Grid with Animated Bars */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {skillDecks.map((deck, idx) => {
-          const Icon = deck.icon;
+          const Icon = iconMap[deck.iconName] || deck.icon || Code2;
           return (
             <div
               key={idx}

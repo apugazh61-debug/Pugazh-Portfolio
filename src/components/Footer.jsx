@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Github, Linkedin, Send, Sparkles, CheckCircle2, AlertCircle, MessageSquare, Copy, Check, Terminal, Eye } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ onOpenAdmin }) {
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedField, setCopiedField] = useState('');
@@ -257,7 +257,18 @@ export default function Footer() {
 
       {/* Bottom Copyright Bar */}
       <div className="mt-8 text-center font-mono text-xs text-theme-muted flex flex-wrap items-center justify-center gap-4 px-4">
-        <div>© 2026 Pugazhenthi S. All rights reserved.</div>
+        <div>
+          © 2026{' '}
+          <button
+            type="button"
+            onClick={onOpenAdmin}
+            className="hover:text-theme-accent transition-colors underline decoration-transparent hover:decoration-theme-accent cursor-pointer inline font-medium"
+            title="Master Admin Portal"
+          >
+            Pugazhenthi
+          </button>{' '}
+          S. All rights reserved.
+        </div>
         <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-theme-surface-2 border border-theme-border">
           <Eye className="w-3 h-3 text-theme-accent" />
           <span className="text-theme-text font-semibold">{visitCount.toLocaleString()}</span>

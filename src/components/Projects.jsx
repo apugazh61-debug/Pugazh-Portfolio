@@ -1,57 +1,12 @@
 import React, { useState } from 'react';
 import { FolderGit2, ExternalLink, Github, CheckCircle2, Sparkles } from 'lucide-react';
-
-const projects = [
-  {
-    title: 'AgriSync WMS Core',
-    subtitle: 'Agricultural Warehouse Management System',
-    category: 'Full Stack',
-    tagBadge: 'Full Stack WMS',
-    tagColor: 'text-teal-400 bg-teal-500/10 border-teal-500/30',
-    description: 'Real-time agricultural asset tracking system with live inventory ledger audits, multi-bin location mapping, and modern glassmorphic dashboard.',
-    highlights: ['Live asset telemetry & stock audits', 'Deployed on Vercel with responsive UI'],
-    tech: ['React.js', 'Tailwind CSS', 'JavaScript', 'REST APIs'],
-    github: 'https://github.com/apugazh61-debug/AgriSync-WMS-Core',
-    liveUrl: 'https://agri-sync-wms-core.vercel.app',
-  },
-  {
-    title: 'SkillDNA-Ai',
-    subtitle: 'AI Skill Assessment & Intelligence Engine',
-    category: 'AI',
-    tagBadge: 'AI & NLP',
-    tagColor: 'text-purple-400 bg-purple-500/10 border-purple-500/30',
-    description: 'AI-driven skill evaluation platform that analyzes developer competencies, benchmarks technical talent, and generates visual career roadmaps.',
-    highlights: ['Automated competency extraction', 'Dynamic talent benchmark scoring'],
-    tech: ['React.js', 'JavaScript ES6+', 'AI Models', 'Tailwind CSS'],
-    github: 'https://github.com/apugazh61-debug/SkillDNA-Ai',
-  },
-  {
-    title: 'Real-Time Emotion Detection',
-    subtitle: 'Computer Vision & Deep Learning Pipeline',
-    category: 'AI',
-    tagBadge: 'Computer Vision',
-    tagColor: 'text-sky-400 bg-sky-500/10 border-sky-500/30',
-    description: 'High-throughput facial landmark detection and sentiment classification engine processing live camera feeds with sub-50ms inference.',
-    highlights: ['Sub-50ms OpenCV video capture', 'Real-time emotion probability HUD'],
-    tech: ['Python', 'OpenCV', 'Deep Learning', 'NumPy'],
-    github: 'https://github.com/apugazh61-debug/Real-Time-Emotion-Detection',
-  },
-  {
-    title: 'cashFlow-Pilot',
-    subtitle: 'Financial Modeling & Forecasting Engine',
-    category: 'Python',
-    tagBadge: 'Financial Systems',
-    tagColor: 'text-amber-400 bg-amber-500/10 border-amber-500/30',
-    description: 'Autonomous financial forecasting engine simulating business burn-rate runway, cash inflows/outflows, and liquidity telemetry.',
-    highlights: ['Predictive time-series simulation', 'Automated ledger anomaly detection'],
-    tech: ['Python', 'Pandas', 'NumPy', 'FastAPI'],
-    github: 'https://github.com/apugazh61-debug/cashFlow-Pilot',
-  },
-];
+import { usePortfolioData } from '../context/PortfolioDataContext';
 
 const filters = ['All', 'Full Stack', 'AI', 'Python'];
 
 export default function Projects() {
+  const { data } = usePortfolioData();
+  const projects = data.projects || [];
   const [activeFilter, setActiveFilter] = useState('All');
 
   const filtered = activeFilter === 'All'
