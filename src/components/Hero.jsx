@@ -55,17 +55,18 @@ export default function Hero() {
         {/* Left Column */}
         <div className="space-y-6 sm:space-y-7">
 
-          {/* Currently Working On badge (Skeuomorphic Tactile Badge with Physical LED) */}
-          <div className="skeuomorph-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full font-mono text-xs font-semibold cursor-default self-start">
-            <span className="skeuomorph-led w-2.5 h-2.5 rounded-full flex-shrink-0"></span>
+          {/* Currently Working On badge (Clean Glassmorphic Pill) */}
+          <div className="liquid-glass-btn inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full font-mono text-xs text-theme-accent font-medium self-start">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
             <Hammer className="w-3.5 h-3.5 flex-shrink-0" />
             <span className="truncate">{profile.statusBadge || 'Currently interning @ Blaze Wings Technology · Jul–Dec 2026'}</span>
           </div>
 
           {/* Main Headline */}
           <div className="space-y-3">
-            <div className="font-mono text-xs sm:text-sm text-theme-accent tracking-widest uppercase font-semibold flex items-center gap-2">
-              <span className="w-6 h-[2px] bg-theme-accent inline-block"></span>
+            {/* Name & Title Badge (Skeuomorphic Tactile 3D Strip) */}
+            <div className="skeuomorph-badge inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl font-mono text-xs sm:text-sm tracking-wider uppercase font-bold self-start select-none">
+              <span className="skeuomorph-led w-2 h-2 rounded-full flex-shrink-0"></span>
               <span>Pugazhenthi S — Software Engineer</span>
             </div>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-display tracking-tight text-theme-text leading-[1.08]">
