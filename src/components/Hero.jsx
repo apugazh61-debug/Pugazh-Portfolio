@@ -159,59 +159,59 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Quick Metrics HUD */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-4 border-t border-theme-border/70">
-            <div className="p-3.5 rounded-xl bg-theme-surface-2/60 border border-theme-border/80">
+          {/* Quick Metrics HUD (Neomorphism Inset Wells) */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 pt-4 border-t border-theme-border/70">
+            <div className="neomorph-inset p-3.5 rounded-2xl">
               <div className="font-mono text-xl sm:text-2xl font-extrabold text-theme-accent">3+</div>
-              <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider">Industry Roles</div>
+              <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider font-semibold">Industry Roles</div>
             </div>
-            <div className="p-3.5 rounded-xl bg-theme-surface-2/60 border border-theme-border/80">
+            <div className="neomorph-inset p-3.5 rounded-2xl">
               <div className="font-mono text-xl sm:text-2xl font-extrabold text-theme-accent-cyan">10+</div>
-              <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider">GitHub Projects</div>
+              <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider font-semibold">GitHub Projects</div>
             </div>
-            <div className="p-3.5 rounded-xl bg-theme-surface-2/60 border border-theme-border/80">
-              <div className="font-mono text-xl sm:text-2xl font-extrabold text-theme-warm">7.5</div>
-              <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider">B.E CSE CGPA</div>
+            <div className="neomorph-inset p-3.5 rounded-2xl">
+              <div className="font-mono text-xl sm:text-2xl font-extrabold text-theme-warm">{profile.cgpa || '7.5'}</div>
+              <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider font-semibold">B.E CSE CGPA</div>
             </div>
-            <div className="p-3.5 rounded-xl bg-theme-surface-2/60 border border-theme-border/80">
+            <div className="neomorph-inset p-3.5 rounded-2xl">
               <div className="font-mono text-xl sm:text-2xl font-extrabold text-emerald-400">100%</div>
-              <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider">Production Focus</div>
+              <div className="font-mono text-[11px] text-theme-muted uppercase tracking-wider font-semibold">Production Focus</div>
             </div>
           </div>
         </div>
 
-        {/* Right Column — hidden on mobile */}
+        {/* Right Column (Neomorphism Profile Card) — hidden on mobile */}
         <div className="relative hidden lg:flex justify-end">
-          <div className="absolute -inset-6 bg-gradient-to-tr from-theme-accent/25 via-theme-accent-cyan/20 to-theme-accent-purple/25 rounded-3xl blur-3xl opacity-70 pointer-events-none"></div>
-          <div className="relative w-full max-w-[420px] glass-card bg-theme-surface/90 border border-theme-border p-4 sm:p-6 rounded-3xl shadow-2xl space-y-4">
+          <div className="absolute -inset-6 bg-gradient-to-tr from-theme-accent/20 via-theme-accent-cyan/15 to-theme-accent-purple/20 rounded-3xl blur-3xl opacity-60 pointer-events-none"></div>
+          <div className="relative w-full max-w-[420px] neomorph-card p-5 sm:p-7 rounded-3xl space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-theme-border/60 font-mono text-xs">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
               </div>
-              <div className="text-[11px] text-theme-muted flex items-center gap-1.5">
+              <div className="text-[11px] text-theme-muted flex items-center gap-1.5 font-semibold">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span>PUGAZ_ID.sys</span>
               </div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/4.2] border border-theme-border/80 group">
+            <div className="neomorph-inset p-2 rounded-2xl overflow-hidden aspect-[4/4.2] group">
               <img
                 src="/profile.jpg"
                 alt="Pugazhenthi S — Full Stack & AI Engineer"
-                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover object-top rounded-xl group-hover:scale-105 transition-transform duration-700 ease-out"
                 style={{ objectPosition: 'center 12%' }}
               />
             </div>
-            <div className="p-3.5 rounded-2xl bg-theme-surface-2/90 border border-theme-border flex items-center justify-between shadow-sm">
+            <div className="neomorph-inset p-3.5 rounded-2xl flex items-center justify-between">
               <div>
                 <div className="font-mono text-sm font-bold text-theme-text flex items-center gap-1.5">
                   <span>Pugazhenthi S</span>
                   <span className="text-[10px] text-theme-accent bg-theme-accent/15 border border-theme-accent/30 px-1.5 py-0.5 rounded font-mono font-semibold">CSE</span>
                 </div>
-                <div className="font-mono text-xs text-theme-muted mt-0.5">Gnanamani College of Tech</div>
+                <div className="font-mono text-xs text-theme-muted mt-0.5 font-medium">{profile.college || 'Gnanamani College of Tech'}</div>
               </div>
-              <div className="flex items-center gap-1.5 font-mono text-[11px] text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-lg border border-emerald-500/20">
+              <div className="flex items-center gap-1.5 font-mono text-[11px] text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-xl border border-emerald-500/20 font-bold">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span>Active</span>
               </div>

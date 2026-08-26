@@ -85,15 +85,15 @@ export default function Experience() {
         ))}
       </div>
 
-      {/* More Training Toggle */}
+      {/* More Training Toggle (Neomorphism) */}
       <div className="mt-4">
         <button
           onClick={() => setShowTraining((prev) => !prev)}
-          className="w-full flex items-center justify-between gap-4 px-4 sm:px-5 py-4 rounded-2xl border-2 border-theme-accent/40 bg-gradient-to-r from-theme-accent/10 via-theme-surface-2/80 to-theme-accent-cyan/10 hover:border-theme-accent/70 hover:from-theme-accent/20 hover:to-theme-accent-cyan/20 transition-all duration-300 group cursor-pointer"
+          className="w-full neomorph-card flex items-center justify-between gap-4 px-4 sm:px-5 py-4 rounded-2xl transition-all duration-300 group cursor-pointer"
         >
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-theme-accent/15 border border-theme-accent/40 group-hover:bg-theme-accent/25 transition-colors flex-shrink-0">
-              <GraduationCap className="w-4 h-4 text-theme-accent" />
+            <div className="neomorph-btn p-2.5 rounded-xl text-theme-accent group-hover:scale-110 transition-transform flex-shrink-0 flex items-center justify-center">
+              <GraduationCap className="w-4 h-4" />
             </div>
             <div className="text-left">
               <div className="font-display font-bold text-theme-text text-sm group-hover:text-theme-accent transition-colors">
@@ -104,7 +104,7 @@ export default function Experience() {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-1.5 font-mono text-[11px] font-semibold text-theme-accent bg-theme-accent/10 border border-theme-accent/40 px-3 py-1.5 rounded-xl group-hover:bg-theme-accent group-hover:text-[var(--btn-primary-text)] transition-all duration-300 flex-shrink-0">
+          <div className="neomorph-btn flex items-center gap-1.5 font-mono text-[11px] font-semibold text-theme-accent px-3.5 py-1.5 rounded-xl transition-all duration-300 flex-shrink-0">
             {showTraining ? (
               <><ChevronUp className="w-3.5 h-3.5" /><span className="hidden sm:inline">Collapse</span></>
             ) : (

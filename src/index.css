@@ -27,12 +27,12 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #F8FAFC;
-  --surface: rgba(255, 255, 255, 0.85);
+  --bg: #EEF2F6;
+  --surface: #EEF2F6;
   --surface-solid: #FFFFFF;
-  --surface-2: #F1F5F9;
-  --surface-3: #E2E8F0;
-  --surface-glass: rgba(255, 255, 255, 0.8);
+  --surface-2: #E2E8F0;
+  --surface-3: #CBD5E1;
+  --surface-glass: #EEF2F6;
   --text: #0F172A;
   --text-muted: #475569;
   --accent: #0D9488;
@@ -41,13 +41,13 @@
   --accent-cyan: #0284C7;
   --accent-purple: #7C3AED;
   --warm: #D97706;
-  --border: rgba(15, 23, 42, 0.08);
-  --border-glow: rgba(13, 148, 136, 0.3);
-  --nav-bg: rgba(248, 250, 252, 0.85);
-  --grid-line: rgba(0, 0, 0, 0.025);
+  --border: rgba(255, 255, 255, 0.85);
+  --border-glow: rgba(13, 148, 136, 0.4);
+  --nav-bg: rgba(238, 242, 246, 0.9);
+  --grid-line: rgba(166, 180, 200, 0.15);
   --btn-primary-text: #FFFFFF;
   --avatar-glow: rgba(13, 148, 136, 0.25);
-  --card-glow: rgba(13, 148, 136, 0.08);
+  --card-glow: rgba(13, 148, 136, 0.12);
 }
 
 html {
@@ -61,9 +61,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(var(--accent-rgb), 0.15), transparent 70%),
-    radial-gradient(ellipse 60% 40% at 100% 40%, rgba(56, 189, 248, 0.07), transparent 60%),
-    radial-gradient(ellipse 50% 50% at 0% 70%, rgba(168, 85, 247, 0.06), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(var(--accent-rgb), 0.12), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 40%, rgba(56, 189, 248, 0.06), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 0% 70%, rgba(168, 85, 247, 0.05), transparent 60%),
     linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
@@ -91,19 +91,98 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-/* Cyber-Glass Cards */
-.glass-card {
+/* Neomorphic Soft UI Cards */
+.glass-card, .neomorph-card {
   background: var(--surface);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
+  box-shadow: 
+    10px 10px 24px rgba(0, 0, 0, 0.45), 
+    -6px -6px 20px rgba(255, 255, 255, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card:hover {
+:root[data-theme="light"] .glass-card,
+:root[data-theme="light"] .neomorph-card {
+  background: #EEF2F6;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    10px 10px 24px rgba(166, 180, 200, 0.55),
+    -10px -10px 24px rgba(255, 255, 255, 0.95);
+}
+
+.glass-card:hover, .neomorph-card:hover {
   border-color: var(--border-glow);
-  box-shadow: 0 16px 36px -12px var(--card-glow), 0 0 0 1px var(--border-glow);
+  box-shadow: 
+    14px 14px 30px rgba(0, 0, 0, 0.55), 
+    -8px -8px 25px rgba(255, 255, 255, 0.06);
+}
+
+:root[data-theme="light"] .glass-card:hover,
+:root[data-theme="light"] .neomorph-card:hover {
+  box-shadow: 
+    14px 14px 32px rgba(166, 180, 200, 0.65),
+    -14px -14px 32px rgba(255, 255, 255, 1);
+}
+
+/* Inset Neomorphic Wells (for inputs, tracks, wells) */
+.neomorph-inset {
+  background: var(--surface-2);
+  box-shadow: 
+    inset 3px 3px 8px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme="light"] .neomorph-inset {
+  background: #E2E8F0;
+  box-shadow: 
+    inset 3px 3px 8px rgba(166, 180, 200, 0.6),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Neomorphic Raised Icon Buttons & Wells */
+.neomorph-btn {
+  background: var(--surface);
+  box-shadow: 
+    5px 5px 12px rgba(0, 0, 0, 0.4),
+    -4px -4px 10px rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+}
+
+:root[data-theme="light"] .neomorph-btn {
+  background: #EEF2F6;
+  box-shadow: 
+    5px 5px 14px rgba(166, 180, 200, 0.55),
+    -5px -5px 14px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.neomorph-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    7px 7px 16px rgba(0, 0, 0, 0.5),
+    -5px -5px 12px rgba(255, 255, 255, 0.06);
+}
+
+:root[data-theme="light"] .neomorph-btn:hover {
+  box-shadow: 
+    7px 7px 18px rgba(166, 180, 200, 0.65),
+    -7px -7px 18px rgba(255, 255, 255, 1);
+}
+
+.neomorph-btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme="light"] .neomorph-btn:active {
+  box-shadow: 
+    inset 3px 3px 6px rgba(166, 180, 200, 0.7),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.95);
 }
 
 /* Glowing Neon Text */

@@ -26,15 +26,15 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex items-center gap-1.5 bg-theme-surface-2/80 border border-theme-border p-1 rounded-xl self-start sm:self-auto flex-shrink-0">
+        {/* Filter Tabs (Neomorphism Inset Well) */}
+        <div className="neomorph-inset flex items-center gap-1.5 p-1.5 rounded-2xl self-start sm:self-auto flex-shrink-0">
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`font-mono text-[11px] font-semibold px-3 py-1.5 rounded-lg transition-all duration-200 cursor-pointer ${
+              className={`font-mono text-[11px] font-semibold px-3.5 py-1.5 rounded-xl transition-all duration-200 cursor-pointer ${
                 activeFilter === f
-                  ? 'bg-theme-accent text-[var(--btn-primary-text)] shadow-sm'
+                  ? 'liquid-glass-btn-primary shadow-sm'
                   : 'text-theme-muted hover:text-theme-text'
               }`}
             >
@@ -44,44 +44,44 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Project Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+      {/* Project Grid (Neomorphism Cards) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
         {filtered.map((proj, idx) => (
           <div
             key={idx}
-            className="glass-card bg-theme-surface border border-theme-border rounded-2xl p-5 sm:p-6 flex flex-col justify-between theme-transition hover:-translate-y-0.5 hover:border-theme-accent/50 group relative overflow-hidden"
+            className="neomorph-card rounded-3xl p-5 sm:p-7 flex flex-col justify-between theme-transition group relative overflow-hidden"
           >
             <div className="absolute -top-12 -right-12 w-28 h-28 bg-theme-accent/10 rounded-full blur-2xl group-hover:bg-theme-accent/20 transition-all pointer-events-none"></div>
 
             <div>
-              <div className="flex items-start justify-between gap-3 mb-2">
+              <div className="flex items-start justify-between gap-3 mb-2.5">
                 <div>
                   <h3 className="font-display font-bold text-lg sm:text-xl text-theme-text group-hover:text-theme-accent transition-colors leading-tight">
                     {proj.title}
                   </h3>
                   <div className="text-xs text-theme-muted font-body mt-0.5">{proj.subtitle}</div>
                 </div>
-                <span className={`font-mono text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${proj.tagColor} flex-shrink-0`}>
+                <span className={`font-mono text-[11px] font-semibold px-3 py-1 rounded-full border ${proj.tagColor} flex-shrink-0`}>
                   {proj.tagBadge}
                 </span>
               </div>
 
-              <p className="text-theme-muted text-xs sm:text-sm leading-relaxed mb-3.5 font-body">{proj.description}</p>
+              <p className="text-theme-muted text-xs sm:text-sm leading-relaxed mb-4 font-body">{proj.description}</p>
 
               <div className="flex flex-wrap gap-2 mb-4 font-mono text-[11px]">
                 {proj.highlights.map((h, hIdx) => (
-                  <span key={hIdx} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-theme-surface-2/90 border border-theme-border/80 text-theme-text">
-                    <CheckCircle2 className="w-3 h-3 text-theme-accent flex-shrink-0" />
+                  <span key={hIdx} className="neomorph-inset inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-theme-text font-medium">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-theme-accent flex-shrink-0" />
                     <span>{h}</span>
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="pt-3 border-t border-theme-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-auto">
+            <div className="pt-3.5 border-t border-theme-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-auto">
               <div className="flex flex-wrap gap-1.5">
                 {proj.tech.map((t, tIdx) => (
-                  <span key={tIdx} className="font-mono text-[11px] text-theme-muted bg-theme-surface-2 px-2 py-0.5 rounded-md border border-theme-border">{t}</span>
+                  <span key={tIdx} className="neomorph-inset font-mono text-[10px] text-theme-muted px-2.5 py-1 rounded-lg font-semibold">{t}</span>
                 ))}
               </div>
               <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
@@ -111,11 +111,11 @@ export default function Projects() {
         </div>
       )}
 
-      {/* GitHub Banner */}
-      <div className="mt-8 p-5 sm:p-7 rounded-3xl glass-card bg-theme-surface border border-theme-border/80 flex flex-col sm:flex-row items-center justify-between gap-4 relative overflow-hidden group">
+      {/* GitHub Banner (Neomorphism) */}
+      <div className="mt-8 p-6 sm:p-8 rounded-3xl neomorph-card flex flex-col sm:flex-row items-center justify-between gap-4 relative overflow-hidden group">
         <div className="absolute top-0 right-0 w-80 h-full bg-gradient-to-l from-theme-accent/10 to-transparent pointer-events-none"></div>
         <div className="flex items-center gap-4 relative z-10 text-center sm:text-left">
-          <div className="p-3.5 rounded-2xl bg-theme-surface-2 border border-theme-border text-theme-accent hidden sm:flex items-center justify-center">
+          <div className="neomorph-btn p-3.5 rounded-2xl text-theme-accent hidden sm:flex items-center justify-center">
             <Github className="w-6 h-6" />
           </div>
           <div>

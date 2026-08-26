@@ -71,15 +71,15 @@ export default function Footer({ onOpenAdmin }) {
               </p>
             </div>
 
-            {/* Direct Contact Cards with 1-Click Copy */}
+            {/* Direct Contact Cards with 1-Click Copy (Neomorphism) */}
             <div className="space-y-3 font-mono text-xs sm:text-sm">
-              <div className="flex items-center justify-between p-3.5 rounded-2xl bg-theme-surface-2/80 border border-theme-border hover:border-theme-accent/50 transition-all">
+              <div className="neomorph-card flex items-center justify-between p-3.5 sm:p-4 rounded-2xl transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-theme-surface text-theme-accent">
+                  <div className="neomorph-btn p-2.5 rounded-xl text-theme-accent flex items-center justify-center">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-[11px] text-theme-muted">Direct Email Address</div>
+                    <div className="text-[11px] text-theme-muted font-semibold">Direct Email Address</div>
                     <a href="mailto:jayapugazh947@gmail.com" className="font-bold text-theme-text hover:text-theme-accent transition-colors">
                       jayapugazh947@gmail.com
                     </a>
@@ -88,20 +88,20 @@ export default function Footer({ onOpenAdmin }) {
                 <button
                   type="button"
                   onClick={() => handleCopy('jayapugazh947@gmail.com', 'email')}
-                  className="p-2 rounded-lg bg-theme-surface border border-theme-border hover:border-theme-accent text-theme-muted hover:text-theme-accent transition-colors cursor-pointer"
+                  className="neomorph-btn p-2.5 rounded-xl text-theme-muted hover:text-theme-accent transition-colors cursor-pointer flex items-center justify-center"
                   title="Copy email to clipboard"
                 >
                   {copiedField === 'email' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
 
-              <div className="flex items-center justify-between p-3.5 rounded-2xl bg-theme-surface-2/80 border border-theme-border hover:border-theme-accent/50 transition-all">
+              <div className="neomorph-card flex items-center justify-between p-3.5 sm:p-4 rounded-2xl transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-theme-surface text-theme-accent">
+                  <div className="neomorph-btn p-2.5 rounded-xl text-theme-accent flex items-center justify-center">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-[11px] text-theme-muted">Call or WhatsApp</div>
+                    <div className="text-[11px] text-theme-muted font-semibold">Call or WhatsApp</div>
                     <a href="tel:+919943205075" className="font-bold text-theme-text hover:text-theme-accent transition-colors">
                       +91 99432 05075
                     </a>
@@ -110,7 +110,7 @@ export default function Footer({ onOpenAdmin }) {
                 <button
                   type="button"
                   onClick={() => handleCopy('+919943205075', 'phone')}
-                  className="p-2 rounded-lg bg-theme-surface border border-theme-border hover:border-theme-accent text-theme-muted hover:text-theme-accent transition-colors cursor-pointer"
+                  className="neomorph-btn p-2.5 rounded-xl text-theme-muted hover:text-theme-accent transition-colors cursor-pointer flex items-center justify-center"
                   title="Copy phone number"
                 >
                   {copiedField === 'phone' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
