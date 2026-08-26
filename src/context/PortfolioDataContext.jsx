@@ -11,6 +11,8 @@ const defaultData = {
     college: 'Gnanamani College of Tech',
     githubUrl: 'https://github.com/apugazh61-debug',
     linkedinUrl: 'https://www.linkedin.com/in/pugazhenthi-s-920556331',
+    resumeUrl: '/resume.pdf',
+    resumeFileName: 'Pugazhenthi_S_Resume.pdf',
   },
   projects: [
     {

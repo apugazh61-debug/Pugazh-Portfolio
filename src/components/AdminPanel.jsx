@@ -49,6 +49,8 @@ export default function AdminPanel({ isOpen, onClose }) {
     college: '',
     githubUrl: '',
     linkedinUrl: '',
+    resumeUrl: '/resume.pdf',
+    resumeFileName: 'Pugazhenthi_S_Resume.pdf',
   });
   const [hasProfileChanged, setHasProfileChanged] = useState(false);
 
@@ -73,6 +75,8 @@ export default function AdminPanel({ isOpen, onClose }) {
         college: data.profile?.college || '',
         githubUrl: data.profile?.githubUrl || '',
         linkedinUrl: data.profile?.linkedinUrl || '',
+        resumeUrl: data.profile?.resumeUrl || '/resume.pdf',
+        resumeFileName: data.profile?.resumeFileName || 'Pugazhenthi_S_Resume.pdf',
       });
       setHasProfileChanged(false);
     }
@@ -1296,13 +1300,119 @@ export default function AdminPanel({ isOpen, onClose }) {
                     </div>
                   </div>
 
+                  {/* Resume PDF Management Section */}
+                  <div className="p-4 rounded-2xl bg-theme-surface border border-theme-border space-y-3.5 shadow-sm">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2 font-mono text-xs font-bold text-theme-text">
+                        <Download className="w-4 h-4 text-theme-accent" />
+                        <span>Resume PDF Document Management</span>
+                      </div>
+                      <span className="text-[10px] text-theme-accent bg-theme-accent/10 border border-theme-accent/30 px-2 py-0.5 rounded-full font-mono font-semibold">
+                        Live Download
+                      </span>
+                    </div>
+
+                    <p className="text-[11px] text-theme-muted">
+                      Upload your latest PDF resume directly from your device or specify a cloud / drive download link.
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {/* 1-Click File Uploader */}
+                      <div>
+                        <label className="block text-theme-muted text-[10px] mb-1 font-semibold">
+                          Upload New PDF Resume (From Device)
+                        </label>
+                        <label className="flex items-center justify-center gap-2 p-3 rounded-xl bg-theme-surface-2 border border-dashed border-theme-accent/50 hover:border-theme-accent text-theme-accent text-xs font-mono font-semibold cursor-pointer transition-colors shadow-sm">
+                          <Upload className="w-4 h-4" />
+                          <span>Choose PDF File...</span>
+                          <input
+                            type="file"
+                            accept=".pdf,application/pdf"
+                            className="hidden"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0];
+                              if (file) {
+                                if (!file.name.toLowerCase().endsWith('.pdf') && file.type !== 'application/pdf') {
+                                  showToast('⚠️ Please select a valid PDF file.');
+                                  return;
+                                }
+                                const reader = new FileReader();
+                                reader.onload = () => {
+                                  setProfileForm((prev) => ({
+                                    ...prev,
+                                    resumeUrl: reader.result,
+                                    resumeFileName: file.name
+                                  }));
+                                  setHasProfileChanged(true);
+                                  showToast(`📄 Selected: ${file.name} (Click Save to apply)`);
+                                };
+                                reader.readAsDataURL(file);
+                              }
+                            }}
+                          />
+                        </label>
+                      </div>
+
+                      {/* Download Filename */}
+                      <div>
+                        <label className="block text-theme-muted text-[10px] mb-1 font-semibold">
+                          Downloaded File Name
+                        </label>
+                        <input
+                          type="text"
+                          value={profileForm.resumeFileName}
+                          placeholder="Pugazhenthi_S_Resume.pdf"
+                          onChange={(e) => {
+                            setProfileForm({ ...profileForm, resumeFileName: e.target.value });
+                            setHasProfileChanged(true);
+                          }}
+                          className="w-full bg-theme-surface-2 border border-theme-border rounded-xl px-3.5 py-2.5 text-theme-text text-xs font-mono"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Direct Custom URL / Cloud Link */}
+                    <div>
+                      <label className="block text-theme-muted text-[10px] mb-1 font-semibold">
+                        Direct Resume URL / Cloud Link (Optional)
+                      </label>
+                      <input
+                        type="text"
+                        value={profileForm.resumeUrl?.startsWith('data:') ? 'Custom Uploaded PDF Document (Stored in Browser)' : profileForm.resumeUrl}
+                        placeholder="/resume.pdf or https://drive.google.com/..."
+                        onChange={(e) => {
+                          setProfileForm({ ...profileForm, resumeUrl: e.target.value });
+                          setHasProfileChanged(true);
+                        }}
+                        className="w-full bg-theme-surface-2 border border-theme-border rounded-xl px-3.5 py-2.5 text-theme-text text-xs font-mono truncate"
+                      />
+                    </div>
+
+                    {/* Preview / Test Current Resume Button */}
+                    <div className="flex items-center justify-between pt-1">
+                      <span className="text-[10px] text-theme-muted font-mono truncate max-w-[200px]">
+                        Active: {profileForm.resumeFileName || 'Pugazhenthi_S_Resume.pdf'}
+                      </span>
+                      <a
+                        href={profileForm.resumeUrl || '/resume.pdf'}
+                        download={profileForm.resumeFileName || 'Pugazhenthi_S_Resume.pdf'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-theme-surface-2 border border-theme-border text-theme-text hover:text-theme-accent text-xs font-mono font-semibold transition-colors"
+                      >
+                        <Eye className="w-3.5 h-3.5 text-theme-accent" />
+                        <span>Test / View Resume</span>
+                      </a>
+                    </div>
+                  </div>
+
                   {/* Explicit Save Profile Settings Button */}
                   <div className="pt-2">
                     <button
                       onClick={() => {
                         updateProfile(profileForm);
                         setHasProfileChanged(false);
-                        showToast('💾 Profile Settings Saved Successfully!');
+                        showToast('💾 Profile Settings & Resume Saved Successfully!');
                       }}
                       className="w-full py-3 rounded-xl bg-theme-accent text-[var(--btn-primary-text)] font-bold text-xs cursor-pointer hover:brightness-110 shadow-lg flex items-center justify-center gap-2"
                     >

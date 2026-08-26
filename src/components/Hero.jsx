@@ -97,8 +97,8 @@ export default function Hero() {
 
               {/* Resume Download */}
               <a
-                href="/resume.pdf"
-                download="Pugazhenthi_S_Resume.pdf"
+                href={profile.resumeUrl || '/resume.pdf'}
+                download={profile.resumeFileName || 'Pugazhenthi_S_Resume.pdf'}
                 className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-2xl text-theme-accent inline-flex items-center gap-2 group cursor-pointer"
                 title="Download Resume"
               >
@@ -152,8 +152,8 @@ export default function Hero() {
 
               {/* Col 2 Row 1: Resume */}
               <a
-                href="/resume.pdf"
-                download="Pugazhenthi_S_Resume.pdf"
+                href={profile.resumeUrl || '/resume.pdf'}
+                download={profile.resumeFileName || 'Pugazhenthi_S_Resume.pdf'}
                 className="liquid-glass-btn font-mono text-[11px] font-semibold px-2 py-2.5 rounded-2xl text-theme-accent flex items-center justify-center gap-1.5"
                 title="Download Resume"
               >
