@@ -4,7 +4,7 @@ const STORAGE_KEY = 'pugazh_portfolio_data_v1';
 
 const defaultData = {
   profile: {
-    statusBadge: 'Currently interning @ Blaze Wings Technology · Jul–Dec 2026',
+    statusBadge: '',
     email: 'jayapugazh947@gmail.com',
     phone: '+91 99432 05075',
     cgpa: '7.5',

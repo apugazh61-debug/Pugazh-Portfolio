@@ -183,10 +183,10 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column (Neomorphism Profile Card) — hidden on mobile */}
-        <div className="relative hidden lg:flex justify-end">
+        {/* Right Column (Neomorphism Profile Card) — visible on mobile & desktop */}
+        <div className="relative flex justify-center lg:justify-end mt-4 lg:mt-0 w-full">
           <div className="absolute -inset-6 bg-gradient-to-tr from-theme-accent/20 via-theme-accent-cyan/15 to-theme-accent-purple/20 rounded-3xl blur-3xl opacity-60 pointer-events-none"></div>
-          <div className="relative w-full max-w-[420px] neomorph-card p-5 sm:p-7 rounded-3xl space-y-4">
+          <div className="relative w-full max-w-[340px] sm:max-w-[420px] neomorph-card p-4 sm:p-7 rounded-3xl space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-theme-border/60 font-mono text-xs">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
