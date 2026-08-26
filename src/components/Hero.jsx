@@ -55,15 +55,6 @@ export default function Hero() {
         {/* Left Column */}
         <div className="space-y-6 sm:space-y-7">
 
-          {/* Currently Working On badge (Conditionally rendered when not empty) */}
-          {profile.statusBadge && profile.statusBadge.trim() !== '' && (
-            <div className="liquid-glass-btn inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full font-mono text-xs text-theme-accent font-medium self-start">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
-              <Hammer className="w-3.5 h-3.5 flex-shrink-0" />
-              <span className="truncate">{profile.statusBadge}</span>
-            </div>
-          )}
-
           {/* Main Headline */}
           <div className="space-y-3">
             {/* Name & Title Badge (Skeuomorphic Tactile 3D Strip) */}
@@ -92,11 +83,11 @@ export default function Hero() {
             Software Engineer specializing in scalable full stack architectures, distributed backend APIs, and applied AI systems. Proven production delivery across <strong className="text-theme-text font-semibold">React.js, FastAPI, Python, Java (Spring Boot)</strong> and <strong className="text-theme-text font-semibold">Computer Vision</strong>.
           </p>
 
-          {/* Action CTAs (Liquid Glass Aesthetic) */}
+          {/* Action CTAs (Liquid Glass Aesthetic - Responsive Mobile Layout) */}
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-2">
             <a
               href="#projects"
-              className="liquid-glass-btn-primary font-mono text-xs sm:text-sm font-bold px-6 py-3.5 rounded-2xl inline-flex items-center gap-2.5 group cursor-pointer"
+              className="liquid-glass-btn-primary font-mono text-xs sm:text-sm font-bold px-5 sm:px-6 py-3.5 rounded-2xl inline-flex items-center justify-center gap-2.5 group cursor-pointer flex-1 sm:flex-initial min-w-[140px]"
             >
               <span>Explore Projects</span>
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
@@ -106,37 +97,21 @@ export default function Hero() {
             <a
               href="/resume.pdf"
               download="Pugazhenthi_S_Resume.pdf"
-              className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-2xl text-theme-accent inline-flex items-center gap-2 group cursor-pointer"
+              className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-4 sm:px-5 py-3.5 rounded-2xl text-theme-accent inline-flex items-center justify-center gap-2 group cursor-pointer flex-1 sm:flex-initial min-w-[110px]"
               title="Download Resume"
             >
               <Download className="w-4 h-4 group-hover:translate-y-0.5 group-hover:scale-110 transition-all text-theme-accent" />
               <span>Resume</span>
             </a>
 
-            <button
-              onClick={copyEmail}
-              className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-2xl text-theme-text inline-flex items-center gap-2 cursor-pointer group"
-              title="Copy Email Address"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400">Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Mail className="w-4 h-4 text-theme-accent group-hover:scale-110 transition-transform" />
-                  <span>Copy Email</span>
-                </>
-              )}
-            </button>
-
+            {/* Direct Mailto Email */}
             <a
-              href="#contact"
-              className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-2xl text-theme-text hover:text-theme-accent-cyan inline-flex items-center gap-2 group cursor-pointer"
+              href={`mailto:${profile.email || 'jayapugazh947@gmail.com'}?subject=Engineering%20Inquiry%20%2F%20Collaboration`}
+              className="liquid-glass-btn font-mono text-xs sm:text-sm font-semibold px-4 sm:px-5 py-3.5 rounded-2xl text-theme-text hover:text-theme-accent inline-flex items-center justify-center gap-2 group cursor-pointer flex-1 sm:flex-initial min-w-[120px]"
+              title="Send Email Directly"
             >
-              <Zap className="w-4 h-4 text-theme-accent-cyan group-hover:scale-110 transition-transform" />
-              <span>Get In Touch</span>
+              <Mail className="w-4 h-4 text-theme-accent group-hover:scale-110 transition-transform" />
+              <span>Email Me</span>
             </a>
 
             {/* Social Icon Pills (Liquid Glass) */}

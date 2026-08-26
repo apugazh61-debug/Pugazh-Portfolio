@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-const STORAGE_KEY = 'pugazh_portfolio_data_v1';
+const STORAGE_KEY = 'pugazh_portfolio_data_v3';
 
 const defaultData = {
   profile: {
