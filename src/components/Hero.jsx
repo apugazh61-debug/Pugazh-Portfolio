@@ -55,11 +55,11 @@ export default function Hero() {
         {/* Left Column */}
         <div className="space-y-6 sm:space-y-7">
 
-          {/* Currently Working On badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-theme-accent/10 border border-theme-accent/30 font-mono text-xs text-theme-accent">
-            <span className="w-2 h-2 rounded-full bg-theme-accent animate-pulse flex-shrink-0"></span>
-            <Hammer className="w-3 h-3 flex-shrink-0" />
-            <span>{profile.statusBadge || 'Currently interning @ Blaze Wings Technology · Jul–Dec 2026'}</span>
+          {/* Currently Working On badge (Skeuomorphic Tactile Badge with Physical LED) */}
+          <div className="skeuomorph-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full font-mono text-xs font-semibold cursor-default self-start">
+            <span className="skeuomorph-led w-2.5 h-2.5 rounded-full flex-shrink-0"></span>
+            <Hammer className="w-3.5 h-3.5 flex-shrink-0" />
+            <span className="truncate">{profile.statusBadge || 'Currently interning @ Blaze Wings Technology · Jul–Dec 2026'}</span>
           </div>
 
           {/* Main Headline */}
@@ -77,11 +77,11 @@ export default function Hero() {
             </h1>
           </div>
 
-          {/* Dynamic Role Subtitle */}
-          <div className="font-mono text-sm sm:text-base lg:text-lg text-theme-muted min-h-[32px] flex items-center gap-2.5 p-3 rounded-xl bg-theme-surface-2/60 border border-theme-border/80 overflow-hidden">
-            <span className="text-theme-accent font-bold text-base flex-shrink-0">&gt;</span>
-            <span className="text-theme-text font-medium truncate">{typedRole}</span>
-            <span className="inline-block w-2.5 h-5 bg-theme-accent animate-cursor-blink flex-shrink-0"></span>
+          {/* Dynamic Role Subtitle (Skeuomorphic Recessed LCD Terminal Well) */}
+          <div className="skeuomorph-terminal font-mono text-sm sm:text-base lg:text-lg min-h-[38px] flex items-center gap-2.5 px-4 py-3 rounded-2xl overflow-hidden">
+            <span className="text-theme-accent font-extrabold text-base flex-shrink-0 drop-shadow-[0_0_6px_rgba(45,212,191,0.5)]">&gt;</span>
+            <span className="text-theme-text font-bold tracking-wide truncate">{typedRole}</span>
+            <span className="inline-block w-2.5 h-5 bg-theme-accent animate-cursor-blink flex-shrink-0 shadow-[0_0_10px_#2DD4BF]"></span>
           </div>
 
           {/* Bio Description */}

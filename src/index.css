@@ -228,6 +228,79 @@ body {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+
+/* Skeuomorphic Tactile Hardware & Badges */
+.skeuomorph-badge {
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 50%, #CBD5E1 100%);
+  border-top: 1.5px solid #FFFFFF;
+  border-bottom: 2px solid #94A3B8;
+  border-left: 1px solid #CBD5E1;
+  border-right: 1px solid #CBD5E1;
+  box-shadow: 
+    0 4px 8px -1px rgba(0, 0, 0, 0.15),
+    0 2px 4px -1px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+  color: #0F766E;
+  transition: all 0.25s ease;
+}
+
+:root:not([data-theme="light"]) .skeuomorph-badge {
+  background: linear-gradient(180deg, #1E293B 0%, #111827 50%, #0B0F17 100%);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid #030712;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.6);
+  color: #2DD4BF;
+}
+
+.skeuomorph-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 6px 12px -1px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 #FFFFFF;
+}
+
+/* Skeuomorphic Hardware LCD Terminal Screen */
+.skeuomorph-terminal {
+  background: linear-gradient(180deg, #0A1017 0%, #05080C 100%);
+  border-top: 2.5px solid #020406;
+  border-left: 2px solid #040608;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-right: 1.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    inset 0 5px 12px rgba(0, 0, 0, 0.85),
+    inset 0 1px 4px rgba(0, 0, 0, 0.95),
+    0 2px 5px rgba(255, 255, 255, 0.04);
+}
+
+:root[data-theme="light"] .skeuomorph-terminal {
+  background: linear-gradient(180deg, #D9E2EC 0%, #E8EEF5 100%);
+  border-top: 2.5px solid #8295A8;
+  border-left: 2px solid #9FB3C8;
+  border-bottom: 2px solid #FFFFFF;
+  border-right: 2px solid #FFFFFF;
+  box-shadow: 
+    inset 0 4px 10px rgba(72, 101, 129, 0.5),
+    inset 0 1px 3px rgba(72, 101, 129, 0.35),
+    0 2px 4px rgba(255, 255, 255, 0.9);
+}
+
+/* Skeuomorphic Hardware LED Diode */
+.skeuomorph-led {
+  background: radial-gradient(circle at 35% 35%, #5EEAD4 0%, #14B8A6 60%, #0F766E 100%);
+  box-shadow: 
+    0 0 10px 1.5px rgba(45, 212, 191, 0.8),
+    inset 0 1px 1px #FFFFFF,
+    inset 0 -1px 2px #042F2E;
+  border: 1px solid #0D9488;
+}
+
 /* Liquid Glass Aesthetic Buttons */
 .liquid-glass-btn {
   position: relative;
