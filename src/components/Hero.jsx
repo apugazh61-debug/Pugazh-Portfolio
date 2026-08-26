@@ -190,10 +190,16 @@ export default function Hero() {
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
               </div>
-              <div className="text-[11px] text-theme-muted flex items-center gap-1.5 font-semibold">
+              <a
+                href={profile.githubUrl || "https://github.com/apugazh61-debug"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] text-theme-muted hover:text-theme-accent transition-colors flex items-center gap-1.5 font-semibold group/gh cursor-pointer"
+                title="View GitHub (@apugazh61-debug)"
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>PUGAZ_ID.sys</span>
-              </div>
+                <span className="group-hover/gh:underline decoration-theme-accent">apugazh61_debug</span>
+              </a>
             </div>
             <div className="neomorph-inset p-2 rounded-2xl overflow-hidden aspect-[4/4.2] group">
               <img
