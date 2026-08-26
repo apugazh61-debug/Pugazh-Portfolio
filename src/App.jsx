@@ -26,8 +26,8 @@ export default function App() {
       link.rel = 'icon';
       document.getElementsByTagName('head')[0].appendChild(link);
     }
-    link.type = 'image/png';
-    link.href = '/RedAnt.png';
+    link.type = 'image/jpeg';
+    link.href = '/profile.jpg';
   }, []);
 
   useEffect(() => {
