@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { Briefcase, Building2, Calendar, MapPin, CheckCircle2, ChevronDown, ChevronUp, GraduationCap } from 'lucide-react';
+import { Building2, Calendar, MapPin, CheckCircle2, ChevronDown, ChevronUp, GraduationCap } from 'lucide-react';
 
 const experiences = [
   {
-    role: 'Application Development & AI Development Intern',
+    role: 'App Dev & AI Development Intern',
     company: 'Blaze Wings Technology Pvt Ltd',
     location: 'Office Premises',
     period: 'Jul 2026 – Dec 2026',
-    type: 'Corporate Internship',
+    type: 'Corporate',
+    color: 'bg-teal-400',
+    badge: 'text-teal-400 bg-teal-500/10 border-teal-500/30',
     achievements: [
       'Gaining hands-on exposure in application development and artificial intelligence technologies in a production team environment.',
       'Building and deploying full-stack application features under the mentorship of Mr. Gokul M, contributing to real business workflows.',
-      'Developing AI-integrated modules and contributing to end-to-end application lifecycle from design to deployment.',
-      'Working in a structured 8-hour/day, Monday–Friday schedule, ensuring consistent delivery and professional discipline.',
+      'Developing AI-integrated modules contributing to end-to-end application lifecycle from design to deployment.',
     ],
     tech: ['Application Development', 'AI Development', 'React.js', 'Python', 'REST APIs', 'Git'],
   },
@@ -21,12 +22,13 @@ const experiences = [
     company: 'Dev Technology Solutions',
     location: 'Salem, Tamil Nadu',
     period: 'Jul 2025 – Aug 2025',
-    type: 'Corporate Internship',
+    type: 'Corporate',
+    color: 'bg-sky-400',
+    badge: 'text-sky-400 bg-sky-500/10 border-sky-500/30',
     achievements: [
       'Architected and deployed scalable web application micro-endpoints in Python and Flask, ensuring smooth client-server data flow.',
       'Integrated complex frontend requirements with backend services, resolving critical integration bottlenecks in production builds.',
       'Conducted exhaustive test suites and debugging cycles, elevating system stability and minimizing application downtime.',
-      'Collaborated seamlessly within cross-functional teams, actively contributing in sprint stand-ups and code review sessions.',
     ],
     tech: ['Python', 'Flask', 'REST APIs', 'Postman', 'Debugging', 'Agile Methodologies'],
   },
@@ -38,12 +40,13 @@ const additionalTraining = [
     company: 'Novi Tech R&D Pvt Ltd',
     location: 'Salem / Remote',
     period: 'Sep 2024 – Nov 2024',
-    type: 'Training Internship',
+    type: 'Training',
+    color: 'bg-purple-400',
+    badge: 'text-purple-400 bg-purple-500/10 border-purple-500/30',
     achievements: [
-      'Engineered and delivered dynamic full stack features using React.js and Python (Flask/Node.js), powering high-responsiveness web modules.',
+      'Engineered dynamic full stack features using React.js and Python (Flask), powering high-responsiveness web modules.',
       'Designed and optimized database schemas with MongoDB & MySQL, cutting down query latency by over 30% via indexed lookups.',
-      'Constructed role-based access control (RBAC) and JWT token validation workflows, significantly enhancing endpoint security.',
-      'Participated in fast-paced agile sprint cycles, delivering bug fixes and feature releases consistently ahead of schedule.',
+      'Participated in agile sprint cycles, delivering bug fixes and feature releases consistently ahead of schedule.',
     ],
     tech: ['React.js', 'Flask', 'MySQL', 'MongoDB', 'REST APIs', 'JWT', 'Git'],
   },
@@ -51,60 +54,53 @@ const additionalTraining = [
 
 function ExperienceCard({ exp }) {
   return (
-    <div className="glass-card bg-theme-surface border border-theme-border rounded-2xl sm:rounded-3xl p-6 sm:p-8 theme-transition hover:border-theme-accent/50 group relative overflow-hidden">
-      {/* Ambient Glow */}
-      <div className="absolute top-0 right-0 w-48 h-48 bg-theme-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div className="glass-card bg-theme-surface border border-theme-border rounded-2xl p-4 sm:p-5 theme-transition hover:border-theme-accent/40 group relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-32 h-32 bg-theme-accent/5 rounded-full blur-2xl pointer-events-none" />
 
-      {/* Header: Role & Company */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-5 pb-4 border-b border-theme-border/60">
-        <div>
-          <div className="flex items-center gap-2.5 mb-1.5">
-            <span className="w-2 h-2 rounded-full bg-theme-accent animate-pulse"></span>
-            <h3 className="font-display font-bold text-xl sm:text-2xl text-theme-text group-hover:text-theme-accent transition-colors duration-200">
+      {/* Top row: role + badges */}
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
+        <div className="flex items-start gap-2.5 min-w-0">
+          <span className={`w-2 h-2 rounded-full ${exp.color} mt-1.5 flex-shrink-0`} />
+          <div className="min-w-0">
+            <h3 className="font-display font-bold text-base sm:text-lg text-theme-text group-hover:text-theme-accent transition-colors leading-tight">
               {exp.role}
             </h3>
-          </div>
-          <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono text-theme-muted">
-            <span className="text-theme-accent font-semibold flex items-center gap-1.5">
-              <Building2 className="w-4 h-4" />
-              {exp.company}
-            </span>
-            <span>•</span>
-            <span className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-theme-muted" />
-              {exp.location}
-            </span>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 font-mono text-[11px] text-theme-muted">
+              <span className="flex items-center gap-1 text-theme-accent font-semibold">
+                <Building2 className="w-3 h-3" />{exp.company}
+              </span>
+              <span className="flex items-center gap-1">
+                <MapPin className="w-3 h-3" />{exp.location}
+              </span>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2 self-start lg:self-center font-mono text-xs">
-          <span className="px-3 py-1.5 rounded-xl bg-theme-surface-2 border border-theme-border text-theme-text flex items-center gap-2">
-            <Calendar className="w-3.5 h-3.5 text-theme-accent flex-shrink-0" />
-            {exp.period}
+        {/* Badges */}
+        <div className="flex items-center gap-2 flex-shrink-0 flex-wrap sm:flex-nowrap">
+          <span className="font-mono text-[10px] flex items-center gap-1 px-2.5 py-1 rounded-lg bg-theme-surface-2 border border-theme-border text-theme-muted">
+            <Calendar className="w-3 h-3 text-theme-accent" />{exp.period}
           </span>
-          <span className="px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold">
+          <span className={`font-mono text-[10px] font-bold px-2.5 py-1 rounded-lg border ${exp.badge}`}>
             {exp.type}
           </span>
         </div>
       </div>
 
       {/* Achievements */}
-      <div className="space-y-2.5 mb-6">
-        {exp.achievements.map((ach, aIdx) => (
-          <div key={aIdx} className="flex items-start gap-3 text-xs sm:text-sm text-theme-muted font-body leading-relaxed">
-            <CheckCircle2 className="w-4 h-4 text-theme-accent flex-shrink-0 mt-0.5" />
+      <div className="space-y-1.5 mb-3 pl-4">
+        {exp.achievements.map((ach, i) => (
+          <div key={i} className="flex items-start gap-2 text-[11px] sm:text-xs text-theme-muted font-body leading-relaxed">
+            <CheckCircle2 className="w-3.5 h-3.5 text-theme-accent flex-shrink-0 mt-0.5" />
             <span>{ach}</span>
           </div>
         ))}
       </div>
 
-      {/* Tech Chips */}
-      <div className="pt-4 border-t border-theme-border/60 flex flex-wrap gap-2">
-        {exp.tech.map((t, tIdx) => (
-          <span
-            key={tIdx}
-            className="font-mono text-xs text-theme-text bg-theme-surface-2/90 px-3 py-1 rounded-lg border border-theme-border"
-          >
+      {/* Tech chips */}
+      <div className="flex flex-wrap gap-1.5 pt-3 border-t border-theme-border/50">
+        {exp.tech.map((t, i) => (
+          <span key={i} className="font-mono text-[10px] text-theme-muted bg-theme-surface-2/80 px-2 py-0.5 rounded-md border border-theme-border">
             {t}
           </span>
         ))}
@@ -117,81 +113,63 @@ export default function Experience() {
   const [showTraining, setShowTraining] = useState(false);
 
   return (
-    <section id="experience" className="border-t border-theme-border pt-12 sm:pt-16 theme-transition">
+    <section id="experience" className="border-t border-theme-border pt-10 sm:pt-14 theme-transition">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
-        <div>
-          <div className="font-mono text-xs text-theme-accent uppercase tracking-widest font-semibold mb-1.5 flex items-center gap-2">
-            <Briefcase className="w-3.5 h-3.5 text-theme-accent" />
-            <span>Career Milestones</span>
-          </div>
-          <h2 className="font-display text-2xl sm:text-4xl font-extrabold text-theme-text tracking-tight">
-            Industry <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-accent to-theme-accent-cyan">Experience</span>
-          </h2>
-        </div>
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 gap-3">
+        <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-theme-text tracking-tight">
+          Industry <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-accent to-theme-accent-cyan">Experience</span>
+        </h2>
         <div className="font-mono text-xs text-theme-muted bg-theme-surface-2/80 px-3 py-1.5 rounded-xl border border-theme-border flex items-center gap-2 self-start sm:self-auto">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           <span>Verified Corporate Internships</span>
         </div>
       </div>
 
-      {/* Main Experience Cards */}
-      <div className="space-y-6">
+      {/* Cards */}
+      <div className="space-y-3">
         {experiences.map((exp, idx) => (
           <ExperienceCard key={idx} exp={exp} />
         ))}
       </div>
 
-      {/* More Training & Internship Toggle */}
-      <div className="mt-6">
+      {/* More Training Toggle */}
+      <div className="mt-4">
         <button
           onClick={() => setShowTraining((prev) => !prev)}
-          className="w-full flex items-center justify-between gap-4 px-5 sm:px-6 py-5 rounded-2xl border-2 border-theme-accent/40 bg-gradient-to-r from-theme-accent/10 via-theme-surface-2/80 to-theme-accent-cyan/10 hover:border-theme-accent/80 hover:from-theme-accent/20 hover:to-theme-accent-cyan/20 transition-all duration-300 group cursor-pointer shadow-md hover:shadow-theme-accent/20"
+          className="w-full flex items-center justify-between gap-4 px-4 sm:px-5 py-4 rounded-2xl border-2 border-theme-accent/40 bg-gradient-to-r from-theme-accent/10 via-theme-surface-2/80 to-theme-accent-cyan/10 hover:border-theme-accent/70 hover:from-theme-accent/20 hover:to-theme-accent-cyan/20 transition-all duration-300 group cursor-pointer"
         >
-          <div className="flex items-center gap-4">
-            <div className="p-2.5 rounded-xl bg-theme-accent/15 border border-theme-accent/40 group-hover:bg-theme-accent/25 transition-colors flex-shrink-0">
-              <GraduationCap className="w-5 h-5 text-theme-accent" />
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-xl bg-theme-accent/15 border border-theme-accent/40 group-hover:bg-theme-accent/25 transition-colors flex-shrink-0">
+              <GraduationCap className="w-4 h-4 text-theme-accent" />
             </div>
             <div className="text-left">
-              <div className="font-display font-bold text-theme-text text-base group-hover:text-theme-accent transition-colors">
+              <div className="font-display font-bold text-theme-text text-sm group-hover:text-theme-accent transition-colors">
                 More Training &amp; Internship
               </div>
-              <div className="font-mono text-[11px] text-theme-muted mt-0.5">
+              <div className="font-mono text-[10px] text-theme-muted mt-0.5">
                 {showTraining ? '↑ Click to collapse' : '1 additional training internship · Click to expand ↓'}
               </div>
             </div>
           </div>
-          <div className={`flex items-center gap-2 font-mono text-xs font-semibold text-theme-accent bg-theme-accent/10 border border-theme-accent/40 px-3 py-2 rounded-xl group-hover:bg-theme-accent group-hover:text-[var(--btn-primary-text)] transition-all duration-300 flex-shrink-0`}>
+          <div className="flex items-center gap-1.5 font-mono text-[11px] font-semibold text-theme-accent bg-theme-accent/10 border border-theme-accent/40 px-3 py-1.5 rounded-xl group-hover:bg-theme-accent group-hover:text-[var(--btn-primary-text)] transition-all duration-300 flex-shrink-0">
             {showTraining ? (
-              <>
-                <ChevronUp className="w-4 h-4" />
-                <span className="hidden sm:inline">Collapse</span>
-              </>
+              <><ChevronUp className="w-3.5 h-3.5" /><span className="hidden sm:inline">Collapse</span></>
             ) : (
-              <>
-                <ChevronDown className="w-4 h-4" />
-                <span className="hidden sm:inline">Expand</span>
-              </>
+              <><ChevronDown className="w-3.5 h-3.5" /><span className="hidden sm:inline">Expand</span></>
             )}
           </div>
         </button>
 
-        {/* Collapsible Training Section */}
-        <div
-          className={`overflow-hidden transition-all duration-500 ease-in-out ${
-            showTraining ? 'max-h-[2000px] opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'
-          }`}
-        >
-          <div className="space-y-6">
-            {/* Section label */}
+        {/* Collapsible */}
+        <div className={`overflow-hidden transition-all duration-500 ease-in-out ${showTraining ? 'max-h-[2000px] opacity-100 mt-3' : 'max-h-0 opacity-0 mt-0'}`}>
+          <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <div className="h-px flex-1 bg-theme-border"></div>
-              <span className="font-mono text-[11px] text-theme-muted uppercase tracking-widest px-3 py-1 rounded-full bg-theme-surface-2 border border-theme-border">
+              <div className="h-px flex-1 bg-theme-border" />
+              <span className="font-mono text-[10px] text-theme-muted uppercase tracking-widest px-3 py-1 rounded-full bg-theme-surface-2 border border-theme-border">
                 Training Internship
               </span>
-              <div className="h-px flex-1 bg-theme-border"></div>
+              <div className="h-px flex-1 bg-theme-border" />
             </div>
-
             {additionalTraining.map((exp, idx) => (
               <ExperienceCard key={idx} exp={exp} />
             ))}

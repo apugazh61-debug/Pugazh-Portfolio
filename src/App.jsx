@@ -6,8 +6,10 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
+import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import CommandPalette from './components/CommandPalette';
+import BackToTop from './components/BackToTop';
 
 export default function App() {
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
@@ -25,6 +27,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-theme-bg text-theme-text font-body theme-transition selection:bg-theme-accent selection:text-[#051313] relative overflow-hidden">
+      {/* Floating Back-To-Top Button */}
+      <BackToTop />
 
       {/* Dynamic Ambient Background Aura */}
       <div className="fixed -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-theme-accent/15 via-theme-accent-cyan/10 to-transparent blur-[140px] pointer-events-none -z-10 animate-aurora-glow"></div>
@@ -45,6 +49,7 @@ export default function App() {
         <Experience />
         <Education />
         <Certifications />
+        <Testimonials />
         <Footer />
       </main>
     </div>

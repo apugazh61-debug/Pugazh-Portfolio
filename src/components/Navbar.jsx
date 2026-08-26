@@ -11,6 +11,7 @@ export default function Navbar({ onOpenPalette }) {
     { href: '#skills',   label: '// skills'   },
     { href: '#experience', label: '// experience' },
     { href: '#certs',    label: '// credentials' },
+    { href: '#testimonials', label: '// mentors' },
   ];
 
   const closeMobile = () => setMobileOpen(false);

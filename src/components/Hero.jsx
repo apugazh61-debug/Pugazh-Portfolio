@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, Mail, Github, Linkedin, Sparkles, Code2, Terminal, Cpu, Database, Check, Copy, ExternalLink, Zap } from 'lucide-react';
+import { ArrowDown, Mail, Github, Linkedin, Sparkles, Check, Copy, ExternalLink, Zap, Download, Hammer } from 'lucide-react';
 
 export default function Hero() {
   const [typedRole, setTypedRole] = useState('');
@@ -23,7 +23,6 @@ export default function Hero() {
         currentText = targetText.slice(0, charIdx + 1);
         setTypedRole(currentText);
         charIdx++;
-
         if (charIdx === targetText.length) {
           setTimeout(() => { isDeleting = true; }, 2000);
         }
@@ -31,7 +30,6 @@ export default function Hero() {
         currentText = targetText.slice(0, charIdx - 1);
         setTypedRole(currentText);
         charIdx--;
-
         if (charIdx === 0) {
           clearInterval(interval);
           setRoleIndex((prev) => (prev + 1) % roles.length);
@@ -51,8 +49,15 @@ export default function Hero() {
   return (
     <section className="pt-4 sm:pt-8 pb-10" id="top">
       <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] xl:grid-cols-[1.35fr_0.65fr] gap-8 lg:gap-14 items-center">
-        {/* Left Column: Massive Headline & Tech Arsenal */}
+        {/* Left Column */}
         <div className="space-y-6 sm:space-y-7">
+
+          {/* Currently Working On badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-theme-accent/10 border border-theme-accent/30 font-mono text-xs text-theme-accent">
+            <span className="w-2 h-2 rounded-full bg-theme-accent animate-pulse flex-shrink-0"></span>
+            <Hammer className="w-3 h-3 flex-shrink-0" />
+            <span>Currently interning @ Blaze Wings Technology · Jul–Dec 2026</span>
+          </div>
 
           {/* Main Headline */}
           <div className="space-y-3">
@@ -91,6 +96,17 @@ export default function Hero() {
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             </a>
 
+            {/* Resume Download */}
+            <a
+              href="/resume.pdf"
+              download="Pugazhenthi_S_Resume.pdf"
+              className="font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-xl border border-theme-accent/50 bg-theme-accent/10 text-theme-accent hover:bg-theme-accent hover:text-[var(--btn-primary-text)] transition-all duration-200 inline-flex items-center gap-2 shadow-sm group"
+              title="Download Resume"
+            >
+              <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+              <span>Resume</span>
+            </a>
+
             <button
               onClick={copyEmail}
               className="font-mono text-xs sm:text-sm font-semibold px-5 py-3.5 rounded-xl border border-theme-border bg-theme-surface-2/90 text-theme-text hover:border-theme-accent hover:text-theme-accent transition-all duration-200 inline-flex items-center gap-2 cursor-pointer shadow-sm"
@@ -99,7 +115,7 @@ export default function Hero() {
               {copied ? (
                 <>
                   <Check className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400">Email Copied!</span>
+                  <span className="text-emerald-400">Copied!</span>
                 </>
               ) : (
                 <>
@@ -161,14 +177,10 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Holographic Cyber Visual & Dynamic Profile Card — hidden on mobile */}
+        {/* Right Column — hidden on mobile */}
         <div className="relative hidden lg:flex justify-end">
-          {/* Ambient Glow Orbs */}
           <div className="absolute -inset-6 bg-gradient-to-tr from-theme-accent/25 via-theme-accent-cyan/20 to-theme-accent-purple/25 rounded-3xl blur-3xl opacity-70 pointer-events-none"></div>
-
-          {/* Main Visual Frame */}
           <div className="relative w-full max-w-[420px] glass-card bg-theme-surface/90 border border-theme-border p-4 sm:p-6 rounded-3xl shadow-2xl space-y-4">
-            {/* Top Frame Bar */}
             <div className="flex items-center justify-between pb-3 border-b border-theme-border/60 font-mono text-xs">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
@@ -177,11 +189,9 @@ export default function Hero() {
               </div>
               <div className="text-[11px] text-theme-muted flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>PUGAZH_ID.sys</span>
+                <span>PUGAZ_ID.sys</span>
               </div>
             </div>
-
-            {/* Avatar Photo Frame */}
             <div className="relative rounded-2xl overflow-hidden aspect-[4/4.2] border border-theme-border/80 group">
               <img
                 src="/profile.jpg"
@@ -190,17 +200,13 @@ export default function Hero() {
                 style={{ objectPosition: 'center 12%' }}
               />
             </div>
-
-            {/* Info Box Below Profile Photo */}
             <div className="p-3.5 rounded-2xl bg-theme-surface-2/90 border border-theme-border flex items-center justify-between shadow-sm">
               <div>
                 <div className="font-mono text-sm font-bold text-theme-text flex items-center gap-1.5">
                   <span>Pugazhenthi S</span>
                   <span className="text-[10px] text-theme-accent bg-theme-accent/15 border border-theme-accent/30 px-1.5 py-0.5 rounded font-mono font-semibold">CSE</span>
                 </div>
-                <div className="font-mono text-xs text-theme-muted mt-0.5">
-                  Gnanamani College of Tech
-                </div>
+                <div className="font-mono text-xs text-theme-muted mt-0.5">Gnanamani College of Tech</div>
               </div>
               <div className="flex items-center gap-1.5 font-mono text-[11px] text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-lg border border-emerald-500/20">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -213,4 +219,3 @@ export default function Hero() {
     </section>
   );
 }
-

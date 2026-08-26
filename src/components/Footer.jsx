@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
-import { Mail, Phone, Github, Linkedin, Send, Sparkles, CheckCircle2, AlertCircle, MessageSquare, Copy, Check, Terminal } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, Phone, Github, Linkedin, Send, Sparkles, CheckCircle2, AlertCircle, MessageSquare, Copy, Check, Terminal, Eye } from 'lucide-react';
 
 export default function Footer() {
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedField, setCopiedField] = useState('');
   const [messageText, setMessageText] = useState('');
+  const [visitCount, setVisitCount] = useState(0);
+
+  useEffect(() => {
+    const stored = parseInt(localStorage.getItem('pug_visits') || '0', 10);
+    const newCount = stored + 1;
+    localStorage.setItem('pug_visits', newCount);
+    setVisitCount(newCount);
+  }, []);
 
   const quickPrompts = [
     '💼 Let’s discuss a Software Engineer role',
@@ -143,25 +151,25 @@ export default function Footer() {
           </div>
 
           {/* Right Column: Direct Message Dispatch Terminal (Span 6) */}
-          <div className="lg:col-span-6 glass-card bg-theme-surface-2/70 border border-theme-border rounded-2xl sm:rounded-3xl p-6 sm:p-8">
-            <div className="flex items-center justify-between pb-3 mb-4 border-b border-theme-border/60">
-              <div className="flex items-center gap-2 font-mono text-xs text-theme-accent uppercase tracking-wider font-semibold">
-                <Terminal className="w-4 h-4" />
+          <div className="lg:col-span-6 glass-card bg-theme-surface-2/70 border border-theme-border rounded-2xl p-4 sm:p-5">
+            <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-theme-border/60">
+              <div className="flex items-center gap-2 font-mono text-[11px] text-theme-accent uppercase tracking-wider font-semibold">
+                <Terminal className="w-3.5 h-3.5" />
                 <span>Direct Dispatch Hub</span>
               </div>
-              <span className="font-mono text-[11px] text-theme-muted">Instant Forwarding</span>
+              <span className="font-mono text-[10px] text-theme-muted">Instant Forwarding</span>
             </div>
 
             {/* Quick Template Prompts */}
-            <div className="mb-4 space-y-1.5">
-              <div className="font-mono text-[11px] text-theme-muted">Quick Template Suggestions:</div>
-              <div className="flex flex-wrap gap-1.5">
+            <div className="mb-3">
+              <div className="font-mono text-[10px] text-theme-muted mb-1.5">Quick Templates:</div>
+              <div className="flex flex-wrap gap-1">
                 {quickPrompts.map((p, pIdx) => (
                   <button
                     key={pIdx}
                     type="button"
                     onClick={() => setMessageText(p)}
-                    className="text-[11px] font-mono text-left px-2.5 py-1 rounded-lg bg-theme-surface border border-theme-border text-theme-muted hover:border-theme-accent hover:text-theme-accent transition-colors"
+                    className="text-[10px] font-mono text-left px-2 py-1 rounded-lg bg-theme-surface border border-theme-border text-theme-muted hover:border-theme-accent hover:text-theme-accent transition-colors"
                   >
                     {p}
                   </button>
@@ -169,91 +177,76 @@ export default function Footer() {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4 font-mono text-xs">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <form onSubmit={handleSubmit} className="space-y-2.5 font-mono text-xs">
+              {/* Row 1: Name + Email */}
+              <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-theme-muted text-[11px] mb-1.5">Your Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="e.g. Sarah Connor"
-                    className="w-full bg-theme-surface border border-theme-border rounded-xl px-3.5 py-2.5 text-theme-text placeholder:text-theme-muted/50 focus:outline-none focus:border-theme-accent transition-colors font-body text-xs"
+                  <label className="block text-theme-muted text-[10px] mb-1">Name *</label>
+                  <input type="text" name="name" required placeholder="e.g. Minnu"
+                    className="w-full bg-theme-surface border border-theme-border rounded-lg px-3 py-2 text-theme-text placeholder:text-theme-muted/40 focus:outline-none focus:border-theme-accent transition-colors font-body text-[11px]"
                   />
                 </div>
-
                 <div>
-                  <label className="block text-theme-muted text-[11px] mb-1.5">Your Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="sarah@company.com"
-                    className="w-full bg-theme-surface border border-theme-border rounded-xl px-3.5 py-2.5 text-theme-text placeholder:text-theme-muted/50 focus:outline-none focus:border-theme-accent transition-colors font-body text-xs"
+                  <label className="block text-theme-muted text-[10px] mb-1">Email *</label>
+                  <input type="email" name="email" required placeholder="minnu@company.com"
+                    className="w-full bg-theme-surface border border-theme-border rounded-lg px-3 py-2 text-theme-text placeholder:text-theme-muted/40 focus:outline-none focus:border-theme-accent transition-colors font-body text-[11px]"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {/* Row 2: Company + Phone */}
+              <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-theme-muted text-[11px] mb-1.5">Company / Organization</label>
-                  <input
-                    type="text"
-                    name="company"
-                    placeholder="e.g. Google, Tech Startup, etc."
-                    className="w-full bg-theme-surface border border-theme-border rounded-xl px-3.5 py-2.5 text-theme-text placeholder:text-theme-muted/50 focus:outline-none focus:border-theme-accent transition-colors font-body text-xs"
+                  <label className="block text-theme-muted text-[10px] mb-1">Company</label>
+                  <input type="text" name="company" placeholder="Google, Startup..."
+                    className="w-full bg-theme-surface border border-theme-border rounded-lg px-3 py-2 text-theme-text placeholder:text-theme-muted/40 focus:outline-none focus:border-theme-accent transition-colors font-body text-[11px]"
                   />
                 </div>
-
                 <div>
-                  <label className="block text-theme-muted text-[11px] mb-1.5">Location / City</label>
-                  <input
-                    type="text"
-                    name="location"
-                    placeholder="e.g. Chennai, Bangalore, Remote"
-                    className="w-full bg-theme-surface border border-theme-border rounded-xl px-3.5 py-2.5 text-theme-text placeholder:text-theme-muted/50 focus:outline-none focus:border-theme-accent transition-colors font-body text-xs"
+                  <label className="block text-theme-muted text-[10px] mb-1">Phone</label>
+                  <input type="tel" name="phone" placeholder="+91 98765 43210"
+                    className="w-full bg-theme-surface border border-theme-border rounded-lg px-3 py-2 text-theme-text placeholder:text-theme-muted/40 focus:outline-none focus:border-theme-accent transition-colors font-body text-[11px]"
                   />
                 </div>
               </div>
 
+              {/* Row 3: Location */}
               <div>
-                <label className="block text-theme-muted text-[11px] mb-1.5">Message / Requirement</label>
-                <textarea
-                  name="message"
-                  rows="4"
-                  required
+                <label className="block text-theme-muted text-[10px] mb-1">Location / City</label>
+                <input type="text" name="location" placeholder="Chennai, Bangalore, Remote"
+                  className="w-full bg-theme-surface border border-theme-border rounded-lg px-3 py-2 text-theme-text placeholder:text-theme-muted/40 focus:outline-none focus:border-theme-accent transition-colors font-body text-[11px]"
+                />
+              </div>
+
+              {/* Row 4: Message */}
+              <div>
+                <label className="block text-theme-muted text-[10px] mb-1">Message *</label>
+                <textarea name="message" rows="3" required
                   value={messageText}
                   onChange={(e) => setMessageText(e.target.value)}
-                  placeholder="Share details regarding your opportunity or inquiry..."
-                  className="w-full bg-theme-surface border border-theme-border rounded-xl px-3.5 py-2.5 text-theme-text placeholder:text-theme-muted/50 focus:outline-none focus:border-theme-accent transition-colors resize-none font-body text-xs"
-                ></textarea>
+                  placeholder="Share your opportunity or inquiry..."
+                  className="w-full bg-theme-surface border border-theme-border rounded-lg px-3 py-2 text-theme-text placeholder:text-theme-muted/40 focus:outline-none focus:border-theme-accent transition-colors resize-none font-body text-[11px]"
+                />
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full font-mono text-xs sm:text-sm font-semibold py-3.5 rounded-xl bg-theme-accent text-[var(--btn-primary-text)] border border-theme-accent hover:brightness-110 shadow-lg shadow-theme-accent/25 transition-all duration-200 inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+              <button type="submit" disabled={isSubmitting}
+                className="w-full font-mono text-xs font-semibold py-3 rounded-xl bg-theme-accent text-[var(--btn-primary-text)] border border-theme-accent hover:brightness-110 shadow-md shadow-theme-accent/20 transition-all duration-200 inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
               >
-                {isSubmitting ? (
-                  <span>Dispatching Message...</span>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    <span>Send Message to Pugazhenthi</span>
-                  </>
+                {isSubmitting ? <span>Dispatching...</span> : (
+                  <><Send className="w-3.5 h-3.5" /><span>Send Message to Pugazhenthi</span></>
                 )}
               </button>
 
               {status === 'SUCCESS' && (
-                <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-xl text-center flex items-center justify-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>Thank you! Your message has been dispatched successfully.</span>
+                <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-xl text-center flex items-center justify-center gap-2 text-[11px]">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span>Message dispatched successfully!</span>
                 </div>
               )}
               {status === 'ERROR' && (
-                <div className="p-3 bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-xl text-center flex items-center justify-center gap-2">
-                  <AlertCircle className="w-4 h-4" />
-                  <span>Delivery issue encountered. Please email directly to jayapugazh947@gmail.com</span>
+                <div className="p-2.5 bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-xl text-center flex items-center justify-center gap-2 text-[11px]">
+                  <AlertCircle className="w-3.5 h-3.5" />
+                  <span>Failed — email jayapugazh947@gmail.com directly</span>
                 </div>
               )}
             </form>
@@ -261,9 +254,16 @@ export default function Footer() {
         </div>
       </div>
 
+
       {/* Bottom Copyright Bar */}
-      <div className="mt-10 text-center font-mono text-xs text-theme-muted flex items-center justify-center px-4">
+      <div className="mt-8 text-center font-mono text-xs text-theme-muted flex flex-wrap items-center justify-center gap-4 px-4">
         <div>© 2026 Pugazhenthi S. All rights reserved.</div>
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-theme-surface-2 border border-theme-border">
+          <Eye className="w-3 h-3 text-theme-accent" />
+          <span className="text-theme-text font-semibold">{visitCount.toLocaleString()}</span>
+          <span>page views</span>
+        </div>
+        <div className="text-[10px] text-theme-muted/60">Built with React + Vite + Tailwind</div>
       </div>
     </footer>
   );
