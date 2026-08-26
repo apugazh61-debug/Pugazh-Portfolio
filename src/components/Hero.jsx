@@ -136,25 +136,25 @@ export default function Hero() {
               <span>Get In Touch</span>
             </a>
 
-            {/* Social Icon Pills */}
-            <div className="flex items-center gap-2">
+            {/* Social Icon Pills (Liquid Glass) */}
+            <div className="flex items-center gap-2.5">
               <a
-                href="https://github.com/apugazh61-debug"
+                href={profile.githubUrl || "https://github.com/apugazh61-debug"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3.5 rounded-xl border border-theme-border bg-theme-surface-2/90 text-theme-text hover:border-theme-accent hover:text-theme-accent transition-all duration-200 shadow-sm"
+                className="liquid-glass-btn p-3.5 rounded-2xl text-theme-text flex items-center justify-center group"
                 title="GitHub Profile"
               >
-                <Github className="w-4 h-4" />
+                <Github className="w-4 h-4 group-hover:scale-110 group-hover:text-theme-accent transition-all duration-200" />
               </a>
               <a
-                href="https://www.linkedin.com/in/pugazhenthi-s-920556331"
+                href={profile.linkedinUrl || "https://www.linkedin.com/in/pugazhenthi-s-920556331"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3.5 rounded-xl border border-theme-border bg-theme-surface-2/90 text-theme-text hover:border-theme-accent hover:text-theme-accent transition-all duration-200 shadow-sm"
+                className="liquid-glass-btn p-3.5 rounded-2xl text-theme-text flex items-center justify-center group"
                 title="LinkedIn Profile"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-4 h-4 group-hover:scale-110 group-hover:text-theme-accent transition-all duration-200" />
               </a>
             </div>
           </div>
