@@ -55,14 +55,14 @@ export default function Education() {
             </div>
           </div>
 
-          {/* Right Column: Interactive GPA Transformation Card (Span 5) */}
+          {/* Right Column: Interactive GPA Card (Fixed Height - No Outer Box Resizing) */}
           <div className="lg:col-span-5 flex items-center justify-start lg:justify-end">
             <div
               onClick={() => setIsTouched((prev) => !prev)}
               onMouseEnter={() => setIsTouched(true)}
               onMouseLeave={() => setIsTouched(false)}
-              className={`neomorph-card w-full sm:w-[280px] p-4 sm:p-5 rounded-2xl cursor-pointer transition-all duration-300 relative overflow-hidden group select-none ${
-                isTouched ? 'ring-2 ring-theme-accent shadow-xl -translate-y-1' : ''
+              className={`neomorph-card w-full sm:w-[280px] h-[92px] sm:h-[96px] px-4 py-3 rounded-2xl cursor-pointer transition-all duration-300 relative overflow-hidden group select-none flex flex-col justify-center ${
+                isTouched ? 'ring-2 ring-theme-accent shadow-xl -translate-y-0.5' : ''
               }`}
               title="Click or hover to reveal score details"
             >
@@ -73,9 +73,9 @@ export default function Education() {
 
               {/* State 1: Default GPA View */}
               {!isTouched ? (
-                <div className="relative z-10 flex items-center gap-4">
-                  <div className="neomorph-btn p-3 rounded-2xl text-theme-accent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <Award className="w-6 h-6" />
+                <div className="relative z-10 flex items-center gap-3.5">
+                  <div className="neomorph-btn p-2.5 rounded-2xl text-theme-accent flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <Award className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-[10px] font-mono text-theme-muted uppercase tracking-wider font-semibold flex items-center gap-1">
@@ -85,48 +85,41 @@ export default function Education() {
                     <div className="font-display font-extrabold text-2xl text-theme-accent leading-tight mt-0.5">
                       {cgpaValue} <span className="text-xs font-mono text-theme-muted font-normal">/ 10.0</span>
                     </div>
-                    <div className="text-[9px] font-mono text-theme-accent/80 mt-1 flex items-center gap-1">
+                    <div className="text-[9px] font-mono text-theme-accent/80 flex items-center gap-1 mt-0.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-theme-accent animate-ping"></span>
                       <span>Tap to reveal details 👆</span>
                     </div>
                   </div>
                 </div>
               ) : (
-                /* State 2: Interactive Transformed Detailed View on Touch/Hover */
-                <div className="relative z-10 space-y-2.5 animate-fadeIn">
+                /* State 2: Interactive View on Touch/Hover (No First Class Badge, Clean & Contained) */
+                <div className="relative z-10 space-y-1.5 animate-fadeIn">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 font-mono text-[11px] text-theme-accent font-bold">
-                      <TrendingUp className="w-3.5 h-3.5 text-theme-accent" />
-                      <span>Academic Performance</span>
+                    <div className="flex items-center gap-1.5 font-mono text-[10px] text-theme-accent font-bold">
+                      <TrendingUp className="w-3 h-3 text-theme-accent" />
+                      <span>Academic Aggregate</span>
                     </div>
-                    <span className="text-[9px] font-mono text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-bold">
-                      First Class
-                    </span>
+                    <div className="font-mono text-[10px] text-theme-muted font-semibold">
+                      {cgpaValue} CGPA
+                    </div>
                   </div>
 
                   <div className="flex items-baseline justify-between">
-                    <div className="font-display font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-theme-accent to-theme-accent-cyan">
-                      75.0% <span className="text-[11px] font-mono text-theme-text font-semibold">Aggregate</span>
+                    <div className="font-display font-extrabold text-xl text-transparent bg-clip-text bg-gradient-to-r from-theme-accent to-theme-accent-cyan leading-tight">
+                      75.0%
                     </div>
-                    <div className="font-mono text-[11px] text-theme-muted">
-                      ({cgpaValue} CGPA)
-                    </div>
+                    <span className="text-[9px] font-mono text-emerald-400 font-semibold flex items-center gap-1">
+                      <ShieldCheck className="w-3 h-3" />
+                      <span>0 Standing Arrears</span>
+                    </span>
                   </div>
 
                   {/* Micro Progress Bar */}
-                  <div className="neomorph-inset h-2 rounded-full overflow-hidden p-0.5">
+                  <div className="neomorph-inset h-1.5 rounded-full overflow-hidden p-0.5">
                     <div
                       className="h-full bg-gradient-to-r from-theme-accent to-theme-accent-cyan rounded-full transition-all duration-700 shadow-sm"
                       style={{ width: '75%' }}
                     />
-                  </div>
-
-                  <div className="pt-1 flex items-center justify-between text-[10px] font-mono text-theme-muted border-t border-theme-border/60">
-                    <span className="flex items-center gap-1 text-emerald-400 font-semibold">
-                      <ShieldCheck className="w-3 h-3" />
-                      <span>0 Standing Arrears</span>
-                    </span>
-                    <span className="text-theme-accent font-semibold">Top Tier</span>
                   </div>
                 </div>
               )}
