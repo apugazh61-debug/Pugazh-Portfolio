@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Mail, Phone, Github, Linkedin, Send, Sparkles, CheckCircle2, AlertCircle, MessageSquare, Copy, Check, Terminal, Eye } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Phone, Github, Linkedin, Send, Sparkles, CheckCircle2, AlertCircle, MessageSquare, Copy, Check, Terminal } from 'lucide-react';
 
 export default function Footer({ onOpenAdmin }) {
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedField, setCopiedField] = useState('');
   const [messageText, setMessageText] = useState('');
-  const [visitCount, setVisitCount] = useState(0);
-
-  useEffect(() => {
-    const stored = parseInt(localStorage.getItem('pug_visits') || '0', 10);
-    const newCount = stored + 1;
-    localStorage.setItem('pug_visits', newCount);
-    setVisitCount(newCount);
-  }, []);
 
   const quickPrompts = [
     '💼 Let’s discuss a Software Engineer role',
@@ -256,7 +248,7 @@ export default function Footer({ onOpenAdmin }) {
 
 
       {/* Bottom Copyright Bar */}
-      <div className="mt-8 text-center font-mono text-xs text-theme-muted flex flex-wrap items-center justify-center gap-4 px-4">
+      <div className="mt-8 text-center font-mono text-xs text-theme-muted flex items-center justify-center px-4">
         <div>
           © 2026{' '}
           <button
@@ -269,12 +261,6 @@ export default function Footer({ onOpenAdmin }) {
           </button>{' '}
           S. All rights reserved.
         </div>
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-theme-surface-2 border border-theme-border">
-          <Eye className="w-3 h-3 text-theme-accent" />
-          <span className="text-theme-text font-semibold">{visitCount.toLocaleString()}</span>
-          <span>page views</span>
-        </div>
-        <div className="text-[10px] text-theme-muted/60">Built with React + Vite + Tailwind</div>
       </div>
     </footer>
   );
