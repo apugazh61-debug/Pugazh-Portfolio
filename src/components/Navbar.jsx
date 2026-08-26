@@ -26,8 +26,8 @@ export default function Navbar({ onOpenPalette }) {
             className="flex items-center gap-2.5 font-mono font-bold text-base sm:text-lg text-theme-text tracking-wide group"
             onClick={closeMobile}
           >
-            <div className="relative flex items-center justify-center w-8 h-8 rounded-xl liquid-glass-btn transition-colors duration-200">
-              <Terminal className="w-4 h-4 text-theme-accent group-hover:scale-110 transition-transform duration-200" />
+            <div className="relative flex items-center justify-center w-8 h-8 rounded-xl liquid-glass-btn transition-colors duration-200 overflow-hidden p-1">
+              <img src="/RedAnt.png" alt="RedAnt Logo" className="w-5 h-5 object-contain group-hover:scale-110 transition-transform duration-200" />
             </div>
             <span>
               pugazhenthi<span className="text-theme-accent">.dev</span>
