@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import CommandPalette from './components/CommandPalette';
 import BackToTop from './components/BackToTop';
+import AIAssistantWidget from './components/AIAssistantWidget';
 import AdminPanel from './components/AdminPanel';
 import { PortfolioDataProvider } from './context/PortfolioDataContext';
 
@@ -85,18 +86,15 @@ export default function App() {
   return (
     <PortfolioDataProvider>
       <div className="min-h-screen bg-theme-bg text-theme-text font-body theme-transition selection:bg-theme-accent selection:text-[#051313] relative overflow-hidden">
-        {/* Floating Back-To-Top Button */}
-        <BackToTop />
-
         {/* Dynamic Ambient Background Aura */}
         <div className="fixed -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-theme-accent/15 via-theme-accent-cyan/10 to-transparent blur-[140px] pointer-events-none -z-10 animate-aurora-glow"></div>
         <div className="fixed top-1/3 -right-40 w-[600px] h-[600px] bg-theme-accent-purple/10 blur-[150px] pointer-events-none -z-10"></div>
         <div className="fixed bottom-10 -left-40 w-[600px] h-[600px] bg-theme-accent/10 blur-[150px] pointer-events-none -z-10"></div>
 
-        {/* Interactive Command Palette Modal (Ctrl + K) */}
+        {/* Global Controls & Widgets */}
         <CommandPalette isOpen={isPaletteOpen} onClose={() => setIsPaletteOpen(false)} />
-
-        {/* Secret Master Admin Panel */}
+        <BackToTop />
+        <AIAssistantWidget />
         <AdminPanel isOpen={isAdminOpen} onClose={() => setIsAdminOpen(false)} />
 
         {/* Navigation Header */}
