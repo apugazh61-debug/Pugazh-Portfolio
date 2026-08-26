@@ -106,11 +106,11 @@ export default function Education() {
 
                   <div className="flex items-baseline justify-between">
                     <div className="font-display font-extrabold text-xl text-transparent bg-clip-text bg-gradient-to-r from-theme-accent to-theme-accent-cyan leading-tight">
-                      75.0%
+                      75.0% <span className="text-[11px] font-mono text-theme-muted font-normal">Aggregate</span>
                     </div>
-                    <span className="text-[9px] font-mono text-emerald-400 font-semibold flex items-center gap-1">
-                      <ShieldCheck className="w-3 h-3" />
-                      <span>0 Standing Arrears</span>
+                    <span className="text-[10px] font-mono text-theme-accent font-semibold flex items-center gap-1">
+                      <Sparkles className="w-3 h-3 text-theme-accent" />
+                      <span>Consistent Score</span>
                     </span>
                   </div>
 

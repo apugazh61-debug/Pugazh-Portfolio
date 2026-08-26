@@ -28,6 +28,60 @@ export default function App() {
     link.href = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232DD4BF' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='4 17 10 11 4 5'%3E%3C/polyline%3E%3Cline x1='12' y1='19' x2='20' y2='19'%3E%3C/line%3E%3C/svg%3E";
   }, []);
 
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const observerCallback = (entries) => {
+      const isScrollingDown = window.scrollY >= lastScrollY;
+      lastScrollY = window.scrollY;
+
+      entries.forEach((entry) => {
+        const el = entry.target;
+        if (entry.isIntersecting) {
+          el.classList.remove('from-bottom', 'from-top');
+          el.classList.add('is-visible');
+        } else {
+          el.classList.remove('is-visible');
+          // Prepare next entrance direction based on scroll motion
+          if (isScrollingDown) {
+            el.classList.add('from-bottom');
+            el.classList.remove('from-top');
+          } else {
+            el.classList.add('from-top');
+            el.classList.remove('from-bottom');
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px',
+    });
+
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach((el) => {
+      // First section (Hero) is immediately visible, other sections animate
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('is-visible');
+      } else {
+        el.classList.add('from-bottom');
+      }
+      observer.observe(el);
+    });
+
+    const onScroll = () => {
+      lastScrollY = window.scrollY;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   return (
     <PortfolioDataProvider>
       <div className="min-h-screen bg-theme-bg text-theme-text font-body theme-transition selection:bg-theme-accent selection:text-[#051313] relative overflow-hidden">
@@ -48,16 +102,32 @@ export default function App() {
         {/* Navigation Header */}
         <Navbar onOpenPalette={() => setIsPaletteOpen(true)} />
 
-        {/* Full-width Widescreen Main Container */}
+        {/* Full-width Widescreen Main Container with Bidirectional Scroll Reveals */}
         <main className="w-full max-w-[1600px] 2xl:max-w-[1780px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 2xl:px-16 space-y-16 sm:space-y-24 py-6 sm:py-8">
-          <Hero />
-          <Projects />
-          <Skills />
-          <Experience />
-          <Education />
-          <Certifications />
-          <Testimonials />
-          <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
+          <div className="scroll-reveal">
+            <Hero />
+          </div>
+          <div className="scroll-reveal">
+            <Projects />
+          </div>
+          <div className="scroll-reveal">
+            <Skills />
+          </div>
+          <div className="scroll-reveal">
+            <Experience />
+          </div>
+          <div className="scroll-reveal">
+            <Education />
+          </div>
+          <div className="scroll-reveal">
+            <Certifications />
+          </div>
+          <div className="scroll-reveal">
+            <Testimonials />
+          </div>
+          <div className="scroll-reveal">
+            <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
+          </div>
         </main>
       </div>
     </PortfolioDataProvider>
