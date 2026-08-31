@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-const STORAGE_KEY = 'pugazh_portfolio_data_v4';
+const STORAGE_KEY = 'pugazh_portfolio_data_v5';
 
 const defaultData = {
   profile: {
@@ -18,6 +18,19 @@ const defaultData = {
   projects: [
     {
       id: 'proj-1',
+      title: 'Self-Evolve (Agentic AI OS)',
+      subtitle: 'Autonomous Self-Improving Multi-Agent Platform & Cognitive Memory Engine',
+      category: 'AI',
+      tagBadge: 'Agentic AI & MCTS',
+      tagColor: 'text-purple-400 bg-purple-500/10 border-purple-500/30',
+      description: 'Enterprise research-grade agentic AI platform featuring Monte Carlo Tree Search (MCTS), 4-tier cognitive long-term memory with Ebbinghaus decay, AST sandboxing, and C-Suite 5-agent swarm consensus.',
+      highlights: ['54/54 Pytest Suite Passed (100%)', 'MCTS & Multi-Agent Swarm OS', 'Docker Ready & 26 REST Endpoints'],
+      tech: ['Python 3.11', 'FastAPI', 'ChromaDB', 'MCTS', 'Docker', 'Agentic AI'],
+      github: 'https://github.com/apugazh61-debug/Self-Evolve-Prototype',
+      liveUrl: '',
+    },
+    {
+      id: 'proj-2',
       title: 'AgriSync WMS Core',
       subtitle: 'Agricultural Warehouse Management System',
       category: 'Full Stack',
@@ -30,33 +43,7 @@ const defaultData = {
       liveUrl: 'https://agri-sync-wms-core.vercel.app',
     },
     {
-      id: 'proj-2',
-      title: 'SkillDNA-Ai',
-      subtitle: 'AI Skill Assessment & Intelligence Engine',
-      category: 'AI',
-      tagBadge: 'AI & NLP',
-      tagColor: 'text-purple-400 bg-purple-500/10 border-purple-500/30',
-      description: 'AI-driven skill evaluation platform that analyzes developer competencies, benchmarks technical talent, and generates visual career roadmaps.',
-      highlights: ['Automated competency extraction', 'Dynamic talent benchmark scoring'],
-      tech: ['React.js', 'JavaScript ES6+', 'AI Models', 'Tailwind CSS'],
-      github: 'https://github.com/apugazh61-debug/SkillDNA-Ai',
-      liveUrl: '',
-    },
-    {
       id: 'proj-3',
-      title: 'Real-Time Emotion Detection',
-      subtitle: 'Computer Vision & Deep Learning Pipeline',
-      category: 'AI',
-      tagBadge: 'Computer Vision',
-      tagColor: 'text-sky-400 bg-sky-500/10 border-sky-500/30',
-      description: 'High-throughput facial landmark detection and sentiment classification engine processing live camera feeds with sub-50ms inference.',
-      highlights: ['Sub-50ms OpenCV video capture', 'Real-time emotion probability HUD'],
-      tech: ['Python', 'OpenCV', 'Deep Learning', 'NumPy'],
-      github: 'https://github.com/apugazh61-debug/Real-Time-Emotion-Detection',
-      liveUrl: '',
-    },
-    {
-      id: 'proj-4',
       title: 'cashFlow-Pilot',
       subtitle: 'Financial Modeling & Forecasting Engine',
       category: 'Python',
@@ -66,6 +53,19 @@ const defaultData = {
       highlights: ['Predictive time-series simulation', 'Automated ledger anomaly detection'],
       tech: ['Python', 'Pandas', 'NumPy', 'FastAPI'],
       github: 'https://github.com/apugazh61-debug/cashFlow-Pilot',
+      liveUrl: '',
+    },
+    {
+      id: 'proj-4',
+      title: 'SkillDNA-Ai',
+      subtitle: 'AI Skill Assessment & Intelligence Engine',
+      category: 'AI',
+      tagBadge: 'AI & NLP',
+      tagColor: 'text-sky-400 bg-sky-500/10 border-sky-500/30',
+      description: 'AI-driven skill evaluation platform that analyzes developer competencies, benchmarks technical talent from GitHub & resumes, and generates visual career roadmaps.',
+      highlights: ['Built for RUNDEV HACKZ 2026', 'Automated competency extraction & scoring'],
+      tech: ['React.js', 'JavaScript ES6+', 'AI Models', 'Tailwind CSS'],
+      github: 'https://github.com/apugazh61-debug/SkillDNA-Ai',
       liveUrl: '',
     },
   ],

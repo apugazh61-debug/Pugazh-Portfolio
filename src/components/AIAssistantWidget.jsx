@@ -77,7 +77,12 @@ const KNOWLEDGE_BASE = [
   {
     keywords: ['projects', 'what have you built', 'portfolio projects', 'work sample'],
     question: 'What top projects have you built?',
-    answer: 'My standout production projects include:\n1. **AgriSync WMS Core** — Agricultural Warehouse Management System with live inventory telemetry.\n2. **SkillDNA-Ai** — AI-driven developer competency & talent benchmark engine.\n3. **Real-Time Emotion Detection** — 30+ FPS Computer Vision facial emotion classifier.\n4. **Interactive Dev Portfolio** — React + Vite ultra-modern portfolio with Admin Panel.'
+    answer: 'My standout production and research projects include:\n1. **Self-Evolve (Agentic AI OS)** — Enterprise autonomous agentic AI platform with MCTS, 4-tier cognitive memory, and C-Suite Swarm Council (54/54 tests passed).\n2. **AgriSync WMS Core** — Real-time Agricultural Warehouse Management System deployed on Vercel.\n3. **cashFlow-Pilot** — Autonomous Financial Modeling & Runway Forecasting Engine with FastAPI.\n4. **SkillDNA-Ai** — AI-powered developer competency & talent benchmark engine built for RUNDEV HACKZ 2026.'
+  },
+  {
+    keywords: ['self evolve', 'self-evolve', 'agentic ai', 'swarm', 'mcts'],
+    question: 'What is Self-Evolve (Agentic AI OS)?',
+    answer: 'Self-Evolve is an enterprise research-grade autonomous agentic AI platform featuring Monte Carlo Tree Search (MCTS), a 5-agent C-Suite Swarm OS (CEO, CTO, CFO, CISO, QA), 4-tier cognitive memory with Ebbinghaus decay, AST sandboxing, and 54 passing automated tests.'
   },
   {
     keywords: ['agrisync', 'wms', 'warehouse', 'agrisync wms core', 'agriculture'],
@@ -85,14 +90,14 @@ const KNOWLEDGE_BASE = [
     answer: 'AgriSync WMS Core is a real-time agricultural warehouse ledger and asset tracking platform. It features multi-bin location mapping, live stock telemetry, and a sleek responsive UI deployed on Vercel at [agri-sync-wms-core.vercel.app](https://agri-sync-wms-core.vercel.app).'
   },
   {
-    keywords: ['skilldna', 'skilldna-ai', 'skill dna', 'skill assessment'],
-    question: 'What is SkillDNA-Ai?',
-    answer: 'SkillDNA-Ai is an AI talent benchmark platform that analyzes developer competencies, benchmarks technical proficiency through automated NLP extraction, and generates dynamic visual career roadmaps.'
+    keywords: ['cashflow', 'cashflow pilot', 'financial modeling', 'fastapi'],
+    question: 'What is cashFlow-Pilot?',
+    answer: 'cashFlow-Pilot is an autonomous financial forecasting engine built with Python, FastAPI, NumPy, and Pandas. It simulates burn-rate runways, inflows/outflows, and detects ledger anomalies via predictive time-series modeling.'
   },
   {
-    keywords: ['emotion detection', 'facial emotion', 'face recognition'],
-    question: 'What is the Real-Time Emotion Detection project?',
-    answer: 'It is a Computer Vision & Deep Learning pipeline that classifies human emotions (happy, sad, neutral, surprise, etc.) in real-time from webcam streams at 30+ FPS with minimal inference latency.'
+    keywords: ['skilldna', 'skilldna-ai', 'skill dna', 'skill assessment'],
+    question: 'What is SkillDNA-Ai?',
+    answer: 'SkillDNA-Ai is an AI talent benchmark platform built for RUNDEV HACKZ 2026. It analyzes developer competencies, benchmarks technical proficiency through automated NLP extraction, and generates dynamic visual career roadmaps.'
   },
   {
     keywords: ['portfolio code', 'how was this portfolio made', 'portfolio tech'],
